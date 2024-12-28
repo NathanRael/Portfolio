@@ -86,3 +86,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .flex-col-center{
+    @apply flex flex-col items-center justify-center
+  }
+  
+  .flex-row-center{
+    @apply flex flex-row items-center justify-center
+  }
+  
+}
