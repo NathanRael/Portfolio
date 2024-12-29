@@ -1,7 +1,10 @@
-﻿export default function  Footer() {
+﻿import Link from "next/link";
+import {MY_GITHUB_PROFILE} from "@/constants";
+
+export default function  Footer() {
     return (
         <div>
-            <p className={'text-small text-white-80'}>© Natanaël  RALAIVOAVY</p>
+            <Link href={MY_GITHUB_PROFILE} className={'text-small text-white-80 underline'}>© Natanaël  RALAIVOAVY</Link>
         </div>
     )
 }
