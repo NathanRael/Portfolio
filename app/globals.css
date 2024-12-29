@@ -6,6 +6,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -91,9 +93,22 @@ body {
   .flex-col-center{
     @apply flex flex-col items-center justify-center
   }
-  
+
   .flex-row-center{
     @apply flex flex-row items-center justify-center
   }
   
+
+
+  
 }
+
+
+@layer utilities {
+  .section{
+    @apply flex-col-center gap-10 justify-start
+  }
+  
+}
+
+

@@ -1,4 +1,5 @@
 ﻿import {Project} from "@/app/api/projects/route";
+import {Skill} from "@/app/api/skills/route";
 export const BASE_URL = "http://localhost:3000";
 
 export const projects :Project[] = [
@@ -75,3 +76,31 @@ export const projects :Project[] = [
         techStacks: ['React', 'Next.js', 'TailwindCSS', 'Node.js', 'PostgreSQL']
     }
 ];
+
+
+export const skills : Skill[] = [
+    {
+        name : 'Next js',
+        image : 'next-js',
+    },
+    {
+        name : 'React',
+        image : 'react'
+    },
+    {
+        name : 'Figma',
+        image : 'figma'
+    },
+    {
+        name : 'Python',
+        image : 'python',
+    },
+    {
+        name : 'Storybook',
+        image : 'storybook'
+    },
+    {
+        name : 'TailwindCss',
+        image : 'tailwind'
+    }
+]
