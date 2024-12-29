@@ -6,7 +6,6 @@ import {useQueryParam} from "@/hook/useQueryParam";
 
 
 export default function ProjectFilter({activeFilter} : {activeFilter?: string}) {
-
     
     const [selectedFilter, setSelectedFilter] = useState(activeFilter || 'all');
     const {setQueryParam} = useQueryParam()

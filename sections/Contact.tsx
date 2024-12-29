@@ -1,13 +1,19 @@
 ﻿import {Button} from "@/components/ui/button";
 import {AtSign, Github, Linkedin} from "lucide-react";
+import {cn} from "@/lib/utils";
 
-export default function ContactSection() {
+export default function ContactSection({className, withSubtitle = true} : {className?: string, withSubtitle?: boolean}) {
     return (
-        <section className={"section"} id="contact">
-            <div className={'text-center'}>
-                <h4 className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}>Wanna talk about something ?</h4>
-                <h2 className={'text-white-100 text-subtitle font-semibold  '}>Feel free to reach out</h2>
-            </div>
+        <section className={cn("section", className)} id="contact">
+            {
+                withSubtitle && (
+                    <div className={'text-center'}>
+                        <h4 className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}>Wanna talk about something
+                            ?</h4>
+                        <h2 className={'text-white-100 text-subtitle font-semibold  '}>Feel free to reach out</h2>
+                    </div>
+                )
+            }
             <div className={'flex-row-center max-[460px]:flex-col gap-10'}>
                 <Button variant={'gradient'}>
                     <AtSign size={20}/>
