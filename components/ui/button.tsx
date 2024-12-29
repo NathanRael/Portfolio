@@ -25,8 +25,8 @@ const buttonVariants = cva(
           gradient : 'bg-gradient-to-r from-secondary-100 to-primary-100 hover:opacity-60',
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
+        default: "h-10 px-4 rounded-xl py-2",
+        sm: "h-9 rounded-xl px-3",
         lg: "h-11 rounded-xl px-8",
         icon: "h-10 w-10",
       },

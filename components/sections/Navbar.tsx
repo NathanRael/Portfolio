@@ -11,7 +11,7 @@ export default function Navbar() {
            <ul className={'flex gap-10 items-center justify-end'}>
                {
                    navItems.map((navItem, i) => (
-                        <li className={'text-base text-white-80'} key={i}>
+                        <li className={'text-base text-white-80 hover:text-white-100'} key={i}>
                             <Link href={navItem.link}>{navItem.name}</Link>
                         </li>
                    ))

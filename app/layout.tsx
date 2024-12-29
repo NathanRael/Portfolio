@@ -26,7 +26,8 @@ const schibsetGrotesk = localFont({
             weight : '700',
             style : 'normal',
         }
-    ]
+    ],
+    variable : '--font-schibstedGrotesk'
 })
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-neutral-dark-100 text-white-100 px-[64px] py-6 scroll-smooth antialiased ${schibsetGrotesk.className}`}
+        className={`bg-neutral-dark-100 text-white-100 px-[64px] py-6 scroll-smooth antialiased ${schibsetGrotesk.variable}`}
       >
         {children}
       </body>
