@@ -102,5 +102,25 @@ export const skills : Skill[] = [
     {
         name : 'TailwindCss',
         image : 'tailwind'
+    },
+    {
+        name : 'Typescript',
+        image : 'typescript'
+    } ,
+    {
+        name : 'Javascript',
+        image : 'javascript'
+    },
+    {
+        name : 'Fastapi',
+        image : 'fastapi'
+    },
+    {
+        name : 'Git',
+        image : 'git'
+    },
+    {
+        name : 'Node js',
+        image : 'node-js'
     }
 ]

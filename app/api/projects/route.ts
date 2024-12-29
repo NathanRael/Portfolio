@@ -17,10 +17,11 @@ export interface Project {
 
 export async function GET(req: NextRequest) {
     const searchParams = req.nextUrl.searchParams;
-    const filter = searchParams.get('filter');
+    const filter = searchParams?.get('filter');
+
     
-    if (!filter || filter.toLowerCase() === 'all')
-        return Response.json(projects);
+    if (!filter || filter === 'undefined' || filter?.toLowerCase() === 'all') return Response.json(projects);
+    
     
     
     const filteredProjects: Project[] = projects.filter(project => project.type.name.toLowerCase() === filter.toLowerCase());

@@ -3,6 +3,7 @@ import HeroSection from "@/sections/Hero";
 import ProjectsSection from "@/sections/Projects";
 import SkillsSection from "@/sections/Skills";
 import ContactSection from "@/sections/Contact";
+import Footer from "@/sections/Footer";
 
 export default async function Home({searchParams} : {searchParams : Promise<{filter? : string}>}) {
   const filter = (await searchParams).filter
@@ -14,6 +15,7 @@ export default async function Home({searchParams} : {searchParams : Promise<{fil
           <ProjectsSection filter={filter}/>
           <SkillsSection/>
           <ContactSection/>
+          <Footer/>
       </section>
   );
 }

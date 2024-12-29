@@ -87,7 +87,18 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  
+  
+  .light-bulb::after{
+      content: '💡';
+      position: absolute;
+      left: -46px;
+      bottom:  -4px;
+  }
 }
+
+
+
 
 @layer components {
   .flex-col-center{

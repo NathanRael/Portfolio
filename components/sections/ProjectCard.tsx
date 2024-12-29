@@ -2,10 +2,11 @@
 import Image from "next/image"
 import Link from "next/link";
 import {LinkIcon} from "lucide-react";
+import {cn} from "@/lib/utils";
 
-export default function ProjectCard({description, image, links, name, type, techStacks} : Project){
+export default function ProjectCard({description, image, links, name, type, techStacks, className} : Project & {className?: string}) {
     return (
-        <div className={'flex flex-col items-start justify-start gap-6 w-[387px]'}>
+        <div className={cn('flex flex-col items-start justify-start gap-6 w-[387px]', className)}>
             <Image width={387} height={209} className={'object-cover rounded-[12px]'} src={image} alt={name}/>
             <div className={'space-y-2 w-full'}>
                 <div className={'flex flex-row items-center justify-between'}>

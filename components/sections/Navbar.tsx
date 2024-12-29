@@ -8,7 +8,7 @@ export default function Navbar() {
             <h1 className={'text-lead font-md text-white-100'}>
                 R.Natanaël
             </h1>
-           <ul className={'flex gap-10 items-center justify-end'}>
+           <ul className={'flex max-sm:gap-3 gap-10 items-center justify-end'}>
                {
                    navItems.map((navItem, i) => (
                         <li className={'text-base text-white-80 hover:text-white-100'} key={i}>

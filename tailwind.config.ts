@@ -80,8 +80,8 @@ export default {
   			}
   		},
 		fontSize : {
-			title : '40px',
-			subtitle : '24px',
+			title : '48px',
+			subtitle : '32px',
 			lead : '18px',
 			base : '16px',
 			small : '12px',

@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-neutral-dark-100 text-white-100 px-[64px] py-6 scroll-smooth antialiased ${schibsetGrotesk.variable}`}
+        className={`bg-neutral-dark-100 text-white-100 px-[64px] py-6 max-md:px-10 max-sm:px-2 scroll-smooth overflow-x-hidden antialiased ${schibsetGrotesk.variable}`}
       >
         {children}
       </body>
