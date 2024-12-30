@@ -8,5 +8,12 @@ export const structure: StructureResolver = (S) =>
             S.documentTypeListItem('project').title('Projects'),
             S.documentTypeListItem('skill').title('Skills'),
             S.documentTypeListItem('skillCategory').title('SkillCategories'),
-            
+            S.listItem()
+                .title('Resume')
+                .child(
+                    S.editor()
+                        .id('resume')
+                        .schemaType('resume')
+                        .documentId('resume') // Enforces a single document with ID 'resume'
+                )
         ])

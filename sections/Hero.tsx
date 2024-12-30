@@ -2,8 +2,12 @@
 import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui/button";
 import {AtSign, ExternalLink} from "lucide-react";
+import {client} from "@/sanity/lib/client";
+import {RESUME_QUERY} from "@/sanity/lib/query";
 
-export default function HeroSection() {
+export default async function HeroSection() {
+    const {url : resumeUrl} = await client.fetch(RESUME_QUERY);
+    
     return (
         <section className={'flex-col-center gap-10'}>
             <div className={'flex-col-center'}>
@@ -20,10 +24,12 @@ export default function HeroSection() {
                         Contact
                     </Button>
                 </Link>
-                <Button size={'lg'} variant={'tertiary'}>
-                    See resume
-                    <ExternalLink size={20}/>
-                </Button>
+                <Link target={'_blank'} href={resumeUrl}>
+                    <Button size={'lg'} variant={'tertiary'}>
+                        Download resume
+                        <ExternalLink size={20}/>
+                    </Button>
+                </Link>
             </div>
         </section>
     )

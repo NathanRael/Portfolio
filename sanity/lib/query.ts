@@ -20,3 +20,10 @@ export const SKILL_QUERY = defineQuery(`
     }
 `)
 
+
+
+export const RESUME_QUERY = defineQuery(`
+*[_id == "resume"] {
+  "url": asset->url
+}[0]
+`)
