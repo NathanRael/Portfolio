@@ -10,7 +10,7 @@ export const project = defineType({
             type: 'string',
         }),
         defineField({
-            name : 'title',
+            name : 'name',
             type : 'string',
         }),
         defineField({
@@ -32,7 +32,7 @@ export const project = defineType({
             of : [{type : 'string'}]
         }),
         defineField({
-            name : 'type',
+            name : 'projectType',
             type : 'reference',
             to : [{type : 'projectType'}]
         })
