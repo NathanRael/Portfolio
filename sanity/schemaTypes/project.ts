@@ -29,7 +29,12 @@ export const project = defineType({
         defineField({
             name : 'techStacks',
             type : 'array',
-            of : [{type : 'string'}]
+            of : [
+                {
+                    type : 'reference',
+                    to : [{type : 'skill'}]
+                },
+            ]
         }),
         defineField({
             name : 'projectType',

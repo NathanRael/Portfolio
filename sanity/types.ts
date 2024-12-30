@@ -80,9 +80,9 @@ export type Skill = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  id?: string;
   name?: string;
   image?: string;
+  experimented?: boolean;
 };
 
 export type Project = {
@@ -107,7 +107,7 @@ export type Project = {
   };
   links?: Array<string>;
   techStacks?: Array<string>;
-  type?: {
+  projectType?: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;

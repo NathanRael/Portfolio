@@ -5,26 +5,18 @@ export const PROJECT_QUERY = defineQuery(`
   _id,
   id,
     name,
-  techStacks,
     description,
     "image" : image.asset->url,
     links,
     projectType -> {
       name, display
-    }
+    },
+     "techStacks": techStacks[]->image
 }`)
-export const PROJECT_QUERY_WITH_FILTER = defineQuery(`
- *[_type =="project" && projectType->name == $filter  ]{
-  _id,
-  id,
-    name,
-  techStacks,
-    description,
-    "image" : image.asset->url,
-    links,
-    projectType -> {
-      name, display
+export const SKILL_QUERY = defineQuery(`
+    *[_type=="skill"]{
+        _id, name, image, experimented,
+        "category" : category->name
     }
-}`)
-
+`)
 

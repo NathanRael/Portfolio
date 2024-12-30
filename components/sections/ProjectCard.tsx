@@ -4,7 +4,6 @@ import {LinkIcon} from "lucide-react";
 import {cn} from "@/lib/utils";
 
 
-
 export interface Project {
     id: string;
     name: string;
@@ -30,7 +29,7 @@ export default function ProjectCard({description, image, links, name, projectTyp
                     <div className={'flex-row-center gap-2'}>
                         {
                             techStacks?.map(techStack => (
-                                <Image key={techStack} width={16} height={16} src={`/skills/${techStack}-logo.svg`} alt={`${techStack} logo`}/>
+                                <Image key={techStack} width={20} height={20} src={techStack} alt={`${techStack} logo`}/>
                             ))
                         }
                     </div>

@@ -4,6 +4,8 @@ import ProjectsSection from "@/sections/Projects";
 import SkillsSection from "@/sections/Skills";
 import ContactSection from "@/sections/Contact";
 import Footer from "@/sections/Footer";
+import {Suspense} from "react";
+import Loading from "@/app/loading";
 
 export default async function Home({searchParams} : {searchParams : Promise<{filter? : string}>}) {
   const filter = (await searchParams).filter

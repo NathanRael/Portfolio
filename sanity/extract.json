@@ -390,13 +390,6 @@
           "type": "string"
         }
       },
-      "id": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
       "name": {
         "type": "objectAttribute",
         "value": {
@@ -408,6 +401,13 @@
         "type": "objectAttribute",
         "value": {
           "type": "string"
+        },
+        "optional": true
+      },
+      "experimented": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
         },
         "optional": true
       }
@@ -551,7 +551,7 @@
         },
         "optional": true
       },
-      "type": {
+      "projectType": {
         "type": "objectAttribute",
         "value": {
           "type": "object",

@@ -1,5 +1,4 @@
-﻿import {Project} from "@/app/api/projects/route";
-import ProjectCard from "@/components/sections/ProjectCard";
+﻿import ProjectCard, {Project} from "@/components/sections/ProjectCard";
 
 export default function ProjectList({projects} : {projects: Project[]}) {
     return (

@@ -1,4 +1,4 @@
-﻿import {defineField, defineType} from "sanity";
+﻿import {defineField, defineType, Rule} from "sanity";
 
 export const skill = defineType({
     name: 'skill',
@@ -6,16 +6,24 @@ export const skill = defineType({
     type: 'document',
     fields: [
         defineField({
-            name: 'id',
-            type: 'string',
-        }),
-        defineField({
             name: 'name',
             type: 'string',
+            // validation :( rule : Rule) => rule.required().unique()
         }),
         defineField({
             name: 'image',
             type: 'url',
+        }),
+        defineField({
+            name : 'experimented',
+            type: 'boolean',
+        }),
+        defineField({
+            name : 'category',
+            type : 'reference',
+            to : [
+                {type : 'skillCategory'}
+            ]
         })
     ]
 })
