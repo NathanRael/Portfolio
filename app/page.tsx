@@ -4,8 +4,6 @@ import ProjectsSection from "@/sections/Projects";
 import SkillsSection from "@/sections/Skills";
 import ContactSection from "@/sections/Contact";
 import Footer from "@/sections/Footer";
-import {Suspense} from "react";
-import Loading from "@/app/loading";
 
 export default async function Home({searchParams} : {searchParams : Promise<{filter? : string}>}) {
   const filter = (await searchParams).filter
@@ -16,7 +14,9 @@ export default async function Home({searchParams} : {searchParams : Promise<{fil
           <HeroSection/>
           <ProjectsSection filter={filter}/>
           <SkillsSection/>
-          <ContactSection/>
+          <div id={"contact"} className={'w-full'}>
+              <ContactSection/>
+          </div>
           <Footer/>
       </section>
   );

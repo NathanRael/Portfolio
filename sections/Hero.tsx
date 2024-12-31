@@ -1,12 +1,27 @@
-﻿import Link from "next/link";
+﻿"use client"
+import Link from "next/link";
 import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui/button";
 import {AtSign, ExternalLink} from "lucide-react";
 import {client} from "@/sanity/lib/client";
 import {RESUME_QUERY} from "@/sanity/lib/query";
+import {useQuery} from "@tanstack/react-query";
+import {motion} from "motion/react"
 
-export default async function HeroSection() {
-    const {url : resumeUrl} = await client.fetch(RESUME_QUERY);
+
+export default function HeroSection() {
+    // const {url : resumeUrl} =  client.fetch(RESUME_QUERY);
+    const {data, isLoading} = useQuery({
+        queryFn : () => client.fetch(RESUME_QUERY),
+        queryKey : ['resume'],
+        staleTime : 1000 * 60 * 30,
+    })
+    
+    if (isLoading)
+        return 
+    
+    
+    const {url : resumeUrl} = data;
     
     return (
         <section className={'flex-col-center gap-10'}>

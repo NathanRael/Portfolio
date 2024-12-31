@@ -9,7 +9,7 @@ export const navItems : NavItem[] = [
     },
     {
         name: 'Skills',
-        link: '#pkills',
+        link: '#skills',
     },
     {
         name: 'Contact',

@@ -9,7 +9,7 @@ export const MY_FACEBOOK_PROFILE = "https://www.facebook.com/profile.php?id=1000
 
 
 
-export const skills : Omit<Skill, '_id'>[] = [
+export const skills  = [
     // Frameworks
     { "name": "React", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", experimented : false },
     { "name": "Angular", "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg", experimented : true },

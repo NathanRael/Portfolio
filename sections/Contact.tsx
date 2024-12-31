@@ -6,7 +6,7 @@ import {MY_EMAIL, MY_GITHUB_PROFILE, MY_LINKEDIN_PROFILE} from "@/constants";
 
 export default function ContactSection({className, withSubtitle = true} : {className?: string, withSubtitle?: boolean}) {
     return (
-        <section className={cn("section", className)} id="contact">
+        <section className={cn("section", className)} >
             {
                 withSubtitle && (
                     <div className={'text-center'}>

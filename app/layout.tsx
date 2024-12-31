@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import {SanityLive} from "@/sanity/lib/live";
+import ReactQueryProvider from "@/context/ReactQueryProvider";
 
 
 const schibsetGrotesk = localFont({
@@ -45,7 +46,9 @@ export default function RootLayout({
         <body
             className={`bg-neutral-dark-100 text-white-100 px-[64px] py-6 max-md:px-10 max-sm:px-2 scroll-smooth overflow-x-hidden antialiased ${schibsetGrotesk.variable}`}
         >
-        {children}
+        <ReactQueryProvider>
+            {children}
+        </ReactQueryProvider>
         <SanityLive/>
         </body>
         </html>
