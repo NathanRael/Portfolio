@@ -3,24 +3,14 @@ import Link from "next/link";
 import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui/button";
 import {AtSign, ExternalLink} from "lucide-react";
-import {client} from "@/sanity/lib/client";
-import {RESUME_QUERY} from "@/sanity/lib/query";
-import {useQuery} from "@tanstack/react-query";
 import {motion} from "motion/react"
 import {appearVariant} from "@/lib/animationVariants";
 
 
-export default function HeroSection() {
-    // const {url : resumeUrl} =  client.fetch(RESUME_QUERY);
-    const {data, isLoading} = useQuery({
-        queryFn: () => client.fetch(RESUME_QUERY),
-        queryKey: ['resume'],
-        staleTime: 1000 * 60 * 30,
-    })
+export default function HeroSection({resumeUrl} : {resumeUrl : string}) {
     
-
     return (
-        <section className={'flex-col-center gap-10 pb-40'}>
+        <section className={'flex-col-center gap-10'}>
             <div className={'flex-col-center'}>
                 <motion.div custom={1} variants={appearVariant} initial={"hidden"} whileInView={"visible"} viewport={{once : true}} className={'flex-col-center'}>
                     <ProfileImage className={'mb-4'}/>
@@ -41,12 +31,15 @@ export default function HeroSection() {
                         Contact
                     </Button>
                 </Link>
-                <Link target={'_blank'} href={isLoading ? '' : data?.url}>
+                <Link target={'_blank'} href={resumeUrl}>
                     <Button size={'lg'} variant={'tertiary'}>
                         Download resume
                         <ExternalLink size={20}/>
                     </Button>
                 </Link>
+            </motion.div>
+            <motion.div transition={{ delay : 0.3 * 9}} initial={{ height : '100vh', display : 'block' }} whileInView={{ height : 0, display : "none" }} viewport={{once : true}}  >
+                
             </motion.div>
         </section>
     )

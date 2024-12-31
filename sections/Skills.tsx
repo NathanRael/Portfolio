@@ -1,13 +1,9 @@
 ﻿import SkillList, {Skill} from "@/components/sections/SkillList";
-import {sanityFetch} from "@/sanity/lib/live";
-import {SKILL_QUERY} from "@/sanity/lib/query";
 import AnimatedText from "@/components/ui/AnimatedText";
 
 
-export  default async function SkillsSection(){
-    const {data: skills} = await sanityFetch({
-        query : SKILL_QUERY
-    })
+export  default async function SkillsSection({skills} : {skills: Skill[]}) {
+
     
     const experimentedSkills = (skills as Skill[]).filter(skill => skill.experimented)
     const usedSkills = (skills as Skill[]).filter(skill => !skill.experimented)

@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     description: "A portfolio to showcase my realisations",
 };
 
+
+
+
 export default function RootLayout({
                                        children,
                                    }: Readonly<{

@@ -20,7 +20,7 @@ export default function ContactSection({className, withSubtitle = true} : {class
                     </div>
                 )
             }
-            <motion.div viewport={{ once : true}} variants={appearVariant}  whileInView={"visible"} initial={"hidden"} custom={4} className={'flex-row-center max-[460px]:flex-col gap-10'}>
+            <motion.div viewport={{ once : true}} variants={appearVariant}  whileInView={"visible"} initial={"hidden"} custom={3} className={'flex-row-center max-[460px]:flex-col gap-10'}>
                 <Link  href={`mailto:${MY_EMAIL}`}>
                     <Button variant={'gradient'}>
                         <AtSign size={20}/>

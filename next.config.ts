@@ -15,7 +15,15 @@ const nextConfig: NextConfig = {
                 hostname : 'cdn.jsdelivr.net'
             }
         ],
-    }
+    },
+    // experimental : {
+    //     ppr : true,
+    // },
+    // devIndicators : {
+    //     appIsrStatus : true,
+    //     buildActivity :true,
+    //     buildActivityPosition : 'bottom-right'
+    // }
 };
 
 export default nextConfig;

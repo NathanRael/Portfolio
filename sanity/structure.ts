@@ -8,6 +8,7 @@ export const structure: StructureResolver = (S) =>
             S.documentTypeListItem('project').title('Projects'),
             S.documentTypeListItem('skill').title('Skills'),
             S.documentTypeListItem('skillCategory').title('SkillCategories'),
+            S.documentTypeListItem('projectType').title('ProjectType'),
             S.listItem()
                 .title('Resume')
                 .child(

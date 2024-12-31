@@ -6,7 +6,7 @@ import {motion} from "motion/react";
 export default function Navbar() {
 
     return (
-        <motion.div initial={{opacity : 0}} whileInView={{ opacity : 1}} transition={{ delay : 0.3 * 5 }} viewport={{ once : true}} className={'flex items-center justify-between w-full'}>
+        <motion.div initial={{opacity : 0}} whileInView={{ opacity : 1}} transition={{ delay : 0.3 * 5, duration : 0.4 }} viewport={{ once : true}} className={'flex items-center justify-between w-full'}>
             <h1 className={'text-lead font-md text-white-100'}>
                 R.Natanaël
             </h1>
