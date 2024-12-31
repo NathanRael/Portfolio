@@ -86,6 +86,20 @@ export default {
 			base : '16px',
 			small : '12px',
 		},
+		keyframes : {
+			blink: {
+				'50%': { opacity: '0', transform: 'scale(8px)' },
+			},
+			blinkScale: {
+				'0%': { opacity: '1', transform: 'scale(2)' }, 
+				'50%': { opacity: '0', transform: 'scale(0.8)' }, 
+				'100%': { opacity: '1', transform: 'scale(1)' }, 
+			},
+		},
+		animation : {
+				blink: 'blink 1s step-end infinite',
+				blinkScale: 'blink 1s step-end infinite',
+		}
   		// borderRadius: {
   		// 	lg: 'var(--radius)',
   		// 	md: 'calc(var(--radius) - 2px)',

@@ -1,6 +1,7 @@
 ﻿import SkillList, {Skill} from "@/components/sections/SkillList";
 import {sanityFetch} from "@/sanity/lib/live";
 import {SKILL_QUERY} from "@/sanity/lib/query";
+import AnimatedText from "@/components/ui/AnimatedText";
 
 
 export  default async function SkillsSection(){
@@ -15,13 +16,13 @@ export  default async function SkillsSection(){
     return (
         <section id={"skills"} className="section !gap-20">
             <div className={"flex flex-col items-center justify-start gap-10"}>
-                <h2 className={'text-white-100 text-subtitle font-semibold -rotate-6 pb-10'}>I've been <span
-                    className={'text-secondary-100'}>using</span></h2>
+                <AnimatedText whileInView={"visible"} initial={"hidden"} custom={1} className={'text-white-100 text-subtitle font-semibold -rotate-6 pb-10'}>I've been <span
+                    className={'text-secondary-100'}>using</span></AnimatedText>
                     <SkillList skills={usedSkills}/>
             </div>            
             <div className={"flex flex-col items-center justify-start gap-10"}>
-                <h2 className={'text-white-100 text-subtitle font-semibold '}>and <span
-                    className={'text-yellow-300'}>exprimenting</span></h2>
+                <AnimatedText  whileInView={"visible"} initial={"hidden"} custom={2} className={'text-white-100 text-subtitle font-semibold '}>and <span
+                    className={'text-yellow-300'}>exprimenting</span></AnimatedText>
                 <SkillList skills={experimentedSkills}/>
             </div>
         </section>

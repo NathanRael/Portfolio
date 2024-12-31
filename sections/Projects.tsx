@@ -4,6 +4,7 @@ import {sanityFetch} from "@/sanity/lib/live";
 import {PROJECT_QUERY} from "@/sanity/lib/query";
 import {Project} from "@/components/sections/ProjectCard";
 import {Suspense} from "react";
+import AnimatedText from "@/components/ui/AnimatedText";
 
 export default async function ProjectsSection({filter}: { filter?: string }) {
     const {data: projects} = await sanityFetch({
@@ -14,7 +15,7 @@ export default async function ProjectsSection({filter}: { filter?: string }) {
 
     return (
         <section id={"projects"} className={'section '}>
-            <h2 className={'text-white-100 text-subtitle font-semibold'}>I've built, designed</h2>
+            <AnimatedText  whileInView={"visible"} initial={"hidden"} custom={1} className={'text-white-100 text-subtitle font-semibold'}>I've built, designed</AnimatedText>
             <ProjectFilter activeFilter={filter}/>
             <Suspense fallback={<p className={'text-white-100'}>Loading feed...</p>}>
                 <ProjectList projects={filteredProjects}/>

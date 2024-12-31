@@ -2,13 +2,14 @@
 import {ChevronLeft} from "lucide-react";
 import ContactSection from "@/sections/Contact";
 import Link from "next/link";
+import AnimatedText from "@/components/ui/AnimatedText";
 
 export default function AboutMePage() {
     return (
         <section className={'section text-white-100 pt-20 !gap-10 w-fit mx-auto '}>
 
             <div className={'space-y-6'}>
-                <h1 className={'text-subtitle w-full text-start text-white-100'}>👋 Hi again, I'm Natanaël</h1>
+                <AnimatedText whileInView={"visible"} initial={"hidden"} custom={1} className={'text-subtitle w-full text-start text-white-100'}>👋 Hi again, I'm Natanaël</AnimatedText>
                 <div className={'space-y-4 text-lead text-white-80 max-w-[700px] '}>
                     <div className="space-y-4">
                         <div className="text-lg">

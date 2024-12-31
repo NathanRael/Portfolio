@@ -1,10 +1,12 @@
-﻿import {navItems} from "@/constants/navItems";
+﻿"use client"
+import {navItems} from "@/constants/navItems";
 import Link from "next/link";
+import {motion} from "motion/react";
 
 export default function Navbar() {
 
     return (
-        <div className={'flex items-center justify-between w-full'}>
+        <motion.div initial={{opacity : 0}} whileInView={{ opacity : 1}} transition={{ delay : 0.3 * 5 }} viewport={{ once : true}} className={'flex items-center justify-between w-full'}>
             <h1 className={'text-lead font-md text-white-100'}>
                 R.Natanaël
             </h1>
@@ -17,6 +19,6 @@ export default function Navbar() {
                    ))
                }
            </ul>
-        </div>
+        </motion.div>
     )
 }

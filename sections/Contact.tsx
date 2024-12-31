@@ -1,8 +1,12 @@
-﻿import {Button} from "@/components/ui/button";
+﻿"use client"
+import {Button} from "@/components/ui/button";
 import {AtSign, Github, Linkedin} from "lucide-react";
 import {cn} from "@/lib/utils";
 import Link from "next/link";
 import {MY_EMAIL, MY_GITHUB_PROFILE, MY_LINKEDIN_PROFILE} from "@/constants";
+import AnimatedText from "@/components/ui/AnimatedText";
+import {motion} from "motion/react"
+import {appearVariant} from "@/lib/animationVariants";
 
 export default function ContactSection({className, withSubtitle = true} : {className?: string, withSubtitle?: boolean}) {
     return (
@@ -10,13 +14,13 @@ export default function ContactSection({className, withSubtitle = true} : {class
             {
                 withSubtitle && (
                     <div className={'text-center'}>
-                        <h4 className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}>Wanna talk about something
-                            ?</h4>
-                        <h2 className={'text-white-100 text-subtitle font-semibold  '}>Feel free to reach out</h2>
+                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={1} className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}>Wanna talk about something
+                            ?</AnimatedText>
+                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={4} className={'text-white-100 text-subtitle font-semibold  '}>Feel free to reach out</AnimatedText>
                     </div>
                 )
             }
-            <div className={'flex-row-center max-[460px]:flex-col gap-10'}>
+            <motion.div viewport={{ once : true}} variants={appearVariant}  whileInView={"visible"} initial={"hidden"} custom={4} className={'flex-row-center max-[460px]:flex-col gap-10'}>
                 <Link  href={`mailto:${MY_EMAIL}`}>
                     <Button variant={'gradient'}>
                         <AtSign size={20}/>
@@ -36,7 +40,7 @@ export default function ContactSection({className, withSubtitle = true} : {class
                     </Link>
 
                 </div>
-            </div>
+            </motion.div>
         </section>
     )
 }
