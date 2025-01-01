@@ -3,7 +3,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import {SanityLive} from "@/sanity/lib/live";
 import ReactQueryProvider from "@/context/ReactQueryProvider";
-
+import { Analytics } from "@vercel/analytics/react"
 
 const schibsetGrotesk = localFont({
     src: [
@@ -52,6 +52,7 @@ export default function RootLayout({
         <ReactQueryProvider>
             {children}
         </ReactQueryProvider>
+        <Analytics/>
         <SanityLive/>
         </body>
         </html>

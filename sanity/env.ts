@@ -16,6 +16,9 @@ export const token = assertValue(
     'Missing permission token variable : NEXT_PUBLIC_SANITY_API_TOKEN'
 );
 
+export const cacheRevalidate : number = Number(process.env.NEXT_PUBLIC_CACHE_REVALIDATE)
+
+
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
     throw new Error(errorMessage)
