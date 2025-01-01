@@ -9,13 +9,13 @@ export default function AboutMePage() {
         <section className={'section text-white-100 pt-20 !gap-10 w-fit mx-auto '}>
 
             <div className={'space-y-6'}>
-                <AnimatedText whileInView={"visible"} initial={"hidden"} custom={1} className={'text-subtitle w-full text-start text-white-100'}>👋 Hi again, I'm Natanaël</AnimatedText>
+                <AnimatedText whileInView={"visible"} initial={"hidden"} custom={1} className={'text-subtitle w-full text-start text-white-100'}>👋 Hi again, I&apo;sm Natanaël</AnimatedText>
                 <div className={'space-y-4 text-lead text-white-80 max-w-[700px] '}>
                     <div className="space-y-4">
                         <div className="text-lg">
                             📚 I'm currently a <span className="font-bold">Computer Science student</span> at
                             <span
-                                className="font-semibold"> EMIT (Ecole de Management et d'Innovation Technologique)</span>,
+                                className="font-semibold"> EMIT (Ecole de Management et d&apo;Innovation Technologique)</span>,
                             part of the University of Fianarantsoa in Madagascar.
                         </div>
 

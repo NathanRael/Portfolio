@@ -1,4 +1,4 @@
-﻿import {Loader, LoaderCircle} from "lucide-react";
+﻿import {LoaderCircle} from "lucide-react";
 
 export default function Loading(){
     return (
