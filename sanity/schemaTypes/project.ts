@@ -40,6 +40,10 @@ export const project = defineType({
             name : 'projectType',
             type : 'reference',
             to : [{type : 'projectType'}]
+        }),
+        defineField({
+            name : 'date',
+            type : 'date',
         })
     ]
 })

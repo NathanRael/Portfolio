@@ -1,7 +1,7 @@
 ﻿import {defineQuery} from "next-sanity";
 
 export const PROJECT_QUERY = defineQuery(`
- *[_type =="project"]{
+ *[_type =="project" ] | order(date desc){
   _id,
   id,
     name,
@@ -11,7 +11,8 @@ export const PROJECT_QUERY = defineQuery(`
     projectType -> {
       name, display
     },
-     "techStacks": techStacks[]->image
+     "techStacks": techStacks[]->image,
+     date
 }`)
 export const SKILL_QUERY = defineQuery(`
     *[_type=="skill"]{

@@ -20,7 +20,7 @@ export default function ProjectList({projects}: { projects: Project[] }) {
                 {
                     localProjects.map((project) => (
                         <div key={project._id}>
-                            <ProjectCard className={'max-[460px]:w-full'} key={project.id} {...project}/>
+                            <ProjectCard className={'max-[460px]:w-full'} key={project._id} {...project}/>
                         </div>
                     ))
                 }
