@@ -44,6 +44,11 @@ export const project = defineType({
         defineField({
             name : 'date',
             type : 'date',
+        }),
+        defineField({
+            name : 'archived',
+            type : 'boolean',
+            initialValue : false
         })
     ]
 })

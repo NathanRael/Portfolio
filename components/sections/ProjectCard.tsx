@@ -17,12 +17,12 @@ export interface Project {
     };
     techStacks: string[];
     date : string;
+    archived : string;
 }
 
 export type ProjectCardType = Project;
 
 export default function ProjectCard({description, image, links, name, projectType, techStacks, className, date} : ProjectCardType & {className?: string}) {
-
     
     return (
         <div className={cn('flex flex-col items-start justify-start gap-6 w-[387px]', className)}>
