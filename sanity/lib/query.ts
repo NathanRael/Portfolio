@@ -12,7 +12,8 @@ export const PROJECT_QUERY = defineQuery(`
       name, display
     },
      "techStacks": techStacks[]->image,
-     date
+     date,
+     archived
 }`)
 export const SKILL_QUERY = defineQuery(`
     *[_type=="skill"]{
