@@ -8,7 +8,7 @@ import AnimatedText from "@/components/ui/AnimatedText";
 export default async function ProjectsSection({filter, projects}: { filter?: string, projects : Project[] }) {
     
     const filteredProjects = filterProject(projects, filter)
-    
+
     return (
         <section id={"projects"} className={'section '}>
             <AnimatedText  whileInView={"visible"} initial={"hidden"} custom={1} className={'text-white-100 text-subtitle font-semibold'}>I&apos;ve built, designed</AnimatedText>
