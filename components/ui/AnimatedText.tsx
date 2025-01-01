@@ -2,6 +2,7 @@
 
 import {AnimatePresence, motion, TargetAndTransition, VariantLabels} from "motion/react"
 import {appearVariant} from "@/lib/animationVariants";
+import {Variants} from "framer-motion";
 
 export type animatedTextVariants = 'appear'
 
@@ -17,7 +18,7 @@ type AnimatedTextProps = {
 
 
 
-const availableVariants : Record<string, any> = {
+const availableVariants : Record<string, Variants> = {
     'appear' : appearVariant,
 }
 

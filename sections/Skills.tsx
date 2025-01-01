@@ -12,7 +12,7 @@ export  default async function SkillsSection({skills} : {skills: Skill[]}) {
     return (
         <section id={"skills"} className="section !gap-20">
             <div className={"flex flex-col items-center justify-start gap-10"}>
-                <AnimatedText whileInView={"visible"} initial={"hidden"} custom={1} className={'text-white-100 text-subtitle font-semibold -rotate-6 pb-10'}>I've been <span
+                <AnimatedText whileInView={"visible"} initial={"hidden"} custom={1} className={'text-white-100 text-subtitle font-semibold -rotate-6 pb-10'}>I&apos;ve been <span
                     className={'text-secondary-100'}>using</span></AnimatedText>
                     <SkillList skills={usedSkills}/>
             </div>            

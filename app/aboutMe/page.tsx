@@ -13,7 +13,7 @@ export default function AboutMePage() {
                 <div className={'space-y-4 text-lead text-white-80 max-w-[700px] '}>
                     <div className="space-y-4">
                         <div className="text-lg">
-                            📚 I'm currently a <span className="font-bold">Computer Science student</span> at
+                            📚 I&apos;m currently a <span className="font-bold">Computer Science student</span> at
                             <span
                                 className="font-semibold"> EMIT (Ecole de Management et d&apo;Innovation Technologique)</span>,
                             part of the University of Fianarantsoa in Madagascar.

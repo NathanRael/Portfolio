@@ -11,7 +11,7 @@ export default async function ProjectsSection({filter, projects}: { filter?: str
 
     return (
         <section id={"projects"} className={'section '}>
-            <AnimatedText  whileInView={"visible"} initial={"hidden"} custom={1} className={'text-white-100 text-subtitle font-semibold'}>I've built, designed</AnimatedText>
+            <AnimatedText  whileInView={"visible"} initial={"hidden"} custom={1} className={'text-white-100 text-subtitle font-semibold'}>I&apos;ve built, designed</AnimatedText>
             <ProjectFilter activeFilter={filter}/>
             <Suspense fallback={<p className={'text-white-100'}>Loading feed...</p>}>
                 <ProjectList projects={filteredProjects}/>

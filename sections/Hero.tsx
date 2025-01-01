@@ -15,11 +15,11 @@ export default function HeroSection({resumeUrl} : {resumeUrl : string}) {
                 <motion.div custom={1} variants={appearVariant} initial={"hidden"} whileInView={"visible"} viewport={{once : true}} className={'flex-col-center'}>
                     <ProfileImage className={'mb-4'}/>
                     <p className={'text-lead text-center text-white-100'}>👋 Hi, <Link
-                        className={'underline hover:text-primary-100'} href={'/aboutMe'}> I’m Natanael</Link> . UI/UX
+                        className={'underline hover:text-primary-100'} href={'/aboutMe'}> I&apos;m Natanael</Link> . UI/UX
                         designer and developer</p>
                 </motion.div>
                 <motion.h1 viewport={{once : true}} custom={4} variants={appearVariant} initial={'hidden'} whileInView={"visible"} className={'text-title max-md:text-[40px] max-[1080px]:text-wrap text-nowrap w-full font-bold text-center  '}>
-                    Let’s <span className={'text-secondary-100'}>design</span>, <span className={''}><span
+                    Let&apos;s <span className={'text-secondary-100'}>design</span>, <span className={''}><span
                     className={'text-secondary-100'}>develop</span> and bring  <span
                     className={'light-bulb relative ml-6'}>deas</span> to life</span><span className={'animate-blinkScale'}>_</span>
                 </motion.h1>
