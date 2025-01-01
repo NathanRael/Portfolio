@@ -18,7 +18,7 @@ const schibsetGrotesk = localFont({
             style: 'normal'
         },
         {
-            path: '/fonts/SchibstedGrotesk-Semibold.ttf',
+            path: '/fonts/SchibstedGrotesk-SemiBold.ttf',
             weight: '600',
             style: 'normal'
         },
