@@ -49,8 +49,8 @@ export default function HeroSection({resumeUrl} : {resumeUrl : string}) {
 function ProfileImage({className}: { className?: string }) {
     return (
         <div
-            className={cn(' flex items-center justify-center text-subtitle size-[104px] bg-neutral-dark-80 rounded-full', className)}>
-
+            className={cn(' flex animate-pulse items-center justify-center text-subtitle  size-[104px] bg-neutral-dark-80  rounded-full', className)}>
+                
         </div>
     )
 }
