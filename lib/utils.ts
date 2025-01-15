@@ -4,3 +4,11 @@ import { twMerge } from "tailwind-merge"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+
+export const copyToClipboard = async (text : string) => {
+  try {
+    await window.navigator.clipboard.writeText(text);
+  } catch (e) {
+    console.error("Error while coping to clipboard : ", e)
+  }
+}

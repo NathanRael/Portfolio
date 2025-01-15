@@ -1,14 +1,16 @@
 ﻿"use client"
 import {Button} from "@/components/ui/button";
-import {AtSign, Github, Linkedin} from "lucide-react";
-import {cn} from "@/lib/utils";
+import {AtSign, CopyCheck, Github, Linkedin} from "lucide-react";
+import {cn, copyToClipboard} from "@/lib/utils";
 import Link from "next/link";
 import {MY_EMAIL, MY_GITHUB_PROFILE, MY_LINKEDIN_PROFILE} from "@/constants";
 import AnimatedText from "@/components/ui/AnimatedText";
 import {motion} from "motion/react"
 import {appearVariant} from "@/lib/animationVariants";
+import {useState} from "react";
 
 export default function ContactSection({className, withSubtitle = true} : {className?: string, withSubtitle?: boolean}) {
+    const [copied, setCopied] = useState(false);
     return (
         <section className={cn("section", className)} >
             {
@@ -21,10 +23,20 @@ export default function ContactSection({className, withSubtitle = true} : {class
                 )
             }
             <motion.div viewport={{ once : true}} variants={appearVariant}  whileInView={"visible"} initial={"hidden"} custom={3} className={'flex-row-center max-[460px]:flex-col gap-10'}>
-                <Link  href={`mailto:${MY_EMAIL}`}>
+                <Link onClick={() => {
+                    copyToClipboard(MY_EMAIL)
+                    
+                    setCopied(true)
+                    
+                    setTimeout(() => {
+                        setCopied(false)
+                    }, 3000)
+                }}  href={`mailto:${MY_EMAIL}`}>
                     <Button variant={'gradient'}>
-                        <AtSign size={20}/>
-                        ralaivoaovy.natanael@gmail.com
+                        { copied ? <CopyCheck size={20}/> :  <AtSign size={20}/> }
+                        {
+                            copied ? 'Email copied to clipboard' : 'ralaivoaovy.natanael@gmail.com'
+                        }
                     </Button>
                 </Link>
                 <div className={'space-x-4'}>
