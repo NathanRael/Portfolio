@@ -29,3 +29,10 @@ export const RESUME_QUERY = defineQuery(`
   "url": asset->url
 }[0]
 `)
+
+
+export const PROFILE_IMAGE_QUERY = defineQuery(`
+*[_id=="profileImage"]{
+    "url": asset->url
+}[0]
+`)

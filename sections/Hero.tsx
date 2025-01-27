@@ -5,17 +5,18 @@ import {Button} from "@/components/ui/button";
 import {AtSign, ExternalLink} from "lucide-react";
 import {motion} from "motion/react"
 import {appearVariant} from "@/lib/animationVariants";
+import Image from "next/image";
 
 
-export default function HeroSection({resumeUrl} : {resumeUrl : string}) {
+export default function HeroSection({resumeUrl, profileImageUrl} : {resumeUrl : string, profileImageUrl : string}) {
     
     return (
         <section className={'flex-col-center gap-10'}>
             <div className={'flex-col-center'}>
-                <motion.div custom={1} variants={appearVariant} initial={"hidden"} whileInView={"visible"} viewport={{once : true}} className={'flex-col-center'}>
-                    <ProfileImage className={'mb-4'}/>
+                <motion.div custom={1} variants={appearVariant} initial={"hidden"} whileInView={"visible"} viewport={{once : true}} className={'flex-col-center !gap-6'}>
+                    <ProfileImage profileImageUrl={profileImageUrl} className={'mb-4'}/>
                     <p className={'text-lead text-center text-white-100'}>👋 Hi, <Link
-                        className={'underline hover:text-primary-100'} href={'/aboutMe'}> I&apos;m Natanael</Link> . UI/UX
+                        className={'underline hover:text-primary-100 animate-pulse'} href={'/aboutMe'}> I&apos;m Natanael</Link> . UI/UX
                         designer and developer</p>
                 </motion.div>
                 <motion.h1 viewport={{once : true}} custom={4} variants={appearVariant} initial={'hidden'} whileInView={"visible"} className={'text-title max-md:text-[40px] max-[1080px]:text-wrap text-nowrap w-full font-bold text-center  '}>
@@ -46,11 +47,9 @@ export default function HeroSection({resumeUrl} : {resumeUrl : string}) {
 }
 
 
-function ProfileImage({className}: { className?: string }) {
+function ProfileImage({className, profileImageUrl}: { className?: string, profileImageUrl : string }) {
+    console.log(profileImageUrl);
     return (
-        <div
-            className={cn(' flex animate-pulse items-center justify-center text-subtitle  size-[104px] bg-neutral-dark-80  rounded-full', className)}>
-                
-        </div>
+        <Image src={profileImageUrl} width={216} height={216} className={cn('flex items-center justify-center text-subtitle object-cover   bg-neutral-dark-80  rounded-full  border-2 border-neutral-dark-40', className)}  alt={"Image profile"}/>
     )
 }

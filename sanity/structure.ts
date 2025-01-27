@@ -17,4 +17,11 @@ export const structure: StructureResolver = (S) =>
                         .schemaType('resume')
                         .documentId('resume') // Enforces a single document with ID 'resume'
                 )
+                .title('Profile Image')
+                .child(
+                    S.editor()
+                        .id('profileImage')
+                        .schemaType('profileImage')
+                        .documentId('profileImage') // Enforces a single document with ID 'resume'
+                )
         ])

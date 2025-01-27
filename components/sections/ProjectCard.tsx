@@ -47,7 +47,7 @@ export default function ProjectCard({description, image, links, name, projectTyp
                             <div key={link}
                                  className={'flex  gap-1 text-nowrap bg-neutral-dark-80 hover:underline hover:bg-neutral-dark-60 text-small px-2 py-1 rounded-[12px]'}>
                                 <LinkIcon size={16}/>
-                                <Link href={link}>{link.slice(0, 50)}</Link>
+                                <Link target={'_blank'} href={link}>{link.slice(0, 50)}</Link>
                             </div>
                         ))
                     }
