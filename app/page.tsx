@@ -22,7 +22,7 @@ export default async function Home({searchParams}: { searchParams: Promise<{ fil
 
 
     return (
-        <section className="p-6 flex gap-[256px]  flex-col items-center justify-center w-full">
+        <section className="p-6 flex gap-[256px] max-md:gap-[128px]  flex-col items-center justify-center w-full">
             <Navbar/>
             <HeroSection profileImageUrl={profileImageUrl} resumeUrl={resumeUrl}/>
             <Suspense>
@@ -32,7 +32,7 @@ export default async function Home({searchParams}: { searchParams: Promise<{ fil
             <div id={"contact"} className={'w-full'}>
                 <ContactSection/>
             </div>
-            <Footer/>
+            <Footer/> 
         </section>
     );
 }
