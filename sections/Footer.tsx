@@ -2,7 +2,7 @@
 import Link from "next/link";
 import {MY_GITHUB_PROFILE} from "@/constants";
 import {ArrowUp} from "lucide-react";
-import {Button, buttonVariants} from "@/components/ui/button";
+import {buttonVariants} from "@/components/ui/button";
 import {useEffect, useState} from "react";
 import {AnimatePresence, motion} from "motion/react";
 import {cn} from "@/lib/utils";
