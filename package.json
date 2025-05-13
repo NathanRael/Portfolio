@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.1",
+    "@react-three/drei": "^10.0.6",
+    "@react-three/fiber": "^9.1.2",
+    "@react-three/postprocessing": "^3.0.4",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.68.3",
     "@tailwindcss/typography": "^0.5.15",
@@ -17,6 +21,7 @@
     "@vercel/analytics": "^1.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "gsap": "^3.12.7",
     "lucide-react": "^0.469.0",
     "motion": "^11.15.0",
     "next": "15.1.3",
