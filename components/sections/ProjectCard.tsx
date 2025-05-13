@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link";
 import {LinkIcon} from "lucide-react";
 import {cn} from "@/lib/utils";
-import {motion} from 'framer-motion';
+import {motion} from 'motion/react'
 
 
 export interface Project {
@@ -34,7 +34,7 @@ export default function ProjectCard({
                                         techStacks,
                                         className,
                                         date,
-    isUnderDevelopment,
+                                        isUnderDevelopment,
                                     }: ProjectCardType & { className?: string }) {
 
 
@@ -45,7 +45,9 @@ export default function ProjectCard({
             className={cn('flex flex-col relative items-start justify-start gap-6 w-[387px]', className)}>
             {
                 isUnderDevelopment && (
-                    <div className={"px-2 absolute -top-4 select-none -right-2 rotate-3 py-1 rounded-md text-[14px] bg-primary-100"}>Under development</div>
+                    <div
+                        className={"px-2 absolute -top-4 select-none -right-2 rotate-3 py-1 rounded-md text-[14px] bg-primary-100"}>Under
+                        development</div>
                 )
             }
             <Image width={387} height={209} className={'object-cover overflow-hidden border border-white-60 rounded-xl'}
@@ -65,7 +67,7 @@ export default function ProjectCard({
                 <p className={'text-white-80 font-normal text-base'}>{description}</p>
             </div>
             {
-                links  && <div className={'inline-flex flex-wrap gap-2'}>
+                links && <div className={'inline-flex flex-wrap gap-2'}>
                     {
                         links?.map(link => (
                             <div key={link}
