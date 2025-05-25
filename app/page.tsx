@@ -44,4 +44,22 @@ export default async function Home({
       <Footer />
     </section>
   );
+  return (
+    <section className="p-6 flex gap-[256px] max-md:gap-[128px]  flex-col items-center justify-center w-full">
+      <Navbar />
+
+      <HeroSection
+        profileImageUrl={"/images/profile-transparent.png"}
+        resumeUrl={resumeUrl}
+      />
+      <Suspense>
+        <ProjectsSection projects={projects} filter={filter} />
+      </Suspense>
+      <SkillsSection skills={skills} />
+      <div id={"contact"} className={"w-full"}>
+        <ContactSection />
+      </div>
+      <Footer />
+    </section>
+  );
 }
