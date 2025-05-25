@@ -25,9 +25,7 @@ export default function HeroSection({
           viewport={{ once: true }}
           className={"flex-col-center !gap-6"}
         >
-        
-
-          <ProfileImage profileImageUrl={profileImageUrl} className={'mb-4'}/>
+          <ProfileImage profileImageUrl={profileImageUrl} className={"mb-4"} />
           <p className={"text-lead text-center text-white-100"}>
             👋 Hi,{" "}
             <Link
@@ -64,7 +62,7 @@ export default function HeroSection({
         variants={appearVariant}
         initial={"hidden"}
         whileInView={"visible"}
-        className={"flex-row-center gap-6"}
+        className={"flex-row-center max-md:flex-wrap gap-6"}
       >
         <Link href={"#contact"}>
           <Button size={"lg"} variant={"gradient"}>
