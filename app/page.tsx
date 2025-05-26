@@ -27,7 +27,7 @@ export default async function Home({
   const { data: skills } = await sanityFetch({ query: SKILL_QUERY });
 
   return (
-    <section className="p-6 flex gap-[256px] max-md:gap-[128px]  flex-col items-center justify-center w-full">
+    <section className="p-6  flex gap-[256px] max-md:gap-[128px]  flex-col items-center justify-center w-full">
       <Navbar />
 
       <HeroSection

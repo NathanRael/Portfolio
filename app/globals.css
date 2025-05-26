@@ -10,7 +10,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -38,22 +37,21 @@ html {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    
-    
-    --color-primary-100 : 256 89% 60%;
-    --color-primary-80 : 256 89% 78%;
-    
-    --color-secondary-100 : 223 82% 62%;
-    
-    --color-neutral-dark-100 : 256 8% 7%;
-    --color-neutral-dark-80 : 256 6% 10%;
-    --color-neutral-dark-60 : 256 6% 16%;
-    
-    --color-white-100 : 256 10% 94%;
-    --color-white-80 : 255 10% 80%;
-    
-    --color-black-100 : 0 0% 0%;
-    
+
+    --color-primary-100: 256 89% 60%;
+    --color-primary-80: 256 89% 78%;
+
+    --color-secondary-100: 223 82% 62%;
+
+    --color-neutral-dark-100: 256 8% 7%;
+    --color-neutral-dark-80: 256 6% 10%;
+    --color-neutral-dark-60: 256 6% 20%;
+    --color-neutral-dark-40: 256 6% 24%;
+
+    --color-white-100: 256 10% 94%;
+    --color-white-80: 255 10% 80%;
+
+    --color-black-100: 0 0% 0%;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -90,39 +88,27 @@ html {
   body {
     @apply bg-background text-foreground;
   }
-  
-  
-  .light-bulb::after{
-      content: '💡';
-      position: absolute;
-      left: -46px;
-      bottom:  -4px;
+
+  .light-bulb::after {
+    content: "💡";
+    position: absolute;
+    left: -52px;
+    bottom: -4px;
   }
 }
-
-
-
 
 @layer components {
-  .flex-col-center{
-    @apply flex flex-col items-center justify-center
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
   }
 
-  .flex-row-center{
-    @apply flex flex-row items-center justify-center
+  .flex-row-center {
+    @apply flex flex-row items-center justify-center;
   }
-  
-
-
-  
 }
-
 
 @layer utilities {
-  .section{
-    @apply flex-col-center gap-10 justify-start
+  .section {
+    @apply flex-col-center gap-10 justify-start;
   }
-  
 }
-
-
