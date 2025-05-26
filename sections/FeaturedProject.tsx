@@ -49,7 +49,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
         />
       </div>
       <div className="flex  items-center gap-10 bottom-18 absolute right-1/2 translate-x-1/2">
-        <Metrics value={webProjects.length} title="Web Projects" />
+        <Metrics value={webProjects.length} title="Projects" />
         <Metrics value={mockups.length} title="Designs" />
       </div>
       <div className="flex flex-col pt-6 items-center justify-center gap-2 mt-20">

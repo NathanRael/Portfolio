@@ -1,12 +1,23 @@
-﻿import SkillList, { Skill } from "@/components/sections/SkillList";
+﻿"use client";
+import SkillList, { Skill } from "@/components/sections/SkillList";
 import AnimatedText from "@/components/ui/AnimatedText";
+import useResizeObserver from "use-resize-observer";
 
-export default async function SkillsSection({ skills }: { skills: Skill[] }) {
+export default function SkillsSection({ skills }: { skills: Skill[] }) {
   const experimentedSkills = skills.filter((skill) => skill.experimented);
   const usedSkills = skills.filter((skill) => !skill.experimented);
 
+  const { ref, height } = useResizeObserver();
+
   return (
-    <section id="skills" className="section !gap-20">
+    <section ref={ref} id="skills" className="section relative w-full !gap-20">
+      <div
+        style={{
+          backgroundImage: "url(/images/noise-texture.svg)",
+          height: height! + 320,
+        }}
+        className="absolute  left-1/2 -top-60 -translate-x-1/2 w-screen  z-0 bg-no-repeat bg-cover bg-center "
+      />
       <div className="flex flex-col items-center justify-start gap-10">
         <AnimatedText
           whileInView="visible"

@@ -3,9 +3,15 @@ import HeroSection from "@/sections/Hero";
 import SkillsSection from "@/sections/Skills";
 import ContactSection from "@/sections/Contact";
 import Footer from "@/sections/Footer";
-import { PROJECT_QUERY, RESUME_QUERY, SKILL_QUERY } from "@/sanity/lib/query";
+import {
+  CERTIFICATES_QUERY,
+  PROJECT_QUERY,
+  RESUME_QUERY,
+  SKILL_QUERY,
+} from "@/sanity/lib/query";
 import { sanityFetch } from "@/sanity/lib/live";
 import FeaturedProject from "@/sections/FeaturedProject";
+import CertificateSection from "@/sections/Certificate";
 
 export const revalidate = 3600;
 
@@ -16,6 +22,9 @@ export default async function Home() {
   // });
   const { url: resumeUrl } = resumeData;
   const { data: projects } = await sanityFetch({ query: PROJECT_QUERY });
+  const { data: certificates } = await sanityFetch({
+    query: CERTIFICATES_QUERY,
+  });
 
   // const { url: profileImageUrl } = profileImage;
 
@@ -29,6 +38,7 @@ export default async function Home() {
       />
       <FeaturedProject projectList={projects} />
       <SkillsSection skills={skills} />
+      <CertificateSection certificates={certificates} />
       <div id={"contact"} className={"w-full"}>
         <ContactSection />
       </div>

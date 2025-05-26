@@ -10,6 +10,7 @@ export default {
   ],
   theme: {
     extend: {
+      extend: {},
       colors: {
         primary: {
           DEFAULT: "hsl(var(--color-primary-100))",
