@@ -5,6 +5,8 @@ import { ExternalLink, LinkIcon, SquareArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import useResizeObserver from "use-resize-observer";
+import { motion } from "motion/react";
+import { useState } from "react";
 
 const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
   const selectedProject = projectList[0];
@@ -87,7 +89,12 @@ const FeaturedProjectCard = ({
 }) => {
   const { techStacks, links, image, name, description, isUnderDevelopment } =
     project;
-  const { width, ref, height } = useResizeObserver<HTMLDivElement>();
+  const { ref } = useResizeObserver<HTMLDivElement>();
+  const [hoveredState, setHoveredState] = useState({
+    width: "100%",
+    height: "100%",
+  });
+  const [hovered, setHovered] = useState(false);
 
   return (
     <div
@@ -103,13 +110,9 @@ const FeaturedProjectCard = ({
           backgroundColor
         )}
       >
-        <Image
-          src={image}
-          width={620}
-          height={400}
-          className="object-cover absolute rotate-3   -translate-x-1/2 left-1/2 border border-neutral-dark-40 -bottom-6 rounded-xl"
-          alt="project image"
-        />
+        <motion.div className="overflow-hidden object-cover rotate-3 absolute left-1/2 -translate-x-1/2 border border-neutral-dark-40 -bottom-6 rounded-xl">
+          <Image src={image} width={620} height={400} alt="project image" />
+        </motion.div>
 
         <div className="ps-6 pt-4">
           <h2

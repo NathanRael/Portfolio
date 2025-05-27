@@ -17,7 +17,7 @@ const CertificateSection = ({
   certificates: Certificate[];
 }) => {
   const autoAnimationDuration = 4000;
-  const { ref } = useResizeObserver();
+  const { width, height, ref } = useResizeObserver();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextCertificate = () => {
