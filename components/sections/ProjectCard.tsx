@@ -4,7 +4,6 @@ import Link from "next/link";
 import { LinkIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { useState } from "react";
 
 export interface Project {
   _id: string;
@@ -36,15 +35,13 @@ export default function ProjectCard({
   date,
   isUnderDevelopment,
 }: ProjectCardType & { className?: string }) {
-  const [hovered, setHovered] = useState(false);
-
   return (
     <motion.div
       whileHover={{ scale: 1.04 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className={cn(
         "flex flex-col relative items-start justify-start gap-6 w-[387px]",
-        className
+        className,
       )}
     >
       {isUnderDevelopment && (

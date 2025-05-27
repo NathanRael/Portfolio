@@ -90,10 +90,7 @@ html {
   }
 
   .light-bulb::after {
-    content: "💡";
-    position: absolute;
-    left: -52px;
-    bottom: -4px;
+    @apply content-["💡"] absolute -left-[52px] -bottom-1 max-md:-left-[32px];
   }
 }
 

@@ -17,6 +17,7 @@ export const appearVariant : Variants  = {
 }
 
 
+
 export const rotateVariant : Variants = {
     initial : {
         opacity : 0,
@@ -33,3 +34,5 @@ export const rotateVariant : Variants = {
         }
     }) ,
 }
+
+
