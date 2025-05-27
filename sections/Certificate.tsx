@@ -1,8 +1,12 @@
 "use client";
 import Image from "next/image";
 import useResizeObserver from "use-resize-observer";
-import { motion, AnimatePresence, PanInfo } from "framer-motion";
+import { AnimatePresence, motion, VariantLabels } from "motion/react";
+import { Target } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import AnimatedText from "@/components/ui/AnimatedText";
 
 export interface Certificate {
   title: string;
@@ -15,59 +19,93 @@ const CertificateSection = ({
   certificates: Certificate[];
 }) => {
   const { width, height, ref } = useResizeObserver();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const nextCertificate = () => {
-    if (currentIndex < certificates.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
+    setActiveIndex((prev) => (prev + 1) % certificates.length);
   };
 
   const prevCertificate = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
+    setActiveIndex((prev) => (prev === 0 ? certificates.length - 1 : prev - 1));
   };
 
-  const getInitial = (index: number) => {
-    if (index === currentIndex) {
+  const getStyle = (index: number): VariantLabels | Target => {
+    if (index === activeIndex) {
       return {
         x: 0,
-        y: 0,
+        y: "-50%",
+        opacity: 1,
+        scale: 1,
         rotate: 0,
-        opactity: 1,
+        zIndex: 3,
       };
     }
+
     return {
-      rotate: -1.2 * index,
-      y: -5.2 * index,
+      x: 0,
+      y: -(1.5 * index) - 48 + "%",
+      opacity: 0.6,
+      scale: 0.9,
+      rotate: -1.9 * index,
+      zIndex: 1,
     };
   };
 
   useEffect(() => {
-    const timeId = setInterval(() => {
+    const intervalId = setInterval(() => {
       nextCertificate();
-    }, 2000);
+    }, 4000);
 
-    return () => clearInterval(timeId);
-  }, []);
+    return () => {
+      clearInterval(intervalId);
+    };
+  });
 
   return (
-    <section className="section !flex !flex-row !justify-between items-center w-full !gap-20">
-      <div className="text-subtitle">
+    <section className="flex flex-row justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-[100vh] h-[50vh] !gap-20">
+      <AnimatedText
+        whileInView="visible"
+        initial="hidden"
+        custom={1}
+        className="text-subtitle max-[1020px]:text-center w-full font-medium relative"
+      >
         <p>Certifications That</p>
         <p>Validate My Expertise</p>
-      </div>
-      <div className="relative w-[420px] h-[350px]">
-        <AnimatePresence mode="wait">
-          {certificates.map((certificate, index) => (
+        <Image
+          className={"absolute -top-20 -z-10"}
+          src={"/images/confetti-2.svg"}
+          alt={"confetti"}
+          width={320}
+          height={320}
+        />
+      </AnimatedText>
+      <Image
+        className={"absolute right-20 "}
+        src={"/images/confetti-2.svg"}
+        alt={"confetti"}
+        width={520}
+        height={520}
+      />
+      <div className={"relative max-[1020px]:mt-60  bg-white-80 w-fit"}>
+        {certificates.map((certificate, index) => (
+          <AnimatePresence mode="wait" key={`certificate-${index}`}>
             <motion.div
-              key={index}
-              initial={getInitial(index)}
-              animate={{ y: 0, x: 0, rotate: 0, opacity: 1 }}
-              exit={{ x: -300, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="flex flex-col gap-2 items-center w-full absolute inset-0 "
+              whileHover={{
+                scale: 1.2,
+              }}
+              transition={{
+                duration: 0.4,
+                type: "spring",
+                stiffness: 100,
+              }}
+              initial={{
+                x: 100,
+                y: "-50%",
+                opacity: 0,
+              }}
+              animate={getStyle(index)}
+              key={`motion-${index}`}
+              className="flex absolute max-[1020px]:right-1/2 -translate-y-1/2 right-60 flex-col gap-4 items-center w-full "
             >
               <div
                 ref={ref}
@@ -75,7 +113,7 @@ const CertificateSection = ({
                   width: 420,
                   height: 296,
                 }}
-                className="rounded-2xl overflow-hidden border-4 border-neutral-dark-60"
+                className="rounded-2xl   overflow-hidden border-4 border-neutral-dark-60"
               >
                 <Image
                   className="object-cover"
@@ -85,64 +123,52 @@ const CertificateSection = ({
                   alt={certificate.title}
                 />
               </div>
-              {currentIndex === index && (
-                <AnimatePresence>
+              <AnimatePresence mode="wait">
+                {activeIndex === index && (
                   <motion.h1
-                    initial={{
-                      y: 30,
-                      opacity: 0,
-                    }}
+                    key={`title-${index}`}
                     transition={{
-                      delay: 0.1,
-                      duration: 0.2,
+                      duration: 0.3,
                       type: "spring",
-                      stiffness: 100,
+                      stiffness: 120,
                     }}
                     animate={{
                       y: 0,
                       opacity: 1,
                     }}
-                    className="text-lead"
+                    initial={{
+                      y: 20,
+                      opacity: 0,
+                    }}
+                    exit={{
+                      y: -20,
+                      opacity: 0,
+                    }}
+                    className="text-lead text-nowrap"
                   >
                     {certificate.title}
                   </motion.h1>
-                </AnimatePresence>
-              )}
+                )}
+              </AnimatePresence>
             </motion.div>
-          ))}
-        </AnimatePresence>
-
-        {/* Navigation buttons */}
-        {currentIndex > 0 && (
-          <button
-            onClick={prevCertificate}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-10"
-          >
-            ←
-          </button>
-        )}
-
-        {currentIndex < certificates.length - 1 && (
-          <button
-            onClick={nextCertificate}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-10"
-          >
-            →
-          </button>
-        )}
-
-        {/* Dots indicator */}
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {certificates.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? "bg-white" : "bg-white/50"
-              }`}
-            />
-          ))}
-        </div>
+          </AnimatePresence>
+        ))}
+        <Button
+          onClick={prevCertificate}
+          className={
+            "absolute max-[1020px]:-left-60 -left-[470px] top-1/2 -translate-y-1/2 z-10"
+          }
+        >
+          <ChevronLeft />
+        </Button>
+        <Button
+          onClick={nextCertificate}
+          className={
+            "absolute -right-0 max-[1020px]:-right-60 top-1/2 -translate-y-1/2 z-10"
+          }
+        >
+          <ChevronRight />
+        </Button>
       </div>
     </section>
   );

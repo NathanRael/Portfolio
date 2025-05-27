@@ -1,4 +1,3 @@
-import Navbar from "@/components/sections/Navbar";
 import HeroSection from "@/sections/Hero";
 import SkillsSection from "@/sections/Skills";
 import ContactSection from "@/sections/Contact";
@@ -12,6 +11,7 @@ import {
 import { sanityFetch } from "@/sanity/lib/live";
 import FeaturedProject from "@/sections/FeaturedProject";
 import CertificateSection from "@/sections/Certificate";
+import AboutMe from "@/sections/AboutMe";
 
 export const revalidate = 3600;
 
@@ -39,6 +39,7 @@ export default async function Home() {
       <FeaturedProject projectList={projects} />
       <SkillsSection skills={skills} />
       <CertificateSection certificates={certificates} />
+      <AboutMe className={""} />
       <div id={"contact"} className={"w-full"}>
         <ContactSection />
       </div>
