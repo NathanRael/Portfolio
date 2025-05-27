@@ -110,8 +110,30 @@ const FeaturedProjectCard = ({
           backgroundColor
         )}
       >
-        <motion.div className="overflow-hidden object-cover rotate-3 absolute left-1/2 -translate-x-1/2 border border-neutral-dark-40 -bottom-6 rounded-xl">
-          <Image src={image} width={620} height={400} alt="project image" />
+        <motion.div
+          initial={{
+            rotate: 6,
+            x: "-50%",
+            y: "10%",
+          }}
+          whileHover={{
+            rotate: 0,
+            scale: 1.3,
+            y: "-10%",
+          }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut",
+          }}
+          className="overflow-hidden absolute left-1/2 -bottom-2 border border-neutral-dark-40 rounded-xl"
+        >
+          <Image
+            src={image}
+            width={hovered ? 620 : 620}
+            height={hovered ? 400 : 620}
+            className="object-cover"
+            alt="project image"
+          />
         </motion.div>
 
         <div className="ps-6 pt-4">

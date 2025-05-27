@@ -1,10 +1,8 @@
 "use client";
 import Image from "next/image";
 import useResizeObserver from "use-resize-observer";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export interface Certificate {
   title: string;
@@ -16,175 +14,131 @@ const CertificateSection = ({
 }: {
   certificates: Certificate[];
 }) => {
-  const autoAnimationDuration = 4000;
   const { width, height, ref } = useResizeObserver();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextCertificate = () => {
-    setActiveIndex((prev) => (prev + 1) % certificates.length);
+    if (currentIndex < certificates.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    }
   };
 
   const prevCertificate = () => {
-    setActiveIndex(
-      (prev) => (prev - 1 + certificates.length) % certificates.length
-    );
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
   };
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      nextCertificate();
-    }, autoAnimationDuration);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const getCardStyle = (index: number) => {
-    const isActive = index === activeIndex;
-    const offset = index - activeIndex;
-
-    if (isActive) {
+  const getInitial = (index: number) => {
+    if (index === currentIndex) {
       return {
-        zIndex: 30,
-        scale: 1,
+        x: 0,
         y: 0,
-        rotateZ: 0,
-        opacity: 1,
+        rotate: 0,
+        opactity: 1,
       };
     }
-
-    // Cards behind the active one
-    if (offset > 0) {
-      return {
-        zIndex: 30 - offset,
-        scale: 1 - offset * 0.05,
-        y: offset * 20,
-        rotateZ: offset * 2,
-        opacity: 0.8 - offset * 0.2,
-      };
-    }
-
-    // Cards in front (previous cards)
-    const absOffset = Math.abs(offset);
     return {
-      zIndex: 30 - absOffset,
-      scale: 1 - absOffset * 0.05,
-      y: absOffset * 20,
-      rotateZ: offset * 2,
-      opacity: 0.8 - absOffset * 0.2,
+      rotate: -1.2 * index,
+      y: -5.2 * index,
     };
   };
 
+  useEffect(() => {
+    const timeId = setInterval(() => {
+      nextCertificate();
+    }, 2000);
+
+    return () => clearInterval(timeId);
+  }, []);
+
   return (
-    <section className="section !flex !flex-row !justify-between !items-center h-[80vh] w-full !gap-20">
-      <div className="text-subtitle relative">
+    <section className="section !flex !flex-row !justify-between items-center w-full !gap-20">
+      <div className="text-subtitle">
         <p>Certifications That</p>
         <p>Validate My Expertise</p>
-        <Image
-          className="absolute -z-10 -top-20 -left-10"
-          src={"/images/confetti-2.svg"}
-          width={820}
-          height={820}
-          alt="confetti"
-        />
       </div>
-      <div className="relative w-[420px]  h-[320px] perspective-1000">
-        <Image
-          className="absolute -top-20 -left-10"
-          src={"/images/confetti-1.svg"}
-          width={512}
-          height={512}
-          alt="confetti"
-        />
-        {/* Stacked Cards */}
-        <div className="relative w-full h-full">
-          {certificates.map((certificate, index) => {
-            const style = getCardStyle(index);
-            return (
-              <motion.div
-                key={index}
-                className="absolute inset-0 cursor-pointer"
+      <div className="relative w-[420px] h-[350px]">
+        <AnimatePresence mode="wait">
+          {certificates.map((certificate, index) => (
+            <motion.div
+              key={index}
+              initial={getInitial(index)}
+              animate={{ y: 0, x: 0, rotate: 0, opacity: 1 }}
+              exit={{ x: -300, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="flex flex-col gap-2 items-center w-full absolute inset-0 "
+            >
+              <div
+                ref={ref}
                 style={{
-                  zIndex: style.zIndex,
+                  width: 420,
+                  height: 296,
                 }}
-                animate={{
-                  scale: style.scale,
-                  y: style.y,
-                  rotateZ: style.rotateZ,
-                  opacity: style.opacity,
-                  transition: {
-                    duration: 1,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  },
-                }}
-                transition={{
-                  duration: 0.6,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
-                onClick={() => setActiveIndex(index)}
-                whileHover={{
-                  scale: index === activeIndex ? 1.02 : style.scale + 0.02,
-                }}
+                className="rounded-2xl overflow-hidden border-4 border-neutral-dark-60"
               >
-                <div className="flex flex-col gap-4 items-center h-full">
-                  <div
-                    ref={index === activeIndex ? ref : undefined}
-                    className="w-[380px] h-[280px] rounded-2xl overflow-hidden border-4 border-neutral-dark-60 shadow-2xl bg-white"
+                <Image
+                  className="object-cover"
+                  width={width || 360}
+                  height={height || 360}
+                  src={certificate.image}
+                  alt={certificate.title}
+                />
+              </div>
+              {currentIndex === index && (
+                <AnimatePresence>
+                  <motion.h1
+                    initial={{
+                      y: 30,
+                      opacity: 0,
+                    }}
+                    transition={{
+                      delay: 0.1,
+                      duration: 0.2,
+                      type: "spring",
+                      stiffness: 100,
+                    }}
+                    animate={{
+                      y: 0,
+                      opacity: 1,
+                    }}
+                    className="text-lead"
                   >
-                    <Image
-                      className="object-cover w-full h-full"
-                      width={380}
-                      height={280}
-                      src={certificate.image}
-                      alt={certificate.title}
-                      priority={index === activeIndex}
-                    />
-                  </div>
-                  {index === activeIndex && (
-                    <motion.h1
-                      className="text-lead text-center"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 10 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      {certificate.title}
-                    </motion.h1>
-                  )}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                    {certificate.title}
+                  </motion.h1>
+                </AnimatePresence>
+              )}
+            </motion.div>
+          ))}
+        </AnimatePresence>
 
         {/* Navigation buttons */}
-        <Button
-          variant={"secondary"}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-30"
-          onClick={() => {
-            prevCertificate();
-          }}
-        >
-          <ArrowLeft />
-        </Button>
-        <Button
-          value={"secondary"}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-30"
-          onClick={() => {
-            nextCertificate();
-          }}
-        >
-          <ArrowRight />
-        </Button>
+        {currentIndex > 0 && (
+          <button
+            onClick={prevCertificate}
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-10"
+          >
+            ←
+          </button>
+        )}
+
+        {currentIndex < certificates.length - 1 && (
+          <button
+            onClick={nextCertificate}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-10"
+          >
+            →
+          </button>
+        )}
 
         {/* Dots indicator */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-40">
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
           {certificates.map((_, index) => (
             <button
               key={index}
-              onClick={() => setActiveIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === activeIndex
-                  ? "bg-white scale-125 shadow-lg"
-                  : "bg-white/50 hover:bg-white/70"
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                index === currentIndex ? "bg-white" : "bg-white/50"
               }`}
             />
           ))}
