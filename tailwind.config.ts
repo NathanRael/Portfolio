@@ -1,16 +1,8 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./sections/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
   theme: {
     extend: {
-      extend: {},
       colors: {
         primary: {
           DEFAULT: "hsl(var(--color-primary-100))",
@@ -23,8 +15,6 @@ export default {
           DEFAULT: "hsl(var(--color-secondary-100))",
           100: "hsl(var(--color-secondary-100))",
           foreground: "hsl(var(--color-white-100))",
-
-          // foreground: 'hsl(var(--secondary-foreground))'
         },
         white: {
           100: "hsl(var(--color-white-100))",
@@ -45,7 +35,6 @@ export default {
           60: "hsl(var(--color-neutral-dark-60))",
           40: "hsl(var(--color-neutral-dark-40))",
         },
-
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -78,13 +67,6 @@ export default {
           "5": "hsl(var(--chart-5))",
         },
       },
-      fontSize: {
-        title: "56px",
-        subtitle: "32px",
-        lead: "18px",
-        base: "16px",
-        small: "12px",
-      },
       keyframes: {
         blink: {
           "50%": { opacity: "0", transform: "scale(8px)" },
@@ -99,11 +81,6 @@ export default {
         blink: "blink 1s step-end infinite",
         blinkScale: "blink 1s step-end infinite",
       },
-      // borderRadius: {
-      // 	lg: 'var(--radius)',
-      // 	md: 'calc(var(--radius) - 2px)',
-      // 	sm: 'calc(var(--radius) - 4px)'
-      // }
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

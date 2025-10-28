@@ -61,7 +61,7 @@ const CertificateSection = ({
   });
 
   return (
-    <section className="flex flex-row justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-[100vh] h-[50vh] !gap-20">
+    <section className="flex flex-row justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-screen h-[50vh] gap-20!">
       <AnimatedText
         whileInView="visible"
         initial="hidden"
@@ -163,7 +163,7 @@ const CertificateSection = ({
         <Button
           onClick={nextCertificate}
           className={
-            "absolute -right-0 max-[1020px]:-right-60 top-1/2 -translate-y-1/2 z-10"
+            "absolute right-0 max-[1020px]:-right-60 top-1/2 -translate-y-1/2 z-10"
           }
         >
           <ChevronRight />

@@ -32,7 +32,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
   // loog all the projects
 
   return (
-    <section className="bg-gradient-to-br relative from-neutral-dark-100 via-neutral-dark-80 to-neutral-dark-100  border border-neutral-dark-80 rounded-xl max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)]  min-h-screen h-full pt-20 max-lg:p-2 p-6">
+    <section className="bg-linear-to-br relative from-neutral-dark-100 via-neutral-dark-80 to-neutral-dark-100  border border-neutral-dark-80 rounded-xl max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)]  min-h-screen h-full pt-20 max-lg:p-2 p-6">
       <AnimatedText
         whileInView="visible"
         initial="hidden"
@@ -44,7 +44,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
       <div className="flex w-full flex-col items-center justify-start gap-10 pb-10">
         <FeaturedProjectCard
           className=" w-[90%] max-lg:w-full max-lg:h-[360px] h-[520px]"
-          backgroundColor="bg-gradient-to-b from-[#29323f]/40 via-[#29323f] to-[#29323f]"
+          backgroundColor="bg-linear-to-b from-[#29323f]/40 via-[#29323f] to-[#29323f]"
           project={raelAiProject!}
         />
         <div
@@ -54,12 +54,12 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
         >
           <FeaturedProjectCard
             className={"max-[1140px]:w-full max-lg:h-[360px] w-[45vw]"}
-            backgroundColor="bg-gradient-to-b   from-[#17181f]/40 via-[#17181f] to-[#17181f]"
+            backgroundColor="bg-linear-to-b   from-[#17181f]/40 via-[#17181f] to-[#17181f]"
             project={skillMatchrProject!}
           />{" "}
           <FeaturedProjectCard
             className={"max-[1140px]:w-full max-lg:h-[360px] w-[45vw]"}
-            backgroundColor="bg-gradient-to-b  from-[#232526]/40 via-[#232526] to-[#232526]"
+            backgroundColor="bg-linear-to-b  from-[#232526]/40 via-[#232526] to-[#232526]"
             project={raelUIProject!}
           />
         </div>
@@ -70,7 +70,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
       </div>
       <div className="flex flex-col pt-6 items-center justify-center gap-2 mt-20">
         <Link
-          className="flex z-20 items-center justify-center gap-4 p-4 rounded-xl bg-gradient-to-r from-primary-100 to-secondary hover:to-primary-100"
+          className="flex z-20 items-center justify-center gap-4 p-4 rounded-xl bg-linear-to-r from-primary-100 to-secondary hover:to-primary-100"
           href={"/project"}
         >
           See more projects

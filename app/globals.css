@@ -1,13 +1,80 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@config '../tailwind.config.ts';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+
+@theme {
+    --color-white: #f6f5f4;
+    --color-black: #0b0a09;
+    --color-text: var(--text);
+    --color-background: var(--background);
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-accent: var(--accent);
+
+    --color-background-50: var(--background-50);
+    --color-background-100: var(--background-100);
+    --color-background-200: var(--background-200);
+    --color-background-300: var(--background-300);
+    --color-background-400: var(--background-400);
+    --color-background-500: var(--background-500);
+    --color-background-600: var(--background-600);
+    --color-background-700: var(--background-700);
+    --color-background-800: var(--background-800);
+    --color-background-900: var(--background-900);
+    --color-background-950: var(--background-950);
+
+    --text-title: 56px;
+    --text-subtitle: 32px;
+    --text-subtitle-2: 24px;
+    --text-lead: 18px;
+    --text-base: 16px;
+    --text-small: 14px;
+    --text-small-2: 12px;
+}
+
+
+@utility flex-col-center {
+  @apply flex flex-col items-center justify-center;
+}
+
+@utility flex-row-center {
+  @apply flex flex-row items-center justify-center;
+}
+
+@utility section {
+  @apply flex-col-center gap-10 justify-start;
+}
+
+@layer utilities {
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer base {
@@ -81,6 +148,7 @@ html {
   }
 }
 
+
 @layer base {
   * {
     @apply border-border;
@@ -94,18 +162,85 @@ html {
   }
 }
 
-@layer components {
-  .flex-col-center {
-    @apply flex flex-col items-center justify-center;
-  }
-
-  .flex-row-center {
-    @apply flex flex-row items-center justify-center;
-  }
+.flex-center {
+    @apply flex flex-col items-center justify-center ;
 }
 
-@layer utilities {
-  .section {
-    @apply flex-col-center gap-10 justify-start;
-  }
+.flex-row-start {
+    @apply flex items-center justify-start;
 }
+.flex-row-end {
+    @apply flex items-center justify-end;
+}
+
+
+.flex-row-center {
+    @apply flex items-center justify-center;
+}
+
+.auth-form {
+    @apply m-10 mt-60 w-[500px] p-8 rounded-2xl border-none border-background-200 bg-background-100 flex flex-col justify-center items-center mx-auto  gap-6;
+}
+
+.app-section {
+    @apply p-10
+}
+
+.bg-primary-gradient {
+    @apply bg-gradient-to-r from-[oklch(0.68_0.1567_252.32)]  via-primary  to-[oklch(0.68_0.1567_252.32)]  text-white border-2 border-primary border-t-[oklch(0.78_0.1567_252.32)] ;
+}
+
+.bg-secondary-gradient {
+    @apply bg-gradient-to-b from-background-200/50 via-background-100 text-text/90 to-background-200/50 border   border-background-200/50 border-t-2 border-t-background-300/30;
+}
+
+.line {
+    @apply w-full  border-b-1 border-b-background-200
+}
+
+
+
+@layer base {
+    :root, .light {
+        --text: oklch(0.2418 0.0153 279.58);
+        --background: oklch(1 0 0);
+        --primary: oklch(0.6763 0.1567 252.32);
+        --secondary: oklch(66.97% 0.214 260.96);
+        --accent: #F08A8B;
+
+
+        --background-50: oklch(0.998 0 0);
+        --background-100: oklch(0.9697 0.0017 247.84);
+        --background-200: oklch(0.9208 0.0063 255.48);
+        --background-300: oklch(0.8016 0.0137 251.59);
+        --background-400: oklch(68.30% 0.000 89.88);
+        --background-500: oklch(0.7596 0.0175 250.89);
+        --background-600: oklch(51.03% 0.000 89.88);
+        --background-700: oklch(42.02% 0.000 89.88);
+        --background-800: oklch(32.11% 0.000 89.88);
+        --background-900: oklch(21.78% 0.000 89.88);
+        --background-950: oklch(15.91% 0.000 89.88);
+    }
+
+    .dark {
+        --text: #D6D6E0;
+        --background: oklch(20.35% 0.014 285.10);
+        --primary: oklch(0.6763 0.1567 252.32);
+        --secondary: oklch(0.7428 0.1245 19.86);
+        --accent: #F08A8B;
+
+        --background-50: oklch(21.8% 0.016 285.10);
+        --background-100: oklch(22.35% 0.016 285.10);
+        --background-200: oklch(29.92% 0.025 284.78);
+        --background-300: oklch(38.78% 0.035 284.63);
+        --background-400: oklch(47.15% 0.045 284.54);
+        --background-500: oklch(55.16% 0.054 284.49);
+        --background-600: oklch(64.65% 0.042 285.18);
+        --background-700: oklch(73.84% 0.030 285.64);
+        --background-800: oklch(82.77% 0.019 285.97);
+        --background-900: oklch(91.48% 0.009 286.21);
+        --background-950: oklch(95.63% 0.005 286.30);
+    }
+}
+
+

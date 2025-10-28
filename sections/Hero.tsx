@@ -18,18 +18,18 @@ export default function HeroSection({
   return (
     <section
       className={
-        "flex-row-center !justify-between w-full gap-10 max-[1250px]:flex-col   max-[1250px]:gap-40 max-md:mt-10 max-[1250px]:mt-32"
+        "flex-row-center justify-between! w-full gap-10 max-[1250px]:flex-col   max-[1250px]:gap-40 max-md:mt-10 max-[1250px]:mt-32"
       }
     >
       <div className="flex flex-col items-start justify-start max-[1250px]:justify-center max-[1250px]:items-center gap-10">
-        <div className={"flex-col-center !items-start "}>
+        <div className={"flex-col-center items-start! "}>
           <motion.div
             custom={1}
             variants={appearVariant}
             initial={"hidden"}
             whileInView={"visible"}
             viewport={{ once: true }}
-            className={"flex  w-full  !gap-6"}
+            className={"flex  w-full  gap-6!"}
           >
             <p
               className={
@@ -61,7 +61,7 @@ export default function HeroSection({
                 deas
               </span>{" "}
               to life
-              <span className={"animate-blinkScale"}>_</span>
+              <span className={"animate-blink-scale"}>_</span>
             </p>
           </motion.h1>
         </div>
@@ -231,7 +231,7 @@ const SkillItem = ({
   return (
     <div
       className={cn(
-        "flex  border border-neutral-dark-60 items-center justify-center size-16 rounded-2xl bg-gradient-to-b from-neutral-dark-80 to-neutral-dark-60",
+        "flex  border border-neutral-dark-60 items-center justify-center size-16 rounded-2xl bg-linear-to-b from-neutral-dark-80 to-neutral-dark-60",
         className,
       )}
     >

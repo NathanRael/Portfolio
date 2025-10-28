@@ -97,7 +97,7 @@ export default function ProjectCard({
         </div>
       )}
 
-      <div className={"flex-row-center w-full !justify-between"}>
+      <div className={"flex-row-center w-full justify-between!"}>
         <div className={"inline-flex items-center gap-2"}>
           <div className={"size-2 rounded-full bg-secondary-100"} />
           <p className={"text-small text-white-80"}>{projectType?.display}</p>

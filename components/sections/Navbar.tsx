@@ -18,12 +18,9 @@ export default function Navbar() {
       >
         R.Natanaël
       </Link>
-      <ul className={"flex max-sm:gap-3 gap-10 items-center justify-end"}>
+      <ul className="flex max-sm:gap-3 gap-10 items-center justify-end">
         {navItems.map((navItem, i) => (
-          <li
-            className={"text-base text-white-80 hover:text-white-100"}
-            key={i}
-          >
+          <li className="text-base text-white-80 hover:text-white-100" key={i}>
             <Link scroll={true} href={navItem.link}>
               {navItem.name}
             </Link>

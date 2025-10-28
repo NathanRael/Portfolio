@@ -10,7 +10,7 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
   const { ref, height } = useResizeObserver();
 
   return (
-    <section ref={ref} id="skills" className="section relative w-full !gap-20">
+    <section ref={ref} id="skills" className="section relative w-full gap-20!">
       <div
         style={{
           backgroundImage: "url(/images/noise-texture.svg)",
