@@ -4,7 +4,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -14,15 +13,14 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }
-
 
 @theme {
     --color-white: #f6f5f4;
@@ -52,115 +50,122 @@
     --text-base: 16px;
     --text-small: 14px;
     --text-small-2: 12px;
+
+    --shadow-skipe: inset 0 1px 2px var(--background-400);
 }
 
-
 @utility flex-col-center {
-  @apply flex flex-col items-center justify-center;
+    @apply flex flex-col items-center justify-center;
 }
 
 @utility flex-row-center {
-  @apply flex flex-row items-center justify-center;
+    @apply flex flex-row items-center justify-center;
 }
 
 @utility section {
-  @apply flex-col-center gap-10 justify-start;
+    @apply flex-col-center gap-10 justify-start;
 }
 
 @layer utilities {
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 3.9%;
+        --primary: 0 0% 9%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
+        --accent: 0 0% 96.1%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 0 0% 3.9%;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --radius: 0.5rem;
 
-    --color-primary-100: 256 89% 60%;
-    --color-primary-80: 256 89% 78%;
+        --color-primary-100: 256 89% 60%;
+        --color-primary-80: 256 89% 78%;
 
-    --color-secondary-100: 223 82% 62%;
+        --color-secondary-100: 223 82% 62%;
 
-    --color-neutral-dark-100: 256 8% 7%;
-    --color-neutral-dark-80: 256 6% 10%;
-    --color-neutral-dark-60: 256 6% 20%;
-    --color-neutral-dark-40: 256 6% 24%;
+        --color-neutral-dark-100: 256 8% 7%;
+        --color-neutral-dark-80: 256 6% 10%;
+        --color-neutral-dark-60: 256 6% 20%;
+        --color-neutral-dark-40: 256 6% 24%;
 
-    --color-white-100: 256 10% 94%;
-    --color-white-80: 255 10% 80%;
+        --color-white-100: 256 10% 94%;
+        --color-white-80: 255 10% 80%;
 
-    --color-black-100: 0 0% 0%;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
+        --color-black-100: 0 0% 0%;
+    }
+
+    .dark {
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 0 0% 9%;
+        --secondary: 0 0% 14.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 14.9%;
+        --muted-foreground: 0 0% 63.9%;
+        --accent: 0 0% 14.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 14.9%;
+        --input: 0 0% 14.9%;
+        --ring: 0 0% 83.1%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
 }
-
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+    * {
+        @apply border-border;
+    }
 
-  .light-bulb::after {
-    @apply content-["💡"] absolute -left-[52px] -bottom-1 max-md:-left-[32px];
-  }
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    .light-bulb::after {
+        @apply content-["💡"] absolute -left-[52px] -bottom-1 max-md:-left-[32px];
+    }
+
+    .app-padding {
+        @apply px-[64px] py-6 max-md:px-10 max-sm:px-2;
+    }
 }
+
 
 .flex-center {
     @apply flex flex-col items-center justify-center ;
@@ -169,10 +174,10 @@
 .flex-row-start {
     @apply flex items-center justify-start;
 }
+
 .flex-row-end {
     @apply flex items-center justify-end;
 }
-
 
 .flex-row-center {
     @apply flex items-center justify-center;
@@ -187,27 +192,24 @@
 }
 
 .bg-primary-gradient {
-    @apply bg-gradient-to-r from-[oklch(0.68_0.1567_252.32)]  via-primary  to-[oklch(0.68_0.1567_252.32)]  text-white border-2 border-primary border-t-[oklch(0.78_0.1567_252.32)] ;
+    @apply bg-gradient-to-r from-[oklch(47.87%_0.2323_282.69)]  via-primary  to-[oklch(47.87%_0.2323_282.69)]  text-white border-2 border-primary border-t-[oklch(65.87%_0.2323_282.69)] hover:from-primary hover:to-primary ;
 }
 
 .bg-secondary-gradient {
-    @apply bg-gradient-to-b from-background-200/50 via-background-100 text-text/90 to-background-200/50 border   border-background-200/50 border-t-2 border-t-background-300/30;
+    @apply bg-gradient-to-bl from-background-200/80 via-background-100 text-text/90 to-background-200/50 border  border-background-200/50 border-t-2 border-t-background-300/30 hover:via-background-200;
 }
 
 .line {
     @apply w-full  border-b-1 border-b-background-200
 }
 
-
-
 @layer base {
     :root, .light {
         --text: oklch(0.2418 0.0153 279.58);
         --background: oklch(1 0 0);
-        --primary: oklch(0.6763 0.1567 252.32);
+        --primary: oklch(53.94% 0.2505 286.97);
         --secondary: oklch(66.97% 0.214 260.96);
         --accent: #F08A8B;
-
 
         --background-50: oklch(0.998 0 0);
         --background-100: oklch(0.9697 0.0017 247.84);
@@ -225,7 +227,7 @@
     .dark {
         --text: #D6D6E0;
         --background: oklch(20.35% 0.014 285.10);
-        --primary: oklch(0.6763 0.1567 252.32);
+        --primary: oklch(53.94% 0.2505 286.97);
         --secondary: oklch(0.7428 0.1245 19.86);
         --accent: #F08A8B;
 
@@ -243,4 +245,32 @@
     }
 }
 
+/*
+  ---break---
+*/
 
+@theme inline {
+    --animate-grid: grid 15s linear infinite;
+    @keyframes grid {
+        0% {
+            transform: translateY(-50%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+}
+
+/*
+  ---break---
+*/
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}

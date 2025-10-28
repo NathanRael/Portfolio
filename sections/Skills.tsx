@@ -7,7 +7,7 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
   const experimentedSkills = skills.filter((skill) => skill.experimented);
   const usedSkills = skills.filter((skill) => !skill.experimented);
 
-  const { ref, height } = useResizeObserver();
+  const { ref, height = 120 } = useResizeObserver();
 
   return (
     <section ref={ref} id="skills" className="section relative w-full gap-20!">

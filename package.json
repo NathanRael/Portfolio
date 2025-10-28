@@ -17,6 +17,7 @@
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
     "lucide-react": "^0.469.0",
     "motion": "^11.18.2",
@@ -31,7 +32,8 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-typography": "^3.1.0",
-    "use-resize-observer": "^9.1.0"
+    "use-resize-observer": "^9.1.0",
+    "usehooks-ts": "^3.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",

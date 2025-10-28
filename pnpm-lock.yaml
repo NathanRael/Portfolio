@@ -32,6 +32,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      framer-motion:
+        specifier: ^12.23.24
+        version: 12.23.24(@emotion/is-prop-valid@1.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       gsap:
         specifier: ^3.13.0
         version: 3.13.0
@@ -77,6 +80,9 @@ importers:
       use-resize-observer:
         specifier: ^9.1.0
         version: 9.1.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      usehooks-ts:
+        specifier: ^3.1.1
+        version: 3.1.1(react@19.2.0)
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3.3.1
@@ -5875,6 +5881,12 @@ packages:
     resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  usehooks-ts@3.1.1:
+    resolution: {integrity: sha512-I4diPp9Cq6ieSUH2wu+fDAVQO43xwtulo+fKEidHUwZPnYImbtkTjzIJYcDcJqxgmX31GVqNFURodvcgHcW0pA==}
+    engines: {node: '>=16.15.0'}
+    peerDependencies:
+      react: ^16.8.0  || ^17 || ^18 || ^19 || ^19.0.0-rc
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -12838,6 +12850,11 @@ snapshots:
 
   use-sync-external-store@1.6.0(react@19.2.0):
     dependencies:
+      react: 19.2.0
+
+  usehooks-ts@3.1.1(react@19.2.0):
+    dependencies:
+      lodash.debounce: 4.0.8
       react: 19.2.0
 
   util-deprecate@1.0.2: {}

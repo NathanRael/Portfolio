@@ -1,28 +1,45 @@
 ﻿"use client";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { AtSign, ExternalLink } from "lucide-react";
 import { motion } from "motion/react";
 import { appearVariant } from "@/lib/animationVariants";
-import Image from "next/image";
-import { ReactNode } from "react";
+import { InteractiveGridPattern } from "@/components/ui/shadcn-io/interactive-grid-pattern";
+import { Particles } from "@/components/ui/shadcn-io/particles";
+import HeroSkillPreview from "@/components/hero/HeroSkillPreview";
+import { useWindowSize } from "usehooks-ts";
+import HandWrittenCircle from "@/components/shared/HandWrittenCircle";
 
 export default function HeroSection({
-  resumeUrl,
-  profileImageUrl,
-}: {
+                                      resumeUrl,
+                                      profileImageUrl
+                                    }: {
   resumeUrl: string;
   profileImageUrl: string;
 }) {
   return (
     <section
       className={
-        "flex-row-center justify-between! w-full gap-10 max-[1250px]:flex-col   max-[1250px]:gap-40 max-md:mt-10 max-[1250px]:mt-32"
+        "flex justify-between! py-10 pb-80 lg:pb-20  w-full gap-10 h-[90vh] lg:h-auto"
       }
     >
-      <div className="flex flex-col items-start justify-start max-[1250px]:justify-center max-[1250px]:items-center gap-10">
-        <div className={"flex-col-center items-start! "}>
+      <Particles
+        className="absolute inset-0"
+        quantity={100}
+        ease={80}
+        color="#ffffff"
+        refresh
+      />
+      <div className={"absolute rotate-6  -left-6 -bottom-6 w-[106vw] h-[350px]  overflow-hidden "}>
+        <InteractiveGridPattern
+          className="absolute inset-0"
+          squares={[50, 25]}
+          squaresClassName="hover:fill-primary  transition-colors duration-150"
+        />
+      </div>
+      <div
+        className="flex  flex-col items-start justify-start  gap-10">
+        <div className={"flex flex-col items-center justify-center "}>
           <motion.div
             custom={1}
             variants={appearVariant}
@@ -31,6 +48,7 @@ export default function HeroSection({
             viewport={{ once: true }}
             className={"flex  w-full  gap-6!"}
           >
+
             <p
               className={
                 "text-lead w-full text-start max-[1250px]:text-center  text-white-100"
@@ -46,24 +64,32 @@ export default function HeroSection({
             initial={"hidden"}
             whileInView={"visible"}
             className={
-              "text-title max-md:text-[32px] max-[1080px]:text-wrap text-nowrap w-full font-bold text-start max-[1250px]:text-center  "
+              "lg:text-nowrap z-10 text-[32px] md:text-[56px] lg:text-[84px]  text-center lg:text-start w-full font-bold "
             }
           >
             <p>
               Let&apos;s
-              <span className={"text-secondary-100"}> design </span>
-              <span className={"text-secondary-100"}>develop</span>
+
+              <span className="relative z-10 font-bold  px-4 py-2">Design</span>
+              <span className={"text-secondary-100"}>Develop</span>
             </p>
-            <p>
-              and bring{" "}
-              <span className={"light-bulb   relative ml-8 max-md:ml-6"}>
-                <span className={"max-md:visible hidden"}>i</span>
-                deas
-              </span>{" "}
-              to life
+            <div>
+              and bring
+
+              <div className="relative inline-block">
+                {/*Desktop*/}
+                <HandWrittenCircle width={"230"} height={"230"} className={"absolute max-lg:hidden -top-10 right-0"}
+                                   color={"var(--secondary)"} />
+                {/*Mobile*/}
+                <HandWrittenCircle width={"96"} height={"96"} className={"absolute lg:hidden -top-6 right-0"}
+                                   color={"var(--secondary)"} />
+                <span className="relative z-10 font-bold  px-4 py-2">Idea</span>
+              </div>
+              <span className={""}>to Life</span>
               <span className={"animate-blink-scale"}>_</span>
-            </p>
+            </div>
           </motion.h1>
+
         </div>
         <motion.div
           viewport={{ once: true }}
@@ -71,171 +97,33 @@ export default function HeroSection({
           variants={appearVariant}
           initial={"hidden"}
           whileInView={"visible"}
-          className={"flex-row-center max-md:flex-wrap gap-6"}
+          className={"flex w-full flex-wrap items-center justify-center  lg:justify-start gap-4 "}
         >
           <Link href={"#contact"}>
-            <Button size={"lg"} variant={"gradient"}>
+            <Button size={"lg"} variant={"default"}>
               <AtSign size={20} />
               Contact
             </Button>
           </Link>
           <Link target={"_blank"} href={resumeUrl}>
-            <Button size={"lg"} variant={"tertiary"}>
+            <Button size={"lg"} variant={"secondary"}>
               Download resume
               <ExternalLink size={20} />
             </Button>
           </Link>
         </motion.div>
       </div>
-      <motion.div
-        viewport={{ once: true }}
-        custom={5}
-        variants={appearVariant}
-        initial={"hidden"}
-        whileInView={"visible"}
-        className="rounded-full max-[760px]:hidden relative flex items-center justify-center bg-transparent border border-neutral-dark-60 size-[512px] mr-20"
-      >
-        <ProfileImage profileImageUrl={profileImageUrl} className={"mb-4"} />
-        <SkillItem
-          className="absolute -left-6 top-1/2 -translate-y-1/2"
-          icon={
-            <Image
-              src={"/skills/notion-logo.svg"}
-              width={36}
-              height={36}
-              alt={"notion"}
-            />
-          }
-        />
-        <SkillItem
-          className="absolute -top-6 left-1/2 -translate-x-1/2"
-          icon={
-            <Image
-              src={"/skills/figma-logo.svg"}
-              width={24}
-              height={24}
-              alt={"figma"}
-            />
-          }
-        />
-
-        <div className="absolute -right-[82px] top-1/2 -translate-y-1/2 size-[164px] ">
-          <SkillItem
-            className="absolute -top-6 left-1/2  -translate-x-1/2"
-            icon={
-              <Image
-                src={"/skills/next-js-logo.svg"}
-                width={36}
-                height={36}
-                alt={"next js"}
-              />
-            }
-          />
-          <SkillItem
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            icon={
-              <Image
-                src={"/skills/git-logo.svg"}
-                width={36}
-                height={36}
-                alt={"git"}
-              />
-            }
-          />
-          <SkillItem
-            className="absolute top-1/2 -left-6  -translate-y-1/2"
-            icon={
-              <Image
-                src={"/skills/nest-js-logo.svg"}
-                width={36}
-                height={36}
-                alt={"git"}
-              />
-            }
-          />
-          <SkillItem
-            className="absolute -right-6 top-1/2 -translate-y-1/2"
-            icon={
-              <Image
-                src={"/skills/fastapi-logo.svg"}
-                width={36}
-                height={36}
-                alt={"fastapi"}
-              />
-            }
-          />
-          <SkillItem
-            className="absolute -bottom-6 left-1/2 -translate-x-1/2"
-            icon={
-              <Image
-                src={"/skills/react-logo.svg"}
-                width={36}
-                height={36}
-                alt={"react"}
-              />
-            }
-          />
-        </div>
-        <SkillItem
-          className="absolute -bottom-6 left-1/2 -translate-x-1/2"
-          icon={
-            <Image
-              src={"/skills/docker-logo.svg"}
-              width={36}
-              height={36}
-              alt={"nest js"}
-            />
-          }
-        />
-      </motion.div>
-      <Image
-        className="absolute max-[1020px]:-top-[20%] max-[1020px]:-left-[50%] -top-[480px]  -left-[400px] -z-20"
-        src={"/images/looper.svg"}
-        alt={"looper"}
-        width={1024}
-        height={1024}
-      />
+      {/*Desktop */}
+      <HeroSkillPreview
+        minimized={false}
+        className={"left-1/2 max-lg:hidden visible -translate-x-1/2 -bottom-40  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "}
+        profileImageUrl={profileImageUrl} />
+      {/*Mobile */}
+      <HeroSkillPreview
+        minimized={true}
+        className={"left-1/2 visible lg:hidden -translate-x-1/2 -bottom-40  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "}
+        profileImageUrl={profileImageUrl} />
     </section>
   );
 }
 
-function ProfileImage({
-  className,
-  profileImageUrl,
-}: {
-  className?: string;
-  profileImageUrl: string;
-}) {
-  console.log(profileImageUrl);
-  return (
-    <Image
-      src={profileImageUrl}
-      width={216}
-      height={216}
-      className={cn(
-        "flex items-center  justify-center text-subtitle object-cover overflow-hidden    rounded-full  bg-transparent",
-        className,
-      )}
-      alt={"Image profile"}
-    />
-  );
-}
-
-const SkillItem = ({
-  icon,
-  className,
-}: {
-  icon: ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div
-      className={cn(
-        "flex  border border-neutral-dark-60 items-center justify-center size-16 rounded-2xl bg-linear-to-b from-neutral-dark-80 to-neutral-dark-60",
-        className,
-      )}
-    >
-      {icon}
-    </div>
-  );
-};
