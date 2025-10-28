@@ -3,13 +3,37 @@
 export const appearVariant: Variants = {
   hidden: {
     opacity: 0,
-    transform: "translateY(20px)",
+    transform: "translateY(40px)",
   },
+  fromL: (index : number) => ({
+    opacity: 0,
+    transform: "translateX(-50px)",
+    transition: {
+      delay: 0.15 * index,
+      duration: 1.5,
+    },
+  }),
+  fromR: (index : number) => ({
+    opacity: 0,
+    transform: "translateX(50px)",
+    transition: {
+      delay: 0.15 * index,
+      duration: 0.8,
+    },
+  }),
+  fromB: (index : number) => ({
+    opacity: 0,
+    transform: "translateY(40px)",
+    transition: {
+      delay: 0.15 * index,
+      duration: 1.5,
+    },
+  }),
   visible: (index: number) => ({
     opacity: 1,
     transform: "translateY(0px)",
     transition: {
-      delay: 0.1 * index,
+      delay: 0.15 * index,
       duration: 0.4,
     },
   }),

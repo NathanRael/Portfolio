@@ -25,9 +25,9 @@ const buttonVariants = cva(
           "bg-linear-to-r from-secondary-100 to-primary-100 hover:opacity-60",
       },
       size: {
-        default: "h-10 px-4 rounded-xl py-2",
+        default: "h-10 px-8 rounded-xl py-4",
         sm: "h-9 rounded-xl px-3",
-        lg: "h-11 rounded-xl px-8",
+        lg: "h-11 rounded-xl px-12 py-6",
         icon: "h-10 w-10 rounded-full",
       },
     },

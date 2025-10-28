@@ -7,14 +7,14 @@ import {Variants} from "motion/react";
 export type animatedTextVariants = 'appear'
 
 
-type AnimatedTextProps = {
-    children: React.ReactNode;
-    className?: string;
-    custom: number;
-    variants?: animatedTextVariants;
-    whileInView: VariantLabels | TargetAndTransition;
-    initial?: boolean | VariantLabels;
-}
+  type AnimatedTextProps = {
+      children: React.ReactNode;
+      className?: string;
+      custom: number;
+      variants?: animatedTextVariants;
+      whileInView: VariantLabels | TargetAndTransition;
+      initial?: boolean | VariantLabels;
+  }
 
 
 const availableVariants: Record<string, Variants> = {

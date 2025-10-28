@@ -20,7 +20,7 @@ export default function HeroSection({
   return (
     <section
       className={
-        "flex justify-between! py-10 pb-80 lg:pb-20  w-full gap-10 h-[90vh] lg:h-auto"
+        "flex justify-between! py-10 pb-80 lg:pb-20  w-full gap-10 h-[90vh] lg:h-[60vh]"
       }
     >
       <Particles
@@ -71,7 +71,7 @@ export default function HeroSection({
               Let&apos;s
 
               <span className="relative z-10 font-bold  px-4 py-2">Design</span>
-              <span className={"text-secondary-100"}>Develop</span>
+              <span className={"text-white bg-primary/10"}>Develop</span>
             </p>
             <div>
               and bring
