@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useQueryParam } from "@/hook/useQueryParam";
+import { cn } from "@/lib/utils";
 
 export default function ProjectFilter({
   activeFilter,
@@ -24,11 +25,13 @@ export default function ProjectFilter({
         <Button
           onClick={() => handleSelectedFilter(filter)}
           key={filter}
-          variant={"tertiary"}
+          variant={"secondary"}
           className={
-            selectedFilter.toLowerCase() === filter.toLowerCase()
-              ? "bg-neutral-dark-60"
-              : ""
+            cn(
+              selectedFilter.toLowerCase() === filter.toLowerCase()
+                ? "bg-background-200"
+                : "bg-background-100", 'hover:bg-background-200'
+            )
           }
         >
           {filter}

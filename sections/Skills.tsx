@@ -18,30 +18,26 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
         }}
         className="absolute  left-1/2 -top-60 -translate-x-1/2 w-screen  z-0 bg-no-repeat bg-cover bg-center "
       />
-      <div className="flex flex-col items-center justify-start gap-10">
+      <div className={"mb-20 pt-6 space-y-4 max-w-[650px] mx-auto"}>
         <AnimatedText
           whileInView="visible"
           initial="hidden"
           custom={1}
-          className="text-white-100 text-subtitle font-semibold -rotate-6 pb-10"
+          className="text-subtitle font-bold w-full text-center"
         >
-          I&apos;ve been{" "}
-          <span className="text-secondary-100">working with</span>
+          My <span className={"text-secondary"}>Development Stack</span>
         </AnimatedText>
-        <SkillList skills={usedSkills} />
-      </div>
-
-      <div className="flex flex-col items-center justify-start gap-10">
         <AnimatedText
           whileInView="visible"
           initial="hidden"
           custom={2}
-          className="text-white-100 text-subtitle font-semibold"
+          className="text-lead w-full text-center "
         >
-          and <span className="text-yellow-300">experimenting with</span>
+          The core set of frameworks, languages, and tools I rely on for building full-stack applications, designing interfaces, and managing efficient workflows.
         </AnimatedText>
-        <SkillList skills={experimentedSkills} />
       </div>
+      <SkillList skills={skills}/>
+
     </section>
   );
 }
