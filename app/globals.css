@@ -203,11 +203,44 @@
     @apply w-full  border-b-1 border-b-background-200
 }
 
+
+@layer utilities {
+    @keyframes scrollDown {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            /* height of ONE full set of certificates */
+            transform: translateY(-40%);
+        }
+    }
+
+    @keyframes scrollUp {
+        from {
+            transform: translateY(-40%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    .animate-scroll-down {
+        animation: scrollDown linear infinite;
+    }
+
+    .animate-scroll-up {
+        animation: scrollUp linear infinite;
+    }
+}
+
+
+
+
 @layer base {
     :root, .light {
         --text: oklch(0.2418 0.0153 279.58);
         --background: oklch(1 0 0);
-        --primary: oklch(53.94% 0.2505 286.97);
+        --primary: oklch(60.94% 0.25 290.97);
         --secondary: oklch(66.97% 0.214 260.96);
         --accent: #F08A8B;
 
@@ -227,7 +260,7 @@
     .dark {
         --text: #D6D6E0;
         --background: oklch(20.35% 0.014 285.10);
-        --primary: oklch(53.94% 0.2505 286.97);
+        --primary: oklch(60.94% 0.25 290.97);
         --secondary: oklch(0.7428 0.1245 19.86);
         --accent: #F08A8B;
 

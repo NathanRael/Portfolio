@@ -22,13 +22,13 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
         categories?.map((category, i) => (
           <div key={category} className={"flex flex-wrap gap-10 items-center justify-center"}>
             <AnimatedText className={"relative"} custom={i * 0.5} whileInView={"visible"} initial={i % 2 === 0 ? "fromL" : "fromR"}>
-              <h1 className={"text-subtitle-2 -rotate-2 text-white relative"}>
+              <div className={"text-subtitle-2 -rotate-2 text-white relative"}>
                 {category.charAt(0).toUpperCase() + category.slice(1)}s
                 <svg className="absolute bottom-4  w-full h-full pointer-events-none" viewBox="0 0 400 100" fill="none">
                   <path d="M10,10 Q200,80 390,10 Q200,90 10,10 Z"
                         stroke="var(--secondary)" strokeWidth="6" fill="none" />
                 </svg>
-              </h1>
+              </div>
 
             </AnimatedText>
             <div className={"flex-row-center flex-wrap w-full  gap-20"}>

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import AnimatedText from "@/components/ui/AnimatedText";
+import { Particles } from "@/components/ui/shadcn-io/particles";
 
 export interface Certificate {
   title: string;
@@ -17,7 +18,6 @@ const CertificateSection = ({
 }: {
   certificates: Certificate[];
 }) => {
-  const { width, height, ref } = useResizeObserver();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextCertificate = () => {
@@ -61,116 +61,90 @@ const CertificateSection = ({
   });
 
   return (
-    <section className="flex flex-row justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-screen h-[50vh] gap-20!">
-      <AnimatedText
-        whileInView="visible"
-        initial="hidden"
-        custom={1}
-        className="text-subtitle max-[1020px]:text-center w-full font-medium relative"
-      >
-        <p>Certifications That</p>
-        <p>Validate My Expertise</p>
-        <Image
-          className={"absolute -top-20 -z-10"}
-          src={"/images/confetti-2.svg"}
-          alt={"confetti"}
-          width={320}
-          height={320}
-        />
-      </AnimatedText>
-      <Image
-        className={"absolute right-20 "}
-        src={"/images/confetti-2.svg"}
-        alt={"confetti"}
-        width={520}
-        height={520}
+    <section className="flex flex-row  relative justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-screen h-[70vh] gap-10 lg:gap-20">
+      <Particles
+        className="absolute inset-0"
+        quantity={100}
+        ease={80}
+        color="#ffffff"
+        refresh
       />
-      <div className={"relative max-[1020px]:mt-60  bg-white-80 w-fit"}>
-        {certificates.map((certificate, index) => (
-          <AnimatePresence mode="wait" key={`certificate-${index}`}>
-            <motion.div
-              whileHover={{
-                scale: 1.2,
-              }}
-              transition={{
-                duration: 0.4,
-                type: "spring",
-                stiffness: 100,
-              }}
-              initial={{
-                x: 100,
-                y: "-50%",
-                opacity: 0,
-              }}
-              animate={getStyle(index)}
-              key={`motion-${index}`}
-              className="flex absolute max-[1020px]:right-1/2 -translate-y-1/2 right-60 flex-col gap-4 items-center w-full "
-            >
-              <div
-                ref={ref}
-                style={{
-                  width: 420,
-                  height: 296,
-                }}
-                className="rounded-2xl   overflow-hidden border-4 border-neutral-dark-60"
-              >
-                <Image
-                  className="object-cover"
-                  width={width || 360}
-                  height={height || 360}
-                  src={certificate.image}
-                  alt={certificate.title}
-                />
-              </div>
-              <AnimatePresence mode="wait">
-                {activeIndex === index && (
-                  <motion.h1
-                    key={`title-${index}`}
-                    transition={{
-                      duration: 0.3,
-                      type: "spring",
-                      stiffness: 120,
-                    }}
-                    animate={{
-                      y: 0,
-                      opacity: 1,
-                    }}
-                    initial={{
-                      y: 20,
-                      opacity: 0,
-                    }}
-                    exit={{
-                      y: -20,
-                      opacity: 0,
-                    }}
-                    className="text-lead text-nowrap"
-                  >
-                    {certificate.title}
-                  </motion.h1>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          </AnimatePresence>
-        ))}
-        <Button
-          onClick={prevCertificate}
-          className={
-            "absolute max-[1020px]:-left-60 -left-[470px] top-1/2 -translate-y-1/2 z-10"
-          }
+      <div className={"mb-20 text-start pt-6 space-y-4 max-w-[500px] "}>
+        <AnimatedText
+          whileInView="visible"
+          initial="hidden"
+          custom={1}
+          className="text-subtitle font-bold w-full"
         >
-          <ChevronLeft />
-        </Button>
-        <Button
-          onClick={nextCertificate}
-          className={
-            "absolute right-0 max-[1020px]:-right-60 top-1/2 -translate-y-1/2 z-10"
-          }
+           <span className={"text-secondary"}>Certifications</span>  that Validate my Skills
+        </AnimatedText>
+        <AnimatedText
+          whileInView="visible"
+          initial="hidden"
+          custom={2}
+          className="text-lead w-full "
         >
-          <ChevronRight />
-        </Button>
+          A collection of certifications I’ve earned to strengthen and showcase my expertise across different areas of technology.
+        </AnimatedText>
       </div>
+      <InfiniteCertificateScroller certificates={certificates}/>
+
     </section>
   );
 };
 
 export default CertificateSection;
+
+
+
+export function InfiniteCertificateScroller({certificates} : {certificates : Certificate[]}) {
+  const scrollDuration = 20;
+
+  return (
+    <div className="bg-secondary flex items-center justify-center gap-6 overflow-hidden rounded-xl w-full h-[720px]">
+      <div className="flex flex-col gap-2 rotate-12 overflow-hidden">
+        <div
+          className="flex  flex-col gap-2"
+          style={{
+            animation: `scrollDown ${scrollDuration}s linear infinite`,
+          }}
+        >
+          {[...certificates, ...certificates, ...certificates].map((c, i) => (
+            <CertCard key={i} {...c} />
+          ))}
+        </div>
+      </div>
+
+      {/* RIGHT COLUMN (bottom → top) */}
+      <div className="flex flex-col gap-2 max-lg:hidden rotate-12 overflow-hidden">
+        <div
+          className="flex flex-col gap-2"
+          style={{
+            animation: `scrollUp ${scrollDuration}s linear infinite`,
+          }}
+        >
+          {[...certificates, ...certificates, ...certificates].map((c, i) => (
+            <CertCard key={i} {...c} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+function CertCard({ image, title }: { image: string; title: string }) {
+  return (
+    <div
+      className="overflow-hidden border-4 rounded-lg border-background-300"
+    >
+      <Image
+        className="object-cover w-full h-full"
+        width={420}
+        height={296}
+        src={image}
+        alt={title}
+      />
+    </div>
+  );
+}
