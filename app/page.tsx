@@ -17,16 +17,11 @@ export const revalidate = 3600;
 
 export default async function Home() {
   const { data: resumeData } = await sanityFetch({ query: RESUME_QUERY });
-  // const { data: profileImage } = await sanityFetch({
-  //   query: PROFILE_IMAGE_QUERY,
-  // });
   const { url: resumeUrl } = resumeData;
   const { data: projects } = await sanityFetch({ query: PROJECT_QUERY });
   const { data: certificates } = await sanityFetch({
     query: CERTIFICATES_QUERY,
   });
-
-  // const { url: profileImageUrl } = profileImage;
 
   const { data: skills } = await sanityFetch({ query: SKILL_QUERY });
 

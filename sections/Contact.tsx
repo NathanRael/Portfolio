@@ -13,21 +13,22 @@ export default function ContactSection({className, withSubtitle = true} : {class
     const [copied, setCopied] = useState(false);
     return (
         <section className={cn("section", className)} >
+
             {
                 withSubtitle && (
                     <div className={'text-center'}>
                         <AnimatedText whileInView={"visible"} initial={"hidden"} custom={1} className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}>Wanna talk about something
                             ?</AnimatedText>
-                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={4} className={'text-white-100 text-subtitle font-semibold  '}>Feel free to reach out</AnimatedText>
+                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={4} className={'text-white-100 text-title font-bold  '}>Feel Free To <span className={"text-secondary"}>Reach Out</span></AnimatedText>
                     </div>
                 )
             }
             <motion.div viewport={{ once : true}} variants={appearVariant}  whileInView={"visible"} initial={"hidden"} custom={3} className={'flex-row-center max-[460px]:flex-col gap-10'}>
                 <Link onClick={() => {
                     copyToClipboard(MY_EMAIL)
-                    
+
                     setCopied(true)
-                    
+
                     setTimeout(() => {
                         setCopied(false)
                     }, 3000)
@@ -41,14 +42,14 @@ export default function ContactSection({className, withSubtitle = true} : {class
                 </Link>
                 <div className={'space-x-4'}>
                     <Link target={'_blank'} href={MY_GITHUB_PROFILE}>
-                        <Button variant={'tertiary'} className={'group'}  size={'icon'}>
+                        <Button variant={'secondary'} className={'group px-4 rounded-full'}  size={'lg'} >
                             <Github  size={20}/>
-                        </Button>    
+                        </Button>
                     </Link>
                     <Link target={'_blank'} href={MY_LINKEDIN_PROFILE}>
-                        <Button variant={'tertiary'}  size={'icon'}>
+                        <Button variant={'secondary'}  size={'lg'} className={"px-4 rounded-full"}>
                             <Linkedin className={'text-secondary-100'} size={20}/>
-                        </Button>                        
+                        </Button>
                     </Link>
 
                 </div>
