@@ -32,10 +32,80 @@ const schibsetGrotesk = localFont({
   variable: "--font-schibstedGrotesk",
 });
 
+
+
 export const metadata: Metadata = {
-  title: "Natanaël RALAIVOAVY",
-  description: "Frontend and AI integrator developer",
+  title: {
+    default: "Natanaël RALAIVOAVY",
+    template: "%s | Natanaël RALAIVOAVY",
+  },
+  description: "Frontend and AI integrator developer building performant and intelligent web experiences.",
+  keywords: [
+    "Frontend developer",
+    "AI integrator",
+    "Next.js",
+    "React",
+    "Portfolio",
+    "Natanaël RALAIVOAVY",
+    "Web developer"
+  ],
+  metadataBase: new URL("https://nathanrael.vercel.app"),
+  generator: "Next.js 16",
+  applicationName: "Natanaël RALAIVOAVY Portfolio",
+  referrer: "origin-when-cross-origin",
+  authors: [
+    { name: "Natanaël RALAIVOAVY", url: "https://nathanrael.vercel.app/" },
+  ],
+  creator: "Natanaël RALAIVOAVY",
+  publisher: "Natanaël RALAIVOAVY",
+  openGraph: {
+    title: "Natanaël RALAIVOAVY | Frontend & AI Integrator",
+    description:
+      "Explore the portfolio and work of Natanaël RALAIVOAVY, a frontend and AI integrator developer.",
+    url: "https://nathanrael.vercel.app",
+    siteName: "Natanaël RALAIVOAVY",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Natanaël RALAIVOAVY Portfolio",
+      },
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  category: "technology",
+  alternates: {
+    canonical: "https://nathanrael.vercel.app",
+    languages: {
+      "en-US": "https://nathanrael.vercel.app/en",
+      "fr-FR": "https://nathanrael.vercel.app/fr",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+    },
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
+
 
 export default function RootLayout({
   children,
