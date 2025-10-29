@@ -12,3 +12,8 @@ export const copyToClipboard = async (text : string) => {
     console.error("Error while coping to clipboard : ", e)
   }
 }
+
+
+export function roundUpToNearestTen(value : number) {
+  return Math.ceil(value / 10) * 10;
+}

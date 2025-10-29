@@ -24,7 +24,7 @@ export default function  Footer() {
             <AnimatePresence>
                 {
                     showUpButton &&
-                    <motion.button initial={{opacity : 0, scale : 0.5 }} animate={{ opacity : 1, scale : 1 }} exit={{ opacity : 0, scale : 0}}  onClick={() => window.scrollTo({top: 0})} className={cn('fixed bottom-10 right-20', buttonVariants({variant: "secondary", size : "icon"}))}>
+                    <motion.button initial={{opacity : 0, scale : 0.5 }} animate={{ opacity : 1, scale : 1 }} exit={{ opacity : 0, scale : 0}}  onClick={() => window.scrollTo({top: 0})} className={cn('fixed bottom-10 right-20', buttonVariants({variant: "default", size : "icon"}))}>
                         <ArrowUp/>
                     </motion.button>
                 }

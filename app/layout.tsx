@@ -33,8 +33,8 @@ const schibsetGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Rael Protfolio",
-  description: "A portfolio to showcase my realisations",
+  title: "Natanaël RALAIVOAVY",
+  description: "Frontend and AI integrator developer",
 };
 
 export default function RootLayout({
@@ -43,15 +43,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={"dark"}>
       <body
-        className={`bg-neutral-dark-100 text-white-100 px-[64px] py-6 max-md:px-10 max-sm:px-2 scroll-smooth overflow-x-hidden antialiased h-full ${schibsetGrotesk.variable} ${schibsetGrotesk.className}`}
+        className={`bg-background-100  text-white-100 app-padding scroll-smooth overflow-x-hidden antialiased h-full ${schibsetGrotesk.variable} ${schibsetGrotesk.className}`}
       >
         <Navbar />
         <ReactQueryProvider>
-          <div className="pt-10">
-          {children}
-          </div>
+          <div className="pt-10">{children}</div>
         </ReactQueryProvider>
         <Analytics />
         <SanityLive />
