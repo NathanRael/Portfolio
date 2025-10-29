@@ -1,12 +1,9 @@
 "use client";
 import Image from "next/image";
-import useResizeObserver from "use-resize-observer";
-import { AnimatePresence, motion, VariantLabels, Target } from "motion/react";
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "motion/react";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { Particles } from "@/components/ui/shadcn-io/particles";
+import { useRef } from "react";
 
 export interface Certificate {
   title: string;
@@ -18,47 +15,6 @@ const CertificateSection = ({
 }: {
   certificates: Certificate[];
 }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const nextCertificate = () => {
-    setActiveIndex((prev) => (prev + 1) % certificates.length);
-  };
-
-  const prevCertificate = () => {
-    setActiveIndex((prev) => (prev === 0 ? certificates.length - 1 : prev - 1));
-  };
-
-  const getStyle = (index: number): VariantLabels | Target => {
-    if (index === activeIndex) {
-      return {
-        x: 0,
-        y: "-50%",
-        opacity: 1,
-        scale: 1,
-        rotate: 0,
-        zIndex: 3,
-      };
-    }
-
-    return {
-      x: 0,
-      y: -(1.5 * index) - 48 + "%",
-      opacity: 0.6,
-      scale: 0.9,
-      rotate: -1.9 * index,
-      zIndex: 1,
-    };
-  };
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      nextCertificate();
-    }, 4000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  });
 
   return (
     <section className="flex flex-row  relative justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-screen h-[70vh] gap-10 lg:gap-20">
@@ -76,7 +32,7 @@ const CertificateSection = ({
           custom={1}
           className="text-subtitle font-bold w-full"
         >
-           <span className={"text-secondary"}>Certifications</span>  that Validate my Skills
+           <span className={"text-secondary"}>Certifications</span>  That Validate My Skills
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -88,7 +44,6 @@ const CertificateSection = ({
         </AnimatedText>
       </div>
       <InfiniteCertificateScroller certificates={certificates}/>
-
     </section>
   );
 };
@@ -99,9 +54,22 @@ export default CertificateSection;
 
 export function InfiniteCertificateScroller({certificates} : {certificates : Certificate[]}) {
   const scrollDuration = 20;
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "center center"]
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
 
   return (
-    <div className="bg-secondary flex items-center justify-center gap-6 overflow-hidden rounded-xl w-full h-[720px]">
+    <motion.div
+      ref={containerRef}
+      style={{ scale, opacity }}
+      className="bg-secondary flex items-center justify-center gap-6 overflow-hidden rounded-xl w-full h-[720px]"
+    >
       <div className="flex flex-col gap-2 rotate-12 overflow-hidden">
         <div
           className="flex  flex-col gap-2"
@@ -128,7 +96,7 @@ export function InfiniteCertificateScroller({certificates} : {certificates : Cer
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

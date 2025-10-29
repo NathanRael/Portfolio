@@ -40,7 +40,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          From <span className={"text-secondary"}>Idea</span> to <span className={"text-secondary"}>Interface</span>
+          From <span className={"text-secondary"}>Idea</span> To <span className={"text-secondary"}>Interface</span>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -82,18 +82,18 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
             />
           </div>
         </motion.div>
-      </div>
-      <div className="flex flex-col pt-6 items-center justify-center gap-2 mt-20">
-        <Link
-          className={buttonVariants({variant: "default", size: 'lg'})}
-          href={"/project"}
-        >
-          See more projects
-          <div className={" p-2 px-3 bg-white rounded-full text-primary"}>
-            {roundUpToNearestTen(projectList.length)}+
-          </div>
-          <ArrowRight/>
-        </Link>
+        <div className="flex flex-col z-20  md:pt-6 items-center justify-center gap-2 md:mt-12">
+          <Link
+            className={buttonVariants({variant: "default", size: 'lg'})}
+            href={"/project"}
+          >
+            See more projects
+            <div className={" p-2 px-3 bg-white rounded-full text-primary"}>
+              {roundUpToNearestTen(projectList.length)}+
+            </div>
+            <ArrowRight/>
+          </Link>
+        </div>
       </div>
     </section>
   );
