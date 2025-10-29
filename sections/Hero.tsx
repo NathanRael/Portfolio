@@ -7,7 +7,6 @@ import { appearVariant } from "@/lib/animationVariants";
 import { InteractiveGridPattern } from "@/components/ui/shadcn-io/interactive-grid-pattern";
 import { Particles } from "@/components/ui/shadcn-io/particles";
 import HeroSkillPreview from "@/components/hero/HeroSkillPreview";
-import { useWindowSize } from "usehooks-ts";
 import HandWrittenCircle from "@/components/shared/HandWrittenCircle";
 
 export default function HeroSection({
@@ -20,7 +19,7 @@ export default function HeroSection({
   return (
     <section
       className={
-        "flex justify-between! py-10 pb-80 lg:pb-20  w-full gap-10 h-[90vh] lg:h-[60vh]"
+        "flex justify-between!  overflow-x-hidden py-10 pb-80 lg:pb-20  w-full gap-10 h-[90vh] lg:h-[60vh]"
       }
     >
       <Particles
@@ -30,7 +29,7 @@ export default function HeroSection({
         color="#ffffff"
         refresh
       />
-      <div className={"absolute rotate-6  -left-6 -bottom-6 w-[106vw] h-[350px]  overflow-hidden "}>
+      <div className={"absolute rotate-6  -left-4 -bottom-6 w-[100vw] h-[350px] overflow-hidden "}>
         <InteractiveGridPattern
           className="absolute inset-0"
           squares={[50, 25]}
@@ -38,7 +37,7 @@ export default function HeroSection({
         />
       </div>
       <div
-        className="flex  flex-col items-start justify-start  gap-10">
+        className="flex  flex-col items-center justify-center lg:items-start w-full lg:justify-start  gap-10">
         <div className={"flex flex-col items-center justify-center "}>
           <motion.div
             custom={1}
@@ -97,7 +96,7 @@ export default function HeroSection({
           variants={appearVariant}
           initial={"hidden"}
           whileInView={"visible"}
-          className={"flex w-full flex-wrap items-center justify-center  lg:justify-start gap-4 "}
+          className={"flex w-full z-10 flex-wrap items-center justify-center  lg:justify-start gap-4 "}
         >
           <Link href={"#contact"}>
             <Button size={"lg"} variant={"default"}>
@@ -121,7 +120,7 @@ export default function HeroSection({
       {/*Mobile */}
       <HeroSkillPreview
         minimized={true}
-        className={"left-1/2 visible lg:hidden -translate-x-1/2 -bottom-40  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "}
+        className={"left-1/2 visible lg:hidden -translate-x-1/2 -bottom-60  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "}
         profileImageUrl={profileImageUrl} />
     </section>
   );

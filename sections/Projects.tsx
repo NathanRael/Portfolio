@@ -23,7 +23,7 @@ export default async function ProjectsSection({ filter, projects }: { filter?: s
         color="#ffffff"
         refresh
       />
-      <div className={"absolute rotate-6  -left-6  w-[106vw] h-[350px]  overflow-hidden "}>
+      <div className={"absolute rotate-6  -left-6  w-[100vw] h-[350px]  overflow-hidden "}>
         <InteractiveGridPattern
           className="absolute inset-0"
           squares={[50, 25]}
