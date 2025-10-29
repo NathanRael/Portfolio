@@ -224,13 +224,6 @@
         }
     }
 
-    .animate-scroll-down {
-        animation: scrollDown linear infinite;
-    }
-
-    .animate-scroll-up {
-        animation: scrollUp linear infinite;
-    }
 }
 
 

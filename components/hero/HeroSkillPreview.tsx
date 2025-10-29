@@ -17,10 +17,10 @@ const HeroSkillPreview = ({ profileImageUrl, className, minimized = true }: {
       variants={appearVariant}
       initial={"hidden"}
       whileInView={"visible"}
-      className={cn("rounded-full absolute flex  flex-col gap-6 items-center justify-center bg-transparent  border-background-200 size-[420px] mr-20", className, !minimized && "border")}
+      className={cn("rounded-full absolute flex  flex-col gap-6 items-center justify-center bg-transparent  border-background-200  h-[420px] w-full md:size-[420px] mr-20", className, !minimized && "border")}
     >
       <ProfileImage profileImageUrl={profileImageUrl} className={"mb-4"} />
-      <div className={cn(minimized && "flex    items-center justify-center gap-4")}>
+      <div className={cn(minimized && "flex flex-wrap md:flex-nowrap items-center justify-center gap-4")}>
         <SkillItem
           className={cn( !minimized && "absolute -left-6 top-1/2 -translate-y-1/2")}
           icon={
