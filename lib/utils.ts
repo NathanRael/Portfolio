@@ -15,5 +15,5 @@ export const copyToClipboard = async (text : string) => {
 
 
 export function roundUpToNearestTen(value : number) {
-  return Math.ceil(value / 10) * 10;
+  return Math.floor(value / 10) * 10;
 }

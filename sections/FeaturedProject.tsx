@@ -11,16 +11,19 @@ import { appearVariant } from "@/lib/animationVariants";
 import { buttonVariants } from "@/components/ui/button";
 
 const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
-  const firstFProject = projectList.find(
+  const featuredProjects = projectList.filter((item) => item.isFeatured);
+  const firstFProject = featuredProjects[0];
+  const secondFProject = featuredProjects[1];
+  const thirdFProject = featuredProjects[2];
+/*    const firstFProject = projectList.find(
     (p) => p.name.toLocaleLowerCase() === "rael ai"
   );
   const secondFProject = projectList.find(
     (p) => p.name.toLowerCase() === "SkillMatchr".toLowerCase()
   );
-
   const thirdFProject = projectList.find(
     (p) => p.name.toLowerCase() === "rael ui"
-  );
+  );*/
 
   const mockups = projectList.filter(
     (p) => p.projectType.name.toLowerCase() === "mockup"
@@ -29,7 +32,6 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
     (p) => p.projectType.name === "application"
   );
 
-  // from-neutral-dark-100 via-neutral-dark-80 to-neutral-dark-100
   return (
     <section
       className="bg-linear-to-bl relative from-background-100 via-background-50 to-background-100 border bordeer-t-2  border-t-background-200 rounded-xl max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)]  min-h-screen h-full pt-20 max-lg:p-2 p-6">
@@ -58,7 +60,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
                     variants={appearVariant} initial={"fromL"}>
           <FeaturedProjectCard
             className=" w-full lg:w-[90%] h-[360px] lg:h-[520px]"
-            backgroundColor="bg-linear-to-b from-[#29323f]/40 via-[#29323f] to-[#29323f]"
+            backgroundColor="bg-linear-to-b from-[#21C5B7]/40 via-[#21C5B7] to-[#21C5B7]"
             project={firstFProject!}
           />
         </motion.div>
@@ -72,7 +74,8 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           >
             <FeaturedProjectCard
               className={"max-[1140px]:w-full max-lg:h-[360px] w-[45vw]"}
-              backgroundColor="bg-linear-to-b   from-[#17181f]/40 via-[#17181f] to-[#17181f]"
+              backgroundColor="bg-linear-to-b from-[#29323f]/40 via-[#29323f] to-[#29323f]"
+
               project={secondFProject!}
             />{" "}
             <FeaturedProjectCard
@@ -89,7 +92,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           >
             See more projects
             <div className={" p-2 px-3 bg-white rounded-full text-primary"}>
-              {roundUpToNearestTen(projectList.length)}+
+              {projectList.length > 10 ? roundUpToNearestTen(projectList.length) : projectList.length}+
             </div>
             <ArrowRight/>
           </Link>
@@ -156,7 +159,7 @@ const FeaturedProjectCard = ({
             duration: 0.3,
             ease: "easeInOut"
           }}
-          className="overflow-hidden absolute left-1/2 -bottom-2 border border-neutral-dark-40 rounded-xl"
+          className="overflow-hidden absolute left-1/2 -bottom-2 border border-text/80 rounded-xl"
         >
           <Image
             src={image}
@@ -179,10 +182,10 @@ const FeaturedProjectCard = ({
               {name}
               {links?.length && <ExternalLink />}
             </h2>
-            <p className="text-white-80 font-normal text-base">{description}</p>
+            <p className="text-white font-normal text-base">{description.length > 200 ? description.slice(0,200) + "..." : description}</p>
           </div>
           <div className="flex flex-wrap items-center justify-start gap-4">
-            <div className="flex items-center jsutify-start gap-2">
+            <div className="flex items-center bg-background-200/50 backdrop-blur-2xl p-2 rounded-lg jsutify-start gap-2">
               {techStacks?.map((techStack) => (
                 <Image
                   key={techStack}

@@ -15,6 +15,7 @@ export const PROJECT_QUERY = defineQuery(`
      date,
      archived,
      isUnderDevelopment,
+     isFeatured
 }`);
 export const SKILL_QUERY = defineQuery(`
     *[_type=="skill"]{
