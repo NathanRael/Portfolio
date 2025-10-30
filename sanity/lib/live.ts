@@ -3,7 +3,7 @@
 // https://github.com/sanity-io/next-sanity#live-content-api for more information.
 import { defineLive } from "next-sanity";
 import { client } from './client'
-import {cacheRevalidate} from "@/sanity/env";
+import { cacheRevalidate, serverReadToken } from "@/sanity/env";
 
 
 
@@ -13,6 +13,8 @@ export const { sanityFetch, SanityLive } = defineLive({
     // https://www.sanity.io/docs/api-versioning
     apiVersion: 'vX' 
   }),
+  serverToken : serverReadToken,
+  browserToken : false,
   fetchOptions : {
     revalidate : cacheRevalidate || 60 * 60 * 24,
   }

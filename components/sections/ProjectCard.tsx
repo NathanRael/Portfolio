@@ -20,6 +20,7 @@ export interface Project {
   date: string;
   archived: string;
   isUnderDevelopment?: boolean;
+  isFeatured: boolean
 }
 
 export type ProjectCardType = Project;

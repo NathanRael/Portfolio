@@ -54,7 +54,12 @@ export const project = defineType({
             name : "isUnderDevelopment",
             type : 'boolean',
             initialValue : false
-        })
+        }),
+      defineField({
+            name : "isFeatured",
+            type : 'boolean',
+            initialValue : false
+        }),
     ]
 })
 
