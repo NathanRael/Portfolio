@@ -182,7 +182,7 @@ const FeaturedProjectCard = ({
               {name}
               {links?.length && <ExternalLink />}
             </h2>
-            <p className="text-white font-normal text-base">{description.length > 200 ? description.slice(0,200) + "..." : description}</p>
+            <p className="text-white font-normal text-base">{description.length > 145 ? description.slice(0,145) + "..." : description}</p>
           </div>
           <div className="flex flex-wrap items-center justify-start gap-4">
             <div className="flex items-center bg-background-200/50 backdrop-blur-2xl p-2 rounded-lg jsutify-start gap-2">
@@ -206,7 +206,7 @@ const FeaturedProjectCard = ({
                 >
                   <LinkIcon size={16} />
                   <Link target={"_blank"} href={link}>
-                    {link.slice(0, 50)}
+                    {link.length > 30 ? link.slice(0, 30) + "..." : link}
                   </Link>
                 </div>
               ))}
