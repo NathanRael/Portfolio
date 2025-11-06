@@ -13,12 +13,12 @@ export const projectId = assertValue(
 
 export const token = assertValue(
     process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
-    'Missing permission token variable : SANITY_API_TOKEN'
+    'Missing permission token variable : NEXT_PUBLIC_SANITY_API_TOKEN'
 );
 
 export const serverReadToken = assertValue(
-  process.env.SANITY_SERVER_READ_TOKEN,
-  "Missing environement variable : SANITY_SERVER_READ_TOKEN"
+  process.env.NEXT_PUBLIC_SANITY_SERVER_READ_TOKEN,
+  "Missing environement variable : NEXT_PUBLIC_SANITY_SERVER_READ_TOKEN"
 )
 
 export const cacheRevalidate : number = Number(process.env.NEXT_PUBLIC_CACHE_REVALIDATE)
