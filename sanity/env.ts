@@ -12,7 +12,7 @@ export const projectId = assertValue(
 )
 
 export const token = assertValue(
-    process.env.SANITY_API_TOKEN,
+    process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
     'Missing permission token variable : SANITY_API_TOKEN'
 );
 
