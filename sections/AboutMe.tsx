@@ -4,8 +4,10 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { appearVariant } from "@/lib/animationVariants";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 const AboutMe = ({ className }: { className?: string }) => {
+  const t = useTranslations("AboutMe");
   return (
     <div
       className={cn(
@@ -20,7 +22,7 @@ const AboutMe = ({ className }: { className?: string }) => {
           custom={1}
           className={"text-subtitle w-full text-start text-white-100"}
         >
-          I&apos;m Natanael
+          {t("greeting")}
         </AnimatedText>
 
         <motion.div
@@ -33,37 +35,33 @@ const AboutMe = ({ className }: { className?: string }) => {
           <div className={"space-y-4 text-lead text-white-80 max-w-[700px]"}>
             <div className="space-y-4">
               <div className="text-lg">
-                📚 A <span className="font-bold">Computer Science student</span> at
-                <span className="font-semibold">
-            {" "}
-                  EMIT (Ecole de Management et d&apos;Innovation Technologique)
-          </span>
-                , part of the University of Fianarantsoa in Madagascar.
+                {t.rich("student", {
+                  bold: (chunks) => <span className="font-bold">{chunks}</span>,
+                  semibold: (chunks) => (
+                    <span className="font-semibold">{chunks}</span>
+                  ),
+                })}
               </div>
 
               <div className="text-lg">
-                💻 I’m a <span className="font-semibold text-secondary">Frontend Developer</span> and{" "}
-                <span className="font-semibold text-secondary">AI Integrator</span> who loves building{" "}
-                <span className="font-semibold text-secondary">intuitive</span> and{" "}
-                <span className="font-semibold text-secondary">visually engaging</span>{" "}
-                digital experiences. I enjoy combining design precision with smart, AI-driven functionality.
+                {t.rich("role", {
+                  semisecondary: (chunks) => (
+                    <span className="font-semibold text-secondary">
+                      {chunks}
+                    </span>
+                  ),
+                })}
               </div>
 
               <div className="text-lg">
-                ⚙️ My main tools include{" "}
-                <span className="text-secondary">Next.js</span> and{" "}
-                <span className="text-secondary">React</span> for frontend development,{" "}
-                <span className="text-secondary">NestJS</span> and{" "}
-                <span className="text-secondary">FastAPI</span> for backend and AI integration,{" "}
-                along with some{" "}
-                <span className="text-secondary">Flutter</span> for mobile apps.{" "}
-                I usually work with{" "}
-                <span className="text-secondary">TypeScript</span> and{" "}
-                <span className="text-secondary">Python</span> as my core languages.
+                {t.rich("tools", {
+                  secondary: (chunks) => (
+                    <span className="text-secondary">{chunks}</span>
+                  ),
+                })}
               </div>
 
-
-{/*              <div className="text-lg">
+              {/*              <div className="text-lg">
                 🎯 My goal is to blend clean design with AI-powered systems that make technology
                 more accessible, efficient, and enjoyable for everyone.
               </div>*/}
@@ -71,7 +69,6 @@ const AboutMe = ({ className }: { className?: string }) => {
           </div>
         </motion.div>
       </div>
-
 
       <Image
         className={"rounded-full "}

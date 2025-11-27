@@ -22,6 +22,7 @@
     "lucide-react": "^0.469.0",
     "motion": "^11.18.2",
     "next": "16.0.0",
+    "next-intl": "^4.5.5",
     "next-sanity": "^9.11.1",
     "next-transpile-modules": "^10.0.1",
     "prettier": "^3.5.3",

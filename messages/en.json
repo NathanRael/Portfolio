@@ -1,0 +1,44 @@
+{
+  "Navbar": {
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "greeting": "👋 Hi, I'm Natanael . UI/UX designer and developer",
+    "design": "Design",
+    "develop": "Develop",
+    "idea": "Idea",
+    "toLife": "to Life",
+    "contact": "Contact",
+    "downloadResume": "Download resume"
+  },
+  "FeaturedProject": {
+    "subtitle": "From <secondary>Idea</secondary> To <secondary>Interface</secondary>",
+    "description": "Explore a collection of my personal projects and those developed during my internship experience.",
+    "seeMore": "See more projects",
+    "underDevelopment": "Under development"
+  },
+  "Skills": {
+    "subtitle": "My <secondary>Development Stack</secondary>",
+    "description": "The core set of frameworks, languages, and tools I rely on for building full-stack applications, designing interfaces, and managing efficient workflows."
+  },
+  "Certificate": {
+    "subtitle": "<secondary>Certifications</secondary> That Validate My Skills",
+    "description": "A collection of certifications I’ve earned to strengthen and showcase my expertise across different areas of technology."
+  },
+  "AboutMe": {
+    "greeting": "I'm Natanael",
+    "student": "📚 A <bold>Computer Science student</bold> at <semibold>EMIT (Ecole de Management et d'Innovation Technologique)</semibold>, part of the University of Fianarantsoa in Madagascar.",
+    "role": "💻 I’m a <semisecondary>Frontend Developer</semisecondary> and <semisecondary>AI Integrator</semisecondary> who loves building <semisecondary>intuitive</semisecondary> and <semisecondary>visually engaging</semisecondary> digital experiences. I enjoy combining design precision with smart, AI-driven functionality.",
+    "tools": "⚙️ My main tools include <secondary>Next.js</secondary> and <secondary>React</secondary> for frontend development, <secondary>NestJS</secondary> and <secondary>FastAPI</secondary> for backend and AI integration, along with some <secondary>Flutter</secondary> for mobile apps. I usually work with <secondary>TypeScript</secondary> and <secondary>Python</secondary> as my core languages."
+  },
+  "Contact": {
+    "subtitle": "Wanna talk about something ?",
+    "title": "Feel Free To <secondary>Reach Out</secondary>",
+    "emailCopied": "Email copied to clipboard"
+  },
+  "Footer": {
+    "copyright": "© Natanaël RALAIVOAVY"
+  }
+}

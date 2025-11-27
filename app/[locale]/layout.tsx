@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import localFont from "next/font/local";
 import { SanityLive } from "@/sanity/lib/live";
 import ReactQueryProvider from "@/context/ReactQueryProvider";
@@ -9,22 +9,22 @@ import Navbar from "@/components/sections/Navbar";
 const schibsetGrotesk = localFont({
   src: [
     {
-      path: "/fonts/SchibstedGrotesk-Regular.ttf",
+      path: "../fonts/SchibstedGrotesk-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "/fonts/SchibstedGrotesk-Medium.ttf",
+      path: "../fonts/SchibstedGrotesk-Medium.ttf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "/fonts/SchibstedGrotesk-SemiBold.ttf",
+      path: "../fonts/SchibstedGrotesk-SemiBold.ttf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "/fonts/SchibstedGrotesk-Bold.ttf",
+      path: "../fonts/SchibstedGrotesk-Bold.ttf",
       weight: "700",
       style: "normal",
     },
@@ -32,14 +32,13 @@ const schibsetGrotesk = localFont({
   variable: "--font-schibstedGrotesk",
 });
 
-
-
 export const metadata: Metadata = {
   title: {
     default: "Natanaël RALAIVOAVY",
     template: "%s | Natanaël RALAIVOAVY",
   },
-  description: "Frontend and AI integrator developer building performant and intelligent web experiences.",
+  description:
+    "Frontend and AI integrator developer building performant and intelligent web experiences.",
   keywords: [
     "Frontend developer",
     "AI integrator",
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
     "React",
     "Portfolio",
     "Natanaël RALAIVOAVY",
-    "Web developer"
+    "Web developer",
   ],
   metadataBase: new URL("https://nathanrael.vercel.app"),
   generator: "Next.js 16",
@@ -106,23 +105,40 @@ export const metadata: Metadata = {
   },
 };
 
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={"dark"}>
+    <html lang={locale} className={"dark"}>
       <body
         className={`bg-background-100  text-white-100 app-padding scroll-smooth overflow-x-hidden antialiased h-full ${schibsetGrotesk.variable} ${schibsetGrotesk.className}`}
       >
-        <Navbar />
-        <ReactQueryProvider>
-          <div className="pt-10">{children}</div>
-        </ReactQueryProvider>
-        <Analytics />
-        <SanityLive />
+        <NextIntlClientProvider messages={messages}>
+          <Navbar />
+          <ReactQueryProvider>
+            <div className="pt-10">{children}</div>
+          </ReactQueryProvider>
+          <Analytics />
+          <SanityLive />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

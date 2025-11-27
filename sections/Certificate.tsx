@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { Particles } from "@/components/ui/shadcn-io/particles";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
 export interface Certificate {
   title: string;
@@ -15,7 +16,7 @@ const CertificateSection = ({
 }: {
   certificates: Certificate[];
 }) => {
-
+  const t = useTranslations("Certificate");
   return (
     <section className="flex flex-row  relative justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-screen h-[70vh] gap-10 lg:gap-20">
       <Particles
@@ -32,7 +33,11 @@ const CertificateSection = ({
           custom={1}
           className="text-subtitle font-bold w-full"
         >
-           <span className={"text-secondary"}>Certifications</span>  That Validate My Skills
+          {t.rich("subtitle", {
+            secondary: (chunks) => (
+              <span className="text-secondary">{chunks}</span>
+            ),
+          })}
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -40,25 +45,27 @@ const CertificateSection = ({
           custom={2}
           className="text-lead w-full "
         >
-          A collection of certifications I’ve earned to strengthen and showcase my expertise across different areas of technology.
+          {t("description")}
         </AnimatedText>
       </div>
-      <InfiniteCertificateScroller certificates={certificates}/>
+      <InfiniteCertificateScroller certificates={certificates} />
     </section>
   );
 };
 
 export default CertificateSection;
 
-
-
-export function InfiniteCertificateScroller({certificates} : {certificates : Certificate[]}) {
+export function InfiniteCertificateScroller({
+  certificates,
+}: {
+  certificates: Certificate[];
+}) {
   const scrollDuration = 20;
   const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "center center"]
+    offset: ["start end", "center center"],
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
@@ -100,12 +107,9 @@ export function InfiniteCertificateScroller({certificates} : {certificates : Cer
   );
 }
 
-
 function CertCard({ image, title }: { image: string; title: string }) {
   return (
-    <div
-      className="overflow-hidden border-4 rounded-lg border-background-300"
-    >
+    <div className="overflow-hidden border-4 rounded-lg border-background-300">
       <Image
         className="object-cover w-full h-full"
         width={420}

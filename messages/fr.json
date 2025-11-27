@@ -1,0 +1,44 @@
+{
+  "Navbar": {
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "greeting": "👋 Salut, je suis Natanael. Designer UI/UX et Développeur",
+    "design": "Concevoir",
+    "develop": "Développer",
+    "idea": "Idée",
+    "toLife": "en Réalité",
+    "contact": "Contact",
+    "downloadResume": "Télécharger CV"
+  },
+  "FeaturedProject": {
+    "subtitle": "De l'<secondary>Idée</secondary> à l'<secondary>Interface</secondary>",
+    "description": "Explorez une collection de mes projets personnels et ceux développés lors de mon stage.",
+    "seeMore": "Voir plus de projets",
+    "underDevelopment": "En développement"
+  },
+  "Skills": {
+    "subtitle": "Ma <secondary>Stack Technique</secondary>",
+    "description": "L'ensemble des frameworks, langages et outils sur lesquels je m'appuie pour créer des applications full-stack, concevoir des interfaces et gérer des workflows efficaces."
+  },
+  "Certificate": {
+    "subtitle": "Des <secondary>Certifications</secondary> qui valident mes compétences",
+    "description": "Une collection de certifications que j'ai obtenues pour renforcer et démontrer mon expertise dans différents domaines technologiques."
+  },
+  "AboutMe": {
+    "greeting": "Je suis Natanael",
+    "student": "📚 Un <bold>étudiant en Informatique</bold> à <semibold>l'EMIT (Ecole de Management et d'Innovation Technologique)</semibold>, faisant partie de l'Université de Fianarantsoa à Madagascar.",
+    "role": "💻 Je suis un <semisecondary>Développeur Frontend</semisecondary> et <semisecondary>Intégrateur IA</semisecondary> qui aime créer des expériences numériques <semisecondary>intuitives</semisecondary> et <semisecondary>visuellement attrayantes</semisecondary>. J'aime combiner la précision du design avec des fonctionnalités intelligentes propulsées par l'IA.",
+    "tools": "⚙️ Mes principaux outils incluent <secondary>Next.js</secondary> et <secondary>React</secondary> pour le développement frontend, <secondary>NestJS</secondary> et <secondary>FastAPI</secondary> pour le backend et l'intégration IA, ainsi que <secondary>Flutter</secondary> pour les applications mobiles. Je travaille généralement avec <secondary>TypeScript</secondary> et <secondary>Python</secondary> comme langages principaux."
+  },
+  "Contact": {
+    "subtitle": "Envie de discuter ?",
+    "title": "N'hésitez pas à <secondary>me contacter</secondary>",
+    "emailCopied": "Email copié dans le presse-papiers"
+  },
+  "Footer": {
+    "copyright": "© Natanaël RALAIVOAVY"
+  }
+}

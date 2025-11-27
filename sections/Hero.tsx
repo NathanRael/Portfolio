@@ -8,14 +8,16 @@ import { InteractiveGridPattern } from "@/components/ui/shadcn-io/interactive-gr
 import { Particles } from "@/components/ui/shadcn-io/particles";
 import HeroSkillPreview from "@/components/hero/HeroSkillPreview";
 import HandWrittenCircle from "@/components/shared/HandWrittenCircle";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection({
-                                      resumeUrl,
-                                      profileImageUrl
-                                    }: {
+  resumeUrl,
+  profileImageUrl,
+}: {
   resumeUrl: string;
   profileImageUrl: string;
 }) {
+  const t = useTranslations("Hero");
   return (
     <section
       className={
@@ -29,15 +31,18 @@ export default function HeroSection({
         color="#ffffff"
         refresh
       />
-      <div className={"absolute rotate-6  -left-4 -bottom-6 w-[100vw] h-[350px] overflow-hidden "}>
+      <div
+        className={
+          "absolute rotate-6  -left-4 -bottom-6 w-[100vw] h-[350px] overflow-hidden "
+        }
+      >
         <InteractiveGridPattern
           className="absolute inset-0"
           squares={[50, 25]}
           squaresClassName="hover:fill-primary  transition-colors duration-150"
         />
       </div>
-      <div
-        className="flex  flex-col items-center justify-center lg:items-start w-full lg:justify-start  gap-10">
+      <div className="flex  flex-col items-center justify-center lg:items-start w-full lg:justify-start  gap-10">
         <div className={"flex flex-col items-center justify-center "}>
           <motion.div
             custom={1}
@@ -47,13 +52,12 @@ export default function HeroSection({
             viewport={{ once: true }}
             className={"flex  w-full  gap-6!"}
           >
-
             <p
               className={
                 "text-lead w-full text-start max-[1250px]:text-center  text-white-100"
               }
             >
-              👋 Hi, I&apos;m Natanael . UI/UX designer and developer
+              {t("greeting")}
             </p>
           </motion.div>
           <motion.h1
@@ -68,27 +72,36 @@ export default function HeroSection({
           >
             <p>
               Let&apos;s
-
-              <span className="relative z-10 font-bold  px-4 py-2">Design</span>
-              <span className={"text-white bg-primary/10"}>Develop</span>
+              <span className="relative z-10 font-bold  px-4 py-2">
+                {t("design")}
+              </span>
+              <span className={"text-white bg-primary/10"}>{t("develop")}</span>
             </p>
             <div>
               and bring
-
               <div className="relative inline-block">
                 {/*Desktop*/}
-                <HandWrittenCircle width={"230"} height={"230"} className={"absolute max-lg:hidden -top-10 right-0"}
-                                   color={"var(--secondary)"} />
+                <HandWrittenCircle
+                  width={"230"}
+                  height={"230"}
+                  className={"absolute max-lg:hidden -top-10 right-0"}
+                  color={"var(--secondary)"}
+                />
                 {/*Mobile*/}
-                <HandWrittenCircle width={"96"} height={"96"} className={"absolute lg:hidden -top-6 right-0"}
-                                   color={"var(--secondary)"} />
-                <span className="relative z-10 font-bold  px-4 py-2">Idea</span>
+                <HandWrittenCircle
+                  width={"96"}
+                  height={"96"}
+                  className={"absolute lg:hidden -top-6 right-0"}
+                  color={"var(--secondary)"}
+                />
+                <span className="relative z-10 font-bold  px-4 py-2">
+                  {t("idea")}
+                </span>
               </div>
-              <span className={""}>to Life</span>
+              <span className={""}>{t("toLife")}</span>
               <span className={"animate-blink-scale"}>_</span>
             </div>
           </motion.h1>
-
         </div>
         <motion.div
           viewport={{ once: true }}
@@ -96,17 +109,19 @@ export default function HeroSection({
           variants={appearVariant}
           initial={"hidden"}
           whileInView={"visible"}
-          className={"flex w-full z-10 flex-wrap items-center justify-center  lg:justify-start gap-4 "}
+          className={
+            "flex w-full z-10 flex-wrap items-center justify-center  lg:justify-start gap-4 "
+          }
         >
           <Link href={"#contact"}>
             <Button size={"lg"} variant={"default"}>
               <AtSign size={20} />
-              Contact
+              {t("contact")}
             </Button>
           </Link>
           <Link target={"_blank"} href={resumeUrl}>
             <Button size={"lg"} variant={"secondary"}>
-              Download resume
+              {t("downloadResume")}
               <ExternalLink size={20} />
             </Button>
           </Link>
@@ -115,14 +130,19 @@ export default function HeroSection({
       {/*Desktop */}
       <HeroSkillPreview
         minimized={false}
-        className={"left-1/2 max-lg:hidden visible -translate-x-1/2 -bottom-40  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "}
-        profileImageUrl={profileImageUrl} />
+        className={
+          "left-1/2 max-lg:hidden visible -translate-x-1/2 -bottom-40  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "
+        }
+        profileImageUrl={profileImageUrl}
+      />
       {/*Mobile */}
       <HeroSkillPreview
         minimized={true}
-        className={"left-1/2 visible lg:hidden -translate-x-1/2 -bottom-60  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "}
-        profileImageUrl={profileImageUrl} />
+        className={
+          "left-1/2 visible lg:hidden -translate-x-1/2 -bottom-60  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "
+        }
+        profileImageUrl={profileImageUrl}
+      />
     </section>
   );
 }
-

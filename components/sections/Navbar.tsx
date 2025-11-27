@@ -5,9 +5,12 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const t = useTranslations("Navbar");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,30 +25,38 @@ export default function Navbar() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.5, duration: 0.8 }}
-      className={
-        cn("fixed flex items-center px-4 md:px-[64px] app-padding top-6 left-1/2 -translate-x-1/2 z-40 justify-between  border-background-200 " +
-          "transition-all duration-300 w-full", scrolled && "top-0 border-b  bg-background/20 backdrop-blur-md "
-        )
-      }
+      className={cn(
+        "fixed flex items-center px-4 md:px-[64px] app-padding top-6 left-1/2 -translate-x-1/2 z-40 justify-between  border-background-200 " +
+          "transition-all duration-300 w-full",
+        scrolled && "top-0 border-b  bg-background/20 backdrop-blur-md "
+      )}
     >
       <Link
         href={"/"}
         className={"text-lead select-none font-md text-white-100"}
       >
-
         <div className={"relative ps-16 font-bold text-transparent"}>
           R.Natanaël
-          <Image className={"absolute -top-8 left-0"} src={"/logo.svg"} alt={"logo"} width={86} height={86} />
+          <Image
+            className={"absolute -top-8 left-0"}
+            src={"/logo.svg"}
+            alt={"logo"}
+            width={86}
+            height={86}
+          />
         </div>
       </Link>
       <ul className="flex max-sm:gap-3 gap-10 items-center justify-end">
         {navItems.map((navItem, i) => (
           <li className="text-base text-white-80 hover:text-white-100" key={i}>
             <Link scroll={true} href={navItem.link}>
-              {navItem.name}
+              {t(navItem.name.toLowerCase())}
             </Link>
           </li>
         ))}
+        <li>
+          <LanguageSwitcher />
+        </li>
       </ul>
     </motion.div>
   );

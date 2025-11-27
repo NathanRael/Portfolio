@@ -2,10 +2,12 @@
 import SkillList, { Skill } from "@/components/sections/SkillList";
 import AnimatedText from "@/components/ui/AnimatedText";
 import useResizeObserver from "use-resize-observer";
+import { useTranslations } from "next-intl";
 
 export default function SkillsSection({ skills }: { skills: Skill[] }) {
   const experimentedSkills = skills.filter((skill) => skill.experimented);
   const usedSkills = skills.filter((skill) => !skill.experimented);
+  const t = useTranslations("Skills");
 
   const { ref, height = 120 } = useResizeObserver();
 
@@ -25,7 +27,11 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          My <span className={"text-secondary"}>Development Stack</span>
+          {t.rich("subtitle", {
+            secondary: (chunks) => (
+              <span className="text-secondary">{chunks}</span>
+            ),
+          })}
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -33,11 +39,10 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
           custom={2}
           className="text-lead w-full text-center "
         >
-          The core set of frameworks, languages, and tools I rely on for building full-stack applications, designing interfaces, and managing efficient workflows.
+          {t("description")}
         </AnimatedText>
       </div>
-      <SkillList skills={skills}/>
-
+      <SkillList skills={skills} />
     </section>
   );
 }
