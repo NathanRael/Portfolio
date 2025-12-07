@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://raw.githubusercontent.com/NathanRael/NathanRael/main/portfolio.png",
         width: 1200,
         height: 630,
         alt: "Natanaël RALAIVOAVY Portfolio",

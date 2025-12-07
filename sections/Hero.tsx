@@ -1,9 +1,10 @@
 ﻿"use client";
 import HeroSkillPreview from "@/components/hero/HeroSkillPreview";
+import { Project } from "@/components/sections/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { appearVariant } from "@/lib/animationVariants";
 import { cn } from "@/lib/utils";
-import { AtSign, ExternalLink } from "lucide-react";
+import { AtSign, ExternalLink, Link2 } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,15 +12,20 @@ import Link from "next/link";
 export default function HeroSection({
   resumeUrl,
   profileImageUrl,
+  featured
 }: {
   resumeUrl: string;
   profileImageUrl: string;
+  featured: Project[];
 }) {
   return (
     <section
-      className={"flex max-md:relative flex-col items-center justify-start gap-10  h-screen"}
+      className={"flex overflow-hidden max-md:relative flex-col items-center justify-start gap-10  h-screen"}
     >
-      <div
+      <motion.div
+        variants={appearVariant}
+        initial={"fromB"}
+        whileInView={"visible"}
         className="flex h-[88vh] lg:h-fit w-[94%] md:w-[85%] lg:max-w-[80%] xl:w-fit  p-4 md:p-10 lg:p-20 lg:px-40 relative border-2 border-background-200  overflow-hidden mt-20 rounded-3xl  flex-col items-center justify-center gap-4 md:gap-12 ">
         <Image
           src={"/images/noise-texture.svg"}
@@ -66,8 +72,24 @@ export default function HeroSection({
           </Link>
         </motion.div>
         <HeroSkillPreview className="block md:hidden" />
-      </div>
+      </motion.div>
       <HeroSkillPreview className="hidden md:block" />
+      <div className="absolute hidden md:flex z-40  bottom-20 items-center justify-center gap-4">
+        {featured.sort((a, b) => b.name.localeCompare(a.name)).map((project) => (
+          <ProjectLink key={project._id} link={project.links[0]} name={project.name} />
+        ))}
+      </div>
     </section>
   );
+}
+
+
+const ProjectLink = ({ link, name }: { link: string, name: string }) => {
+  return (
+    <Link target="_blank" href={link} className="py-2 px-8 border border-background-300/80 border-t-3  from-70% from-background-200  to-background-300 flex items-center text-text/80 transition-colors justify-center gap-2 rounded-lg hover:bg-white hover:text-black">
+      <div className="size-2 rounded-full bg-accent" />
+      <p className="text-nowrap text-sm   truncate">{name}</p>
+      <ExternalLink size={14} />
+    </Link>
+  )
 }

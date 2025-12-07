@@ -56,7 +56,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
 
       <div className="flex w-full flex-col items-center justify-start gap-10 pb-10">
 
-        <motion.div custom={2.5} whileInView={"visible"} className={"w-full flex items-center justify-center"}
+        <motion.div custom={1} whileInView={"visible"} className={"w-full flex items-center justify-center"}
                     variants={appearVariant} initial={"fromL"}>
           <FeaturedProjectCard
             className=" w-full lg:w-[90%] h-[360px] lg:h-[520px]"
@@ -65,7 +65,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           />
         </motion.div>
 
-        <motion.div custom={3} whileInView={"visible"} className={"w-full flex items-center justify-center"}
+        <motion.div custom={2} whileInView={"visible"} className={"w-full flex items-center justify-center"}
                     variants={appearVariant} initial={"fromB"}>
           <div
             className={

@@ -12,6 +12,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import FeaturedProject from "@/sections/FeaturedProject";
 import CertificateSection from "@/sections/Certificate";
 import AboutMe from "@/sections/AboutMe";
+import { Project } from "@/components/sections/ProjectCard";
 
 export const revalidate = 3600;
 
@@ -25,11 +26,15 @@ export default async function Home() {
 
   const { data: skills } = await sanityFetch({ query: SKILL_QUERY });
 
+  const featuredProjects = (projects as Project[]).filter((item) => item.isFeatured);
+
+
   return (
     <section className="mt-10 md:mt-20  w-full space-y-10">
       <HeroSection
         profileImageUrl={"/images/profile-transparent.png"}
         resumeUrl={resumeUrl}
+        featured={featuredProjects}
       />
       <div className="gap-[256px] max-md:gap-[128px]  app-padding flex  flex-col items-center justify-center">
         <FeaturedProject projectList={projects} />

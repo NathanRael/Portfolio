@@ -1,9 +1,5 @@
-import React from "react";
-import { appearVariant } from "@/lib/animationVariants";
 import SkillItem from "@/components/hero/SkillItem";
 import Image from "next/image";
-import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
 
 const HeroSkillPreview = ({
   className,
@@ -16,6 +12,7 @@ const HeroSkillPreview = ({
     <div className={className}>
       <div className=" flex flex-row md:flex-col absolute left-1/2 max-md:-translate-x-1/2 md:left-0 lg:left-14 top-auto max-md:bottom-2 md:top-1/2 lg:top-40 items-start justify-start gap-4 md:gap-20">
         <SkillItem
+          custom={0}
           icon={
             <Image
               src={"/skills/figma-logo.svg"}
@@ -26,6 +23,7 @@ const HeroSkillPreview = ({
           }
         />
         <SkillItem
+          custom={1}
           className="md:ms-32"
           icon={
             <Image
@@ -38,6 +36,7 @@ const HeroSkillPreview = ({
         />
 
         <SkillItem
+          custom={2}
           className="md:ms-6"
           icon={
             <Image
@@ -50,6 +49,7 @@ const HeroSkillPreview = ({
         />
 
         <SkillItem
+          custom={3}
           className="md:ms-40"
           icon={
             <Image
@@ -63,6 +63,7 @@ const HeroSkillPreview = ({
       </div>
       <div className="flex flex-row md:flex-col absolute right-1/2 max-md:translate-x-1/2 md:right-0 lg:right-14 top-4 md:top-40 items-end justify-end gap-4 md:gap-20">
         <SkillItem
+          custom={3}
           icon={
             <Image
               src={"/skills/next-js-logo.svg"}
@@ -74,6 +75,7 @@ const HeroSkillPreview = ({
         />
 
         <SkillItem
+          custom={2}
           className="md:me-32"
           icon={
             <Image
@@ -85,6 +87,7 @@ const HeroSkillPreview = ({
           }
         />
         <SkillItem
+          custom={1}
           className="md:me-6"
           icon={
             <Image
@@ -97,6 +100,7 @@ const HeroSkillPreview = ({
         />
 
         <SkillItem
+          custom={0}
           className="md:me-40"
           icon={
             <Image
