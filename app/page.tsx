@@ -23,9 +23,7 @@ export default async function Home() {
   const { data: certificates } = await sanityFetch({
     query: CERTIFICATES_QUERY,
   });
-
   const { data: skills } = await sanityFetch({ query: SKILL_QUERY });
-
   const featuredProjects = (projects as Project[]).filter((item) => item.isFeatured);
 
 

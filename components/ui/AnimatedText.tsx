@@ -24,9 +24,9 @@ const availableVariants: Record<string, Variants> = {
 const AnimatedText = ({children, className, variants = 'appear', ...props}: AnimatedTextProps) => {
     return (
         <AnimatePresence>
-            <motion.h1 className={className} variants={availableVariants[variants]} viewport={{once: false}} {...props}>
+            <motion.div className={className} variants={availableVariants[variants]} viewport={{once: false}} {...props}>
                 {children}
-            </motion.h1>
+            </motion.div>
         </AnimatePresence>
     );
 };

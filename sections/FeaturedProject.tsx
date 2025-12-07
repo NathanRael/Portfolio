@@ -42,7 +42,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          From <span className={"text-secondary"}>Idea</span> To <span className={"text-secondary"}>Interface</span>
+          <h2>From <span className={"text-secondary"}>Idea</span> To <span className={"text-secondary"}>Interface</span></h2>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -50,7 +50,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           custom={2}
           className="text-lead w-full text-center "
         >
-          Explore a collection of my personal projects and those developed during my internship experience.
+          <p>Explore a collection of my personal projects and those developed during my internship experience.</p>
         </AnimatedText>
       </div>
 

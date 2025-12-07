@@ -27,9 +27,9 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
             {
                 withSubtitle && (
                     <div className={'text-center'}>
-                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={0} className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}>Wanna talk about something
-                            ?</AnimatedText>
-                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={2} className={'text-white-100 text-title font-bold  '}>Feel Free To <span className={"text-secondary"}>Reach Out</span></AnimatedText>
+                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={0} className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}><p>Wanna talk about something
+                            ?</p></AnimatedText>
+                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={2} className={'text-white-100 text-title font-bold  '}><h2>Feel Free To <span className={"text-secondary"}>Reach Out</span></h2></AnimatedText>
                     </div>
                 )
             }
