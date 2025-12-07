@@ -25,7 +25,7 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          My <span className={"text-secondary"}>Development Stack</span>
+          <h2>My <span className={"text-secondary"}>Development Stack</span></h2>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -33,10 +33,10 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
           custom={2}
           className="text-lead w-full text-center "
         >
-          The core set of frameworks, languages, and tools I rely on for building full-stack applications, designing interfaces, and managing efficient workflows.
+          <p>The core set of frameworks, languages, and tools I rely on for building full-stack applications, designing interfaces, and managing efficient workflows.</p>
         </AnimatedText>
       </div>
-      <SkillList skills={skills}/>
+      <SkillList skills={skills} />
 
     </section>
   );

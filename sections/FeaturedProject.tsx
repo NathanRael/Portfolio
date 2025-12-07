@@ -42,7 +42,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          From <span className={"text-secondary"}>Idea</span> To <span className={"text-secondary"}>Interface</span>
+          <h2>From <span className={"text-secondary"}>Idea</span> To <span className={"text-secondary"}>Interface</span></h2>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -50,13 +50,13 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           custom={2}
           className="text-lead w-full text-center "
         >
-          Explore a collection of my personal projects and those developed during my internship experience.
+          <p>Explore a collection of my personal projects and those developed during my internship experience.</p>
         </AnimatedText>
       </div>
 
       <div className="flex w-full flex-col items-center justify-start gap-10 pb-10">
 
-        <motion.div custom={2.5} whileInView={"visible"} className={"w-full flex items-center justify-center"}
+        <motion.div custom={1} whileInView={"visible"} className={"w-full flex items-center justify-center"}
                     variants={appearVariant} initial={"fromL"}>
           <FeaturedProjectCard
             className=" w-full lg:w-[90%] h-[360px] lg:h-[520px]"
@@ -65,7 +65,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           />
         </motion.div>
 
-        <motion.div custom={3} whileInView={"visible"} className={"w-full flex items-center justify-center"}
+        <motion.div custom={2} whileInView={"visible"} className={"w-full flex items-center justify-center"}
                     variants={appearVariant} initial={"fromB"}>
           <div
             className={

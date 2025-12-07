@@ -12,6 +12,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import FeaturedProject from "@/sections/FeaturedProject";
 import CertificateSection from "@/sections/Certificate";
 import AboutMe from "@/sections/AboutMe";
+import { Project } from "@/components/sections/ProjectCard";
 
 export const revalidate = 3600;
 
@@ -22,23 +23,27 @@ export default async function Home() {
   const { data: certificates } = await sanityFetch({
     query: CERTIFICATES_QUERY,
   });
-
   const { data: skills } = await sanityFetch({ query: SKILL_QUERY });
+  const featuredProjects = (projects as Project[]).filter((item) => item.isFeatured);
+
 
   return (
-    <section className="p-6 mt-20  flex gap-[256px] max-md:gap-[128px]  flex-col items-center justify-center w-full">
+    <section className="mt-10 md:mt-20  w-full space-y-10">
       <HeroSection
         profileImageUrl={"/images/profile-transparent.png"}
         resumeUrl={resumeUrl}
+        featured={featuredProjects}
       />
-      <FeaturedProject projectList={projects} />
-      <SkillsSection skills={skills} />
-      <CertificateSection certificates={certificates} />
-      <AboutMe className={""} />
-      <div id={"contact"} className={"w-full"}>
-        <ContactSection />
+      <div className="gap-[256px] max-md:gap-[128px]  app-padding flex  flex-col items-center justify-center">
+        <FeaturedProject projectList={projects} />
+        <SkillsSection skills={skills} />
+        <CertificateSection certificates={certificates} />
+        <AboutMe className={""} />
+        <div id={"contact"} className={"w-full"}>
+          <ContactSection />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </section>
   );
 }

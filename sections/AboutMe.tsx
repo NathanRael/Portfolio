@@ -20,7 +20,7 @@ const AboutMe = ({ className }: { className?: string }) => {
           custom={1}
           className={"text-subtitle w-full text-start text-white-100"}
         >
-          I&apos;m Natanael
+          <h3>I&apos;m Natanael</h3>
         </AnimatedText>
 
         <motion.div
@@ -31,25 +31,25 @@ const AboutMe = ({ className }: { className?: string }) => {
           className={"w-full flex items-center justify-center"}
         >
           <div className={"space-y-4 text-lead text-white-80 max-w-[700px]"}>
-            <div className="space-y-4">
-              <div className="text-lg">
+            <article className="space-y-4">
+              <p className="text-lg">
                 📚 A <span className="font-bold">Computer Science student</span> at
                 <span className="font-semibold">
-            {" "}
+                  {" "}
                   EMIT (Ecole de Management et d&apos;Innovation Technologique)
-          </span>
+                </span>
                 , part of the University of Fianarantsoa in Madagascar.
-              </div>
+              </p>
 
-              <div className="text-lg">
+              <p className="text-lg">
                 💻 I’m a <span className="font-semibold text-secondary">Frontend Developer</span> and{" "}
                 <span className="font-semibold text-secondary">AI Integrator</span> who loves building{" "}
                 <span className="font-semibold text-secondary">intuitive</span> and{" "}
                 <span className="font-semibold text-secondary">visually engaging</span>{" "}
                 digital experiences. I enjoy combining design precision with smart, AI-driven functionality.
-              </div>
+              </p>
 
-              <div className="text-lg">
+              <p className="text-lg">
                 ⚙️ My main tools include{" "}
                 <span className="text-secondary">Next.js</span> and{" "}
                 <span className="text-secondary">React</span> for frontend development,{" "}
@@ -60,14 +60,8 @@ const AboutMe = ({ className }: { className?: string }) => {
                 I usually work with{" "}
                 <span className="text-secondary">TypeScript</span> and{" "}
                 <span className="text-secondary">Python</span> as my core languages.
-              </div>
-
-
-{/*              <div className="text-lg">
-                🎯 My goal is to blend clean design with AI-powered systems that make technology
-                more accessible, efficient, and enjoyable for everyone.
-              </div>*/}
-            </div>
+              </p>
+            </article>
           </div>
         </motion.div>
       </div>
