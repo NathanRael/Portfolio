@@ -26,19 +26,21 @@ export default async function Home() {
   const { data: skills } = await sanityFetch({ query: SKILL_QUERY });
 
   return (
-    <section className="p-6 mt-20  flex gap-[256px] max-md:gap-[128px]  flex-col items-center justify-center w-full">
+    <section className="mt-10 md:mt-20  w-full space-y-10">
       <HeroSection
         profileImageUrl={"/images/profile-transparent.png"}
         resumeUrl={resumeUrl}
       />
-      <FeaturedProject projectList={projects} />
-      <SkillsSection skills={skills} />
-      <CertificateSection certificates={certificates} />
-      <AboutMe className={""} />
-      <div id={"contact"} className={"w-full"}>
-        <ContactSection />
+      <div className="gap-[256px] max-md:gap-[128px]  app-padding flex  flex-col items-center justify-center">
+        <FeaturedProject projectList={projects} />
+        <SkillsSection skills={skills} />
+        <CertificateSection certificates={certificates} />
+        <AboutMe className={""} />
+        <div id={"contact"} className={"w-full"}>
+          <ContactSection />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </section>
   );
 }

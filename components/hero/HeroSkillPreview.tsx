@@ -5,35 +5,17 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-const HeroSkillPreview = ({ profileImageUrl, className, minimized = true }: {
-  profileImageUrl: string,
-  className: string,
-  minimized?: boolean
+const HeroSkillPreview = ({
+  className,
+  minimized = true,
+}: {
+  className?: string;
+  minimized?: boolean;
 }) => {
   return (
-    <motion.div
-      viewport={{ once: true }}
-      custom={5}
-      variants={appearVariant}
-      initial={"hidden"}
-      whileInView={"visible"}
-      className={cn("rounded-full absolute flex  flex-col gap-6 items-center justify-center bg-transparent  border-background-200  h-[420px] w-full md:size-[420px] mr-20", className, !minimized && "border")}
-    >
-      <ProfileImage profileImageUrl={profileImageUrl} className={"mb-4"} />
-      <div className={cn(minimized && "flex flex-wrap md:flex-nowrap items-center justify-center gap-4")}>
+    <div className={className}>
+      <div className=" flex flex-row md:flex-col absolute left-1/2 max-md:-translate-x-1/2 md:left-0 lg:left-14 top-auto max-md:bottom-2 md:top-1/2 lg:top-40 items-start justify-start gap-4 md:gap-20">
         <SkillItem
-          className={cn( !minimized && "absolute -left-6 top-1/2 -translate-y-1/2")}
-          icon={
-            <Image
-              src={"/skills/notion-logo.svg"}
-              width={36}
-              height={36}
-              alt={"notion"}
-            />
-          }
-        />
-        <SkillItem
-          className={cn(!minimized && "absolute -top-6 left-1/2 -translate-x-1/2")}
           icon={
             <Image
               src={"/skills/figma-logo.svg"}
@@ -43,66 +25,20 @@ const HeroSkillPreview = ({ profileImageUrl, className, minimized = true }: {
             />
           }
         />
-
-        <div className={cn("flex gap-4", !minimized && "absolute -right-[82px] top-1/2 -translate-y-1/2 size-[164px]")}>
-          <SkillItem
-            className={cn("", !minimized && "absolute  -top-6 left-1/2  -translate-x-1/2")}
-            icon={
-              <Image
-                src={"/skills/next-js-logo.svg"}
-                width={36}
-                height={36}
-                alt={"next js"}
-              />
-            }
-          />
-          <SkillItem
-            className={cn("",!minimized && "absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2")}
-            icon={
-              <Image
-                src={"/skills/git-logo.svg"}
-                width={36}
-                height={36}
-                alt={"git"}
-              />
-            }
-          />
-          <SkillItem
-            className={cn(" ",!minimized && "absolute top-1/2 -left-6  -translate-y-1/2")}
-            icon={
-              <Image
-                src={"/skills/nest-js-logo.svg"}
-                width={36}
-                height={36}
-                alt={"git"}
-              />
-            }
-          />
-          <SkillItem
-            className={cn(" ",!minimized && "absolute -right-6 top-1/2 -translate-y-1/2")}
-            icon={
-              <Image
-                src={"/skills/fastapi-logo.svg"}
-                width={36}
-                height={36}
-                alt={"fastapi"}
-              />
-            }
-          />
-          <SkillItem
-            className={cn(" ",!minimized && "absolute -bottom-6 left-1/2 -translate-x-1/2")}
-            icon={
-              <Image
-                src={"/skills/react-logo.svg"}
-                width={36}
-                height={36}
-                alt={"react"}
-              />
-            }
-          />
-        </div>
         <SkillItem
-          className={cn(" ",!minimized && "absolute -bottom-6 left-1/2 -translate-x-1/2")}
+          className="md:ms-32"
+          icon={
+            <Image
+              src={"/skills/notion-logo.svg"}
+              width={36}
+              height={36}
+              alt={"notion"}
+            />
+          }
+        />
+
+        <SkillItem
+          className="md:ms-6"
           icon={
             <Image
               src={"/skills/docker-logo.svg"}
@@ -112,33 +48,67 @@ const HeroSkillPreview = ({ profileImageUrl, className, minimized = true }: {
             />
           }
         />
+
+        <SkillItem
+          className="md:ms-40"
+          icon={
+            <Image
+              src={"/skills/git-logo.svg"}
+              width={36}
+              height={36}
+              alt={"git"}
+            />
+          }
+        />
       </div>
-    </motion.div>
+      <div className="flex flex-row md:flex-col absolute right-1/2 max-md:translate-x-1/2 md:right-0 lg:right-14 top-4 md:top-40 items-end justify-end gap-4 md:gap-20">
+        <SkillItem
+          icon={
+            <Image
+              src={"/skills/next-js-logo.svg"}
+              width={36}
+              height={36}
+              alt={"next js"}
+            />
+          }
+        />
+
+        <SkillItem
+          className="md:me-32"
+          icon={
+            <Image
+              src={"/skills/react-logo.svg"}
+              width={36}
+              height={36}
+              alt={"react"}
+            />
+          }
+        />
+        <SkillItem
+          className="md:me-6"
+          icon={
+            <Image
+              src={"/skills/fastapi-logo.svg"}
+              width={36}
+              height={36}
+              alt={"fastapi"}
+            />
+          }
+        />
+
+        <SkillItem
+          className="md:me-40"
+          icon={
+            <Image
+              src={"/skills/nest-js-logo.svg"}
+              width={36}
+              height={36}
+              alt={"git"}
+            />
+          }
+        />
+      </div>
+    </div>
   );
 };
 export default HeroSkillPreview;
-
-function ProfileImage({
-                        className,
-                        profileImageUrl
-                      }: {
-  className?: string;
-  profileImageUrl: string;
-}) {
-  console.log(profileImageUrl);
-  return (
-    <Image
-      src={profileImageUrl}
-      width={216}
-      height={216}
-      className={cn(
-        "flex items-center  justify-center text-subtitle object-cover overflow-hidden    rounded-full  bg-transparent",
-        className
-      )}
-      alt={"Image profile"}
-    />
-  );
-}
-
-
-

@@ -115,11 +115,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={"dark"}>
       <body
-        className={`bg-background-100  text-white-100 app-padding scroll-smooth overflow-x-hidden antialiased h-full ${schibsetGrotesk.variable} ${schibsetGrotesk.className}`}
+        className={`bg-background-100  text-white-100  scroll-smooth antialiased h-full ${schibsetGrotesk.variable} ${schibsetGrotesk.className}`}
       >
         <Navbar />
         <ReactQueryProvider>
-          <div className="pt-10">{children}</div>
+          <div>{children}</div>
         </ReactQueryProvider>
         <Analytics />
         <SanityLive />

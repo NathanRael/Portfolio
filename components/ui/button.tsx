@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary-gradient ",
+        default: "bg-primary border-t-2 border-t-[oklch(80%_0.19341_270.267)] hover:bg-primary/80 text-white",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
@@ -27,7 +27,7 @@ const buttonVariants = cva(
       size: {
         default: "h-10 px-8 rounded-xl py-4",
         sm: "h-9 rounded-xl px-3",
-        lg: "h-11 rounded-xl px-12 py-6",
+        lg: "h-14 rounded-xl px-12 py-6",
         icon: "h-10 w-10 rounded-full",
       },
     },

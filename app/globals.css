@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @config '../tailwind.config.ts';
 
@@ -13,262 +13,259 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-    *,
-    ::after,
-    ::before,
-    ::backdrop,
-    ::file-selector-button {
-        border-color: var(--color-gray-200, currentcolor);
-    }
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
 @theme {
-    --color-white: #f6f5f4;
-    --color-black: #0b0a09;
-    --color-text: var(--text);
-    --color-background: var(--background);
-    --color-primary: var(--primary);
-    --color-secondary: var(--secondary);
-    --color-accent: var(--accent);
+  --color-white: #f6f5f4;
+  --color-black: #0b0a09;
+  --color-text: var(--text);
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
 
-    --color-background-50: var(--background-50);
-    --color-background-100: var(--background-100);
-    --color-background-200: var(--background-200);
-    --color-background-300: var(--background-300);
-    --color-background-400: var(--background-400);
-    --color-background-500: var(--background-500);
-    --color-background-600: var(--background-600);
-    --color-background-700: var(--background-700);
-    --color-background-800: var(--background-800);
-    --color-background-900: var(--background-900);
-    --color-background-950: var(--background-950);
+  --color-background-50: var(--background-50);
+  --color-background-100: var(--background-100);
+  --color-background-200: var(--background-200);
+  --color-background-300: var(--background-300);
+  --color-background-400: var(--background-400);
+  --color-background-500: var(--background-500);
+  --color-background-600: var(--background-600);
+  --color-background-700: var(--background-700);
+  --color-background-800: var(--background-800);
+  --color-background-900: var(--background-900);
+  --color-background-950: var(--background-950);
 
-    --text-title: 56px;
-    --text-subtitle: 40px;
-    --text-subtitle-2: 32px;
-    --text-lead: 18px;
-    --text-base: 16px;
-    --text-small: 14px;
-    --text-small-2: 12px;
+  --text-title: 3.4rem;
+  --text-subtitle: 40px;
+  --text-subtitle-2: 32px;
+  --text-lead: 18px;
+  --text-base: 16px;
+  --text-small: 14px;
+  --text-small-2: 12px;
 
-    --shadow-skipe: inset 0 1px 2px var(--background-400);
+  --shadow-skipe: inset 0 1px 2px var(--background-400);
 }
 
 @utility flex-col-center {
-    @apply flex flex-col items-center justify-center;
+  @apply flex flex-col items-center justify-center;
 }
 
 @utility flex-row-center {
-    @apply flex flex-row items-center justify-center;
+  @apply flex flex-row items-center justify-center;
 }
 
 @utility section {
-    @apply flex-col-center gap-10 justify-start;
+  @apply flex-col-center gap-10 justify-start;
 }
 
 @layer utilities {
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-    }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-    html {
-        scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer base {
-    :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 240 14% 90%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
 
-        --color-primary-100: 256 89% 60%;
-        --color-primary-80: 256 89% 78%;
+    --color-primary-100: 256 89% 60%;
+    --color-primary-80: 256 89% 78%;
 
-        --color-secondary-100: 223 82% 62%;
+    --color-secondary-100: 223 82% 62%;
 
-        --color-neutral-dark-100: 256 8% 7%;
-        --color-neutral-dark-80: 256 6% 10%;
-        --color-neutral-dark-60: 256 6% 20%;
-        --color-neutral-dark-40: 256 6% 24%;
+    --color-neutral-dark-100: 256 8% 7%;
+    --color-neutral-dark-80: 256 6% 10%;
+    --color-neutral-dark-60: 256 6% 20%;
+    --color-neutral-dark-40: 256 6% 24%;
 
-        --color-white-100: 256 10% 94%;
-        --color-white-80: 255 10% 80%;
+    --color-white-100: 256 10% 94%;
+    --color-white-80: 255 10% 80%;
 
-        --color-black-100: 0 0% 0%;
-    }
+    --color-black-100: 0 0% 0%;
+  }
 
-    .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
-    }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 240 14% 50%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
 }
 
 @layer base {
-    * {
-        @apply border-border;
-    }
+  * {
+    @apply border-border;
+  }
 
-    body {
-        @apply bg-background text-foreground;
-    }
+  body {
+    @apply bg-background text-foreground;
+  }
 
-    .light-bulb::after {
-        @apply content-["💡"] absolute -left-[52px] -bottom-1 max-md:-left-[32px];
-    }
+  .light-bulb::after {
+    @apply content-["💡"] absolute -left-[52px] -bottom-1 max-md:-left-[32px];
+  }
 
-    .app-padding {
-        @apply px-[64px] py-6 max-md:px-10 max-sm:px-2;
-    }
+  .app-padding {
+    @apply px-[64px] py-6 max-md:px-10 max-sm:px-2;
+  }
 }
-
 
 .flex-center {
-    @apply flex flex-col items-center justify-center ;
+  @apply flex flex-col items-center justify-center;
 }
 
 .flex-row-start {
-    @apply flex items-center justify-start;
+  @apply flex items-center justify-start;
 }
 
 .flex-row-end {
-    @apply flex items-center justify-end;
+  @apply flex items-center justify-end;
 }
 
 .flex-row-center {
-    @apply flex items-center justify-center;
+  @apply flex items-center justify-center;
 }
 
 .auth-form {
-    @apply m-10 mt-60 w-[500px] p-8 rounded-2xl border-none border-background-200 bg-background-100 flex flex-col justify-center items-center mx-auto  gap-6;
+  @apply m-10 mt-60 w-[500px] p-8 rounded-2xl border-none border-background-200 bg-background-100 flex flex-col justify-center items-center mx-auto  gap-6;
 }
 
 .app-section {
-    @apply p-10
+  @apply p-10;
 }
 
 .bg-primary-gradient {
-    @apply bg-gradient-to-r from-[oklch(47.87%_0.2323_282.69)]  via-primary  to-[oklch(47.87%_0.2323_282.69)]  text-white border-2 border-primary border-t-[oklch(65.87%_0.2323_282.69)] hover:from-primary hover:to-primary ;
+  @apply bg-gradient-to-r from-[oklch(58.095%_0.19341_270.267)]  via-primary  to-[oklch(47.87%_0.2323_282.69)]  text-white border-2 border-primary border-t-[oklch(65.87%_0.2323_282.69)] hover:from-primary hover:to-primary;
 }
 
 .bg-secondary-gradient {
-    @apply bg-gradient-to-bl from-background-200/80 via-background-100 text-text/90 to-background-200/50 border  border-background-200/50 border-t-2 border-t-background-300/30 hover:via-background-200;
+  @apply bg-gradient-to-bl from-background-200/80 via-background-100 text-text/90 to-background-200/50 border  border-background-200/50 border-t-2 border-t-background-300/30 hover:via-background-200;
 }
 
 .line {
-    @apply w-full  border-b-1 border-b-background-200
+  @apply w-full  border-b-1 border-b-background-200;
 }
-
 
 @layer utilities {
-    @keyframes scrollDown {
-        from {
-            transform: translateY(0);
-        }
-        to {
-            /* height of ONE full set of certificates */
-            transform: translateY(-40%);
-        }
+  @keyframes scrollDown {
+    from {
+      transform: translateY(0);
     }
-
-    @keyframes scrollUp {
-        from {
-            transform: translateY(-40%);
-        }
-        to {
-            transform: translateY(0);
-        }
+    to {
+      /* height of ONE full set of certificates */
+      transform: translateY(-40%);
     }
+  }
 
+  @keyframes scrollUp {
+    from {
+      transform: translateY(-40%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 }
 
-
-
-
 @layer base {
-    :root, .light {
-        --text: oklch(0.2418 0.0153 279.58);
-        --background: oklch(1 0 0);
-        --primary: oklch(60.94% 0.25 290.97);
-        --secondary: oklch(66.97% 0.214 260.96);
-        --accent: #F08A8B;
+  :root,
+  .light {
+    --text: oklch(0.2418 0.0153 279.58);
+    --background: oklch(1 0 0);
+    --primary: oklch(58.095% 0.19341 270.267);
+    --secondary: oklch(66.97% 0.214 260.96);
+    --accent: #f08a8b;
 
-        --background-50: oklch(0.998 0 0);
-        --background-100: oklch(0.9697 0.0017 247.84);
-        --background-200: oklch(0.9208 0.0063 255.48);
-        --background-300: oklch(0.8016 0.0137 251.59);
-        --background-400: oklch(68.30% 0.000 89.88);
-        --background-500: oklch(0.7596 0.0175 250.89);
-        --background-600: oklch(51.03% 0.000 89.88);
-        --background-700: oklch(42.02% 0.000 89.88);
-        --background-800: oklch(32.11% 0.000 89.88);
-        --background-900: oklch(21.78% 0.000 89.88);
-        --background-950: oklch(15.91% 0.000 89.88);
-    }
+    --background-50: oklch(0.998 0 0);
+    --background-100: oklch(0.9697 0.0017 247.84);
+    --background-200: oklch(0.9208 0.0063 255.48);
+    --background-250: oklch(0.9208 0.0063 255.48);
+    --background-300: oklch(0.8016 0.0137 251.59);
+    --background-400: oklch(68.3% 0 89.88);
+    --background-500: oklch(0.7596 0.0175 250.89);
+    --background-600: oklch(51.03% 0 89.88);
+    --background-700: oklch(42.02% 0 89.88);
+    --background-800: oklch(32.11% 0 89.88);
+    --background-900: oklch(21.78% 0 89.88);
+    --background-950: oklch(15.91% 0 89.88);
+  }
 
-    .dark {
-        --text: #D6D6E0;
-        --background: oklch(20.35% 0.014 285.10);
-        --primary: oklch(60.94% 0.25 290.97);
-        --secondary: oklch(0.7428 0.1245 19.86);
-        --accent: #F08A8B;
+  .dark {
+    --text: #e2e2e9;
+    --background: oklch(20.35% 0.014 285.1);
+    --primary: oklch(58.095% 0.19341 270.267);
+    --secondary: oklch(0.7428 0.1245 19.86);
+    --accent: #f08a8b;
 
-        --background-50: oklch(21.8% 0.016 285.10);
-        --background-100: oklch(22.35% 0.016 285.10);
-        --background-200: oklch(29.92% 0.025 284.78);
-        --background-300: oklch(38.78% 0.035 284.63);
-        --background-400: oklch(47.15% 0.045 284.54);
-        --background-500: oklch(55.16% 0.054 284.49);
-        --background-600: oklch(64.65% 0.042 285.18);
-        --background-700: oklch(73.84% 0.030 285.64);
-        --background-800: oklch(82.77% 0.019 285.97);
-        --background-900: oklch(91.48% 0.009 286.21);
-        --background-950: oklch(95.63% 0.005 286.30);
-    }
+    --background-50: oklch(21.8% 0.016 285.1);
+    --background-100: oklch(22.35% 0.016 285.1);
+    --background-200: oklch(29.92% 0.025 284.78);
+    --background-250: oklch(33.92% 0.025 284.78);
+    --background-300: oklch(38.78% 0.035 284.63);
+    --background-400: oklch(47.15% 0.045 284.54);
+    --background-500: oklch(55.16% 0.054 284.49);
+    --background-600: oklch(64.65% 0.042 285.18);
+    --background-700: oklch(73.84% 0.03 285.64);
+    --background-800: oklch(82.77% 0.019 285.97);
+    --background-900: oklch(91.48% 0.009 286.21);
+    --background-950: oklch(95.63% 0.005 286.3);
+  }
 }
 
 /*
@@ -276,15 +273,15 @@
 */
 
 @theme inline {
-    --animate-grid: grid 15s linear infinite;
-    @keyframes grid {
-        0% {
-            transform: translateY(-50%);
-        }
-        100% {
-            transform: translateY(0);
-        }
+  --animate-grid: grid 15s linear infinite;
+  @keyframes grid {
+    0% {
+      transform: translateY(-50%);
     }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
 
 /*
@@ -292,11 +289,11 @@
 */
 
 @layer base {
-    * {
-        @apply border-border outline-ring/50;
-    }
+  * {
+    @apply border-border outline-ring/50;
+  }
 
-    body {
-        @apply bg-background text-foreground;
-    }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

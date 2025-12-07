@@ -11,7 +11,7 @@ const SkillItem = ({
   return (
     <div
       className={cn(
-        "flex  items-center justify-center size-16 rounded-2xl bg-linear-to-b from-background-200 to-background-100 ",
+        "flex items-center z-20 justify-center size-14 md:size-18 rounded-2xl border border-background-300 from-70% bg-linear-to-b from-background-200  to-background-300 ",
         className
       )}
     >

@@ -1,128 +1,73 @@
 ﻿"use client";
-import Link from "next/link";
+import HeroSkillPreview from "@/components/hero/HeroSkillPreview";
 import { Button } from "@/components/ui/button";
+import { appearVariant } from "@/lib/animationVariants";
+import { cn } from "@/lib/utils";
 import { AtSign, ExternalLink } from "lucide-react";
 import { motion } from "motion/react";
-import { appearVariant } from "@/lib/animationVariants";
-import { InteractiveGridPattern } from "@/components/ui/shadcn-io/interactive-grid-pattern";
-import { Particles } from "@/components/ui/shadcn-io/particles";
-import HeroSkillPreview from "@/components/hero/HeroSkillPreview";
-import HandWrittenCircle from "@/components/shared/HandWrittenCircle";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection({
-                                      resumeUrl,
-                                      profileImageUrl
-                                    }: {
+  resumeUrl,
+  profileImageUrl,
+}: {
   resumeUrl: string;
   profileImageUrl: string;
 }) {
   return (
     <section
-      className={
-        "flex justify-between!  overflow-x-hidden py-10 pb-80 lg:pb-20  w-full gap-10 h-[90vh] lg:h-[60vh]"
-      }
+      className={"flex max-md:relative flex-col items-center justify-start gap-10  h-screen"}
     >
-      <Particles
-        className="absolute inset-0"
-        quantity={100}
-        ease={80}
-        color="#ffffff"
-        refresh
-      />
-      <div className={"absolute rotate-6  -left-4 -bottom-6 w-[100vw] h-[350px] overflow-hidden "}>
-        <InteractiveGridPattern
-          className="absolute inset-0"
-          squares={[50, 25]}
-          squaresClassName="hover:fill-primary  transition-colors duration-150"
-        />
-      </div>
       <div
-        className="flex  flex-col items-center justify-center lg:items-start w-full lg:justify-start  gap-10">
-        <div className={"flex flex-col items-center justify-center "}>
-          <motion.div
-            custom={1}
-            variants={appearVariant}
-            initial={"hidden"}
-            whileInView={"visible"}
-            viewport={{ once: true }}
-            className={"flex  w-full  gap-6!"}
-          >
-
-            <p
-              className={
-                "text-lead w-full text-start max-[1250px]:text-center  text-white-100"
-              }
-            >
-              👋 Hi, I&apos;m Natanael . UI/UX designer and developer
-            </p>
-          </motion.div>
-          <motion.h1
-            viewport={{ once: true }}
-            custom={4}
-            variants={appearVariant}
-            initial={"hidden"}
-            whileInView={"visible"}
-            className={
-              "lg:text-nowrap z-10 text-[32px] md:text-[56px] lg:text-[84px]  text-center lg:text-start w-full font-bold "
-            }
-          >
-            <p>
-              Let&apos;s
-
-              <span className="relative z-10 font-bold  px-4 py-2">Design</span>
-              <span className={"text-white bg-primary/10"}>Develop</span>
-            </p>
-            <div>
-              and bring
-
-              <div className="relative inline-block">
-                {/*Desktop*/}
-                <HandWrittenCircle width={"230"} height={"230"} className={"absolute max-lg:hidden -top-10 right-0"}
-                                   color={"var(--secondary)"} />
-                {/*Mobile*/}
-                <HandWrittenCircle width={"96"} height={"96"} className={"absolute lg:hidden -top-6 right-0"}
-                                   color={"var(--secondary)"} />
-                <span className="relative z-10 font-bold  px-4 py-2">Idea</span>
-              </div>
-              <span className={""}>to Life</span>
-              <span className={"animate-blink-scale"}>_</span>
-            </div>
-          </motion.h1>
-
+        className="flex h-[88vh] lg:h-fit w-[94%] md:w-[85%] lg:max-w-[80%] xl:w-fit  p-4 md:p-10 lg:p-20 lg:px-40 relative border-2 border-background-200  overflow-hidden mt-20 rounded-3xl  flex-col items-center justify-center gap-4 md:gap-12 ">
+        <Image
+          src={"/images/noise-texture.svg"}
+          className={
+            "absolute left-1/2 -z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full h-full bg-no-repeat object-cover  inset-0"
+          }
+          alt={"Hero Noise"}
+          width={512}
+          height={512}
+        />
+        <Image
+          src={profileImageUrl}
+          width={216}
+          height={216}
+          className={cn(
+            "flex items-center  justify-center text-subtitle size-48 object-cover overflow-hidden    rounded-full  bg-transparent"
+          )}
+          alt={"Image profile"}
+        />
+        <div className="space-y-4 z-30 max-w-[660px] text-center">
+          <h1 className="text-subtitle-2 max-sm:max-w-[380px] max-md:max-w-[460px] sm:text-subtitle md:text-[3.5rem] font-bold leading-tight">
+            Turning Your Ideas Into Results
+          </h1>
+          <p className="text-accent text-lead md:text-[24px] font-semibold tracking-[12%]">
+            I Craft Interfaces That Deliver
+          </p>
         </div>
         <motion.div
-          viewport={{ once: true }}
-          custom={5}
-          variants={appearVariant}
-          initial={"hidden"}
-          whileInView={"visible"}
-          className={"flex w-full z-10 flex-wrap items-center justify-center  lg:justify-start gap-4 "}
+          className={
+            "flex w-full md:w-fit mx-auto flex-wrap items-center justify-center  lg:justify-start gap-8 mt-8"
+          }
         >
           <Link href={"#contact"}>
-            <Button size={"lg"} variant={"default"}>
+            <Button size={"lg"} variant={"default"} className="w-[232px]">
               <AtSign size={20} />
-              Contact
+              Get in touch
             </Button>
           </Link>
           <Link target={"_blank"} href={resumeUrl}>
-            <Button size={"lg"} variant={"secondary"}>
+            <Button size={"lg"} variant={"secondary"} className="w-[232px]">
               Download resume
               <ExternalLink size={20} />
             </Button>
           </Link>
         </motion.div>
+        <HeroSkillPreview className="block md:hidden" />
       </div>
-      {/*Desktop */}
-      <HeroSkillPreview
-        minimized={false}
-        className={"left-1/2 max-lg:hidden visible -translate-x-1/2 -bottom-40  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "}
-        profileImageUrl={profileImageUrl} />
-      {/*Mobile */}
-      <HeroSkillPreview
-        minimized={true}
-        className={"left-1/2 visible lg:hidden -translate-x-1/2 -bottom-60  lg:left-auto lg:bottom-auto lg:-right-32 lg:top-60 "}
-        profileImageUrl={profileImageUrl} />
+      <HeroSkillPreview className="hidden md:block" />
     </section>
   );
 }
-
