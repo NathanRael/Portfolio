@@ -5,28 +5,28 @@ export const appearVariant: Variants = {
     opacity: 0,
     transform: "translateY(40px)",
   },
-  fromL: (index : number) => ({
+  fromL: (index: number) => ({
     opacity: 0,
     transform: "translateX(-50px)",
     transition: {
       delay: 0.15 * index,
-      duration: 1.5,
+      duration: 0.5,
     },
   }),
-  fromR: (index : number) => ({
+  fromR: (index: number) => ({
     opacity: 0,
     transform: "translateX(50px)",
     transition: {
       delay: 0.15 * index,
-      duration: 0.8,
+      duration: 0.5,
     },
   }),
-  fromB: (index : number) => ({
+  fromB: (index: number) => ({
     opacity: 0,
     transform: "translateY(40px)",
     transition: {
       delay: 0.15 * index,
-      duration: 1.5,
+      duration: 0.5,
     },
   }),
   visible: (index: number) => ({
@@ -52,6 +52,21 @@ export const rotateVariant: Variants = {
     transition: {
       delay: 0.2 * index,
       duration: 0.6,
+    },
+  }),
+};
+
+export const scaleVariant: Variants = {
+  initial: {
+    // opacity: 0,
+    scale: 0,
+  },
+  visible: (index: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: 0.2 * index,
+      duration: 0.3,
     },
   }),
 };

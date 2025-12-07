@@ -32,7 +32,7 @@ const CertificateSection = ({
           custom={1}
           className="text-subtitle font-bold w-full"
         >
-           <span className={"text-secondary"}>Certifications</span>  That Validate My Skills
+          <h2><span className={"text-secondary"}>Certifications</span>  That Validate My Skills</h2>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -40,7 +40,7 @@ const CertificateSection = ({
           custom={2}
           className="text-lead w-full "
         >
-          A collection of certifications I’ve earned to strengthen and showcase my expertise across different areas of technology.
+          <p> A collection of certifications I’ve earned to strengthen and showcase my expertise across different areas of technology.</p>
         </AnimatedText>
       </div>
       <InfiniteCertificateScroller certificates={certificates}/>
