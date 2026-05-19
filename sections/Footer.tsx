@@ -20,19 +20,19 @@ export default function  Footer() {
     }, []);
     
     return (
-        <div className={" w-full"}>
+        <footer className={" w-full"}>
             <AnimatePresence>
                 {
                     showUpButton &&
-                    <motion.button initial={{opacity : 0, scale : 0.5 }} animate={{ opacity : 1, scale : 1 }} exit={{ opacity : 0, scale : 0}}  onClick={() => window.scrollTo({top: 0})} className={cn('fixed bottom-10 right-20', buttonVariants({variant: "default", size : "icon"}))}>
+                    <motion.button aria-label="Back to top" initial={{opacity : 0, scale : 0.5 }} animate={{ opacity : 1, scale : 1 }} exit={{ opacity : 0, scale : 0}}  onClick={() => window.scrollTo({top: 0})} className={cn('fixed bottom-10 right-20', buttonVariants({variant: "default", size : "icon"}))}>
                         <ArrowUp/>
                     </motion.button>
                 }
             </AnimatePresence>
             <p className={'text-small w-full text-center  text-white-80 underline'}>
-                <Link href={MY_GITHUB_PROFILE} >© Natanaël  RALAIVOAVY</Link>
+                <Link target="_blank" rel="noopener noreferrer" href={MY_GITHUB_PROFILE} >© Natanaël  RALAIVOAVY</Link>
             </p>
             
-        </div>
+        </footer>
     )
 }

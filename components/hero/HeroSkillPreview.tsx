@@ -18,7 +18,7 @@ const HeroSkillPreview = ({
               src={"/skills/figma-logo.svg"}
               width={24}
               height={24}
-              alt={"figma"}
+              alt={"Figma logo"}
             />
           }
         />
@@ -30,7 +30,7 @@ const HeroSkillPreview = ({
               src={"/skills/notion-logo.svg"}
               width={36}
               height={36}
-              alt={"notion"}
+              alt={"Notion logo"}
             />
           }
         />
@@ -43,7 +43,7 @@ const HeroSkillPreview = ({
               src={"/skills/docker-logo.svg"}
               width={36}
               height={36}
-              alt={"nest js"}
+              alt={"Docker logo"}
             />
           }
         />
@@ -56,7 +56,7 @@ const HeroSkillPreview = ({
               src={"/skills/git-logo.svg"}
               width={36}
               height={36}
-              alt={"git"}
+              alt={"Git logo"}
             />
           }
         />
@@ -69,7 +69,7 @@ const HeroSkillPreview = ({
               src={"/skills/next-js-logo.svg"}
               width={36}
               height={36}
-              alt={"next js"}
+              alt={"Next.js logo"}
             />
           }
         />
@@ -82,7 +82,7 @@ const HeroSkillPreview = ({
               src={"/skills/react-logo.svg"}
               width={36}
               height={36}
-              alt={"react"}
+              alt={"React logo"}
             />
           }
         />
@@ -94,7 +94,7 @@ const HeroSkillPreview = ({
               src={"/skills/fastapi-logo.svg"}
               width={36}
               height={36}
-              alt={"fastapi"}
+              alt={"FastAPI logo"}
             />
           }
         />
@@ -107,7 +107,7 @@ const HeroSkillPreview = ({
               src={"/skills/nest-js-logo.svg"}
               width={36}
               height={36}
-              alt={"git"}
+              alt={"NestJS logo"}
             />
           }
         />

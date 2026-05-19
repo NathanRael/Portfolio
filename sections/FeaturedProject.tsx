@@ -34,6 +34,8 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
 
   return (
     <section
+      id="projects"
+      aria-labelledby="featured-projects-heading"
       className="bg-linear-to-bl relative from-background-100 via-background-50 to-background-100 border bordeer-t-2  border-t-background-200 rounded-xl max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)]  min-h-screen h-full pt-20 max-lg:p-2 p-6">
       <div className="absolute hidden md:flex z-40  top-4 left-1/2 -translate-x-1/2 items-center justify-center gap-4">
         {featuredProjects.sort((a, b) => b.name.localeCompare(a.name)).map((project) => (
@@ -47,7 +49,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          <h2>From <span className={"text-secondary"}>Idea</span> To <span className={"text-secondary"}>Interface</span></h2>
+          <h2 id="featured-projects-heading">From <span className={"text-secondary"}>Idea</span> To <span className={"text-secondary"}>Interface</span></h2>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -171,22 +173,31 @@ const FeaturedProjectCard = ({
             width={620}
             height={620}
             className="object-cover"
-            alt="project image"
+            alt={`${name} project preview`}
           />
         </motion.div>
 
         <div className="ps-6 space-y-4 pt-4">
           <div>
-            <h2
+            <h3
               onClick={() => {
                 if (!links.length) return;
-                window.open(links[0], "_blank");
+                window.open(links[0], "_blank", "noopener,noreferrer");
+              }}
+              role={links.length ? "link" : undefined}
+              tabIndex={links.length ? 0 : undefined}
+              onKeyDown={(event) => {
+                if (!links.length) return;
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  window.open(links[0], "_blank", "noopener,noreferrer");
+                }
               }}
               className="text-subtitle  flex items-center gap-2 hover:underline cursor-pointer font-bold text-start"
             >
               {name}
               {links?.length && <ExternalLink />}
-            </h2>
+            </h3>
             <p className="text-white font-normal text-base">{description.length > 145 ? description.slice(0, 145) + "..." : description}</p>
           </div>
           <div className="flex flex-wrap items-center justify-start gap-4">
@@ -197,7 +208,8 @@ const FeaturedProjectCard = ({
                   width={20}
                   height={20}
                   src={techStack}
-                  alt={`${techStack} logo`}
+                  alt=""
+                  aria-hidden="true"
                 />
               ))}
             </div>
@@ -210,7 +222,7 @@ const FeaturedProjectCard = ({
                   }
                 >
                   <LinkIcon size={16} />
-                  <Link target={"_blank"} href={link}>
+                  <Link target={"_blank"} rel="noopener noreferrer" href={link} aria-label={`Open ${name} project link`}>
                     {link.length > 30 ? link.slice(0, 30) + "..." : link}
                   </Link>
                 </div>
@@ -236,7 +248,7 @@ const FeaturedProjectCard = ({
 
 const ProjectLink = ({ link, name }: { link: string, name: string }) => {
   return (
-    <Link target="_blank" href={link} className="py-2 px-8 border border-background-300/80 border-t-3  from-70% from-background-200  to-background-300 flex items-center text-text/80 transition-colors justify-center gap-2 rounded-lg hover:bg-white hover:text-black">
+    <Link target="_blank" rel="noopener noreferrer" href={link} className="py-2 px-8 border border-background-300/80 border-t-3  from-70% from-background-200  to-background-300 flex items-center text-text/80 transition-colors justify-center gap-2 rounded-lg hover:bg-white hover:text-black" aria-label={`Open ${name} project`}>
       <div className="size-2 rounded-full bg-accent" />
       <p className="text-nowrap text-sm   truncate">{name}</p>
       <ExternalLink size={14} />

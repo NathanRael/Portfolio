@@ -10,7 +10,7 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
   const { ref, height = 120 } = useResizeObserver();
 
   return (
-    <section ref={ref} id="skills" className="section relative w-full gap-20!">
+    <section ref={ref} id="skills" aria-labelledby="skills-heading" className="section relative w-full gap-20!">
       <div
         style={{
           backgroundImage: "url(/images/noise-texture.svg)",
@@ -25,7 +25,7 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          <h2>My <span className={"text-secondary"}>Development Stack</span></h2>
+          <h2 id="skills-heading">My <span className={"text-secondary"}>Development Stack</span></h2>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"

@@ -17,7 +17,7 @@ const CertificateSection = ({
 }) => {
 
   return (
-    <section className="flex flex-row  relative justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-screen h-[70vh] gap-10 lg:gap-20">
+    <section aria-labelledby="certifications-heading" className="flex flex-row  relative justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-screen h-[70vh] gap-10 lg:gap-20">
       <Particles
         className="absolute inset-0"
         quantity={100}
@@ -32,7 +32,7 @@ const CertificateSection = ({
           custom={1}
           className="text-subtitle font-bold w-full"
         >
-          <h2><span className={"text-secondary"}>Certifications</span>  That Validate My Skills</h2>
+          <h2 id="certifications-heading"><span className={"text-secondary"}>Certifications</span>  That Validate My Skills</h2>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -111,7 +111,7 @@ function CertCard({ image, title }: { image: string; title: string }) {
         width={420}
         height={296}
         src={image}
-        alt={title}
+        alt={`${title} certificate`}
       />
     </div>
   );

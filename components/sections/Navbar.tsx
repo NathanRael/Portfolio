@@ -32,11 +32,12 @@ export default function Navbar() {
       <Link
         href={"/"}
         className={"text-lead select-none font-md text-white-100"}
+        aria-label="Natanaël RALAIVOAVY home"
       >
 
         <div className={"relative ps-16 font-bold text-transparent"}>
           R.Natanaël
-          <Image className={"absolute -top-8 left-0"} src={"/logo.svg"} alt={"logo"} width={86} height={86} />
+          <Image className={"absolute -top-8 left-0"} src={"/logo.svg"} alt={"Natanaël RALAIVOAVY logo"} width={86} height={86} />
         </div>
       </Link>
       <ul className="flex max-sm:gap-3 gap-10 items-center justify-end">

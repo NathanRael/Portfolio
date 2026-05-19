@@ -14,17 +14,17 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
 
   return (
     <div className={"flex-col-center gap-6"}>
-      <div className="grid grid-cols-3 max-[960px]:grid-cols-1 max-[1420px]:grid-cols-2 justify-items-stretch w-full  gap-20">
+      <ul className="grid grid-cols-3 max-[960px]:grid-cols-1 max-[1420px]:grid-cols-2 justify-items-stretch w-full  gap-20">
         {localProjects.map((project) => (
-          <div key={project._id}>
+          <li key={project._id}>
             <ProjectCard
               className={"max-[460px]:w-full"}
               key={project._id}
               {...project}
             />
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
       {projects.length > MAX_DISPLAYED_PROJECTS &&
         localProjects.length !== projects.length && (
           <Button onClick={() => setLocalProjects(projects)}>See all</Button>

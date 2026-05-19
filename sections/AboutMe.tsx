@@ -7,7 +7,8 @@ import { motion } from "motion/react";
 
 const AboutMe = ({ className }: { className?: string }) => {
   return (
-    <div
+    <section
+      aria-labelledby="about-heading"
       className={cn(
         "flex flex-row items-center max-[1020px]:flex-col justify-between w-full",
         className
@@ -20,7 +21,7 @@ const AboutMe = ({ className }: { className?: string }) => {
           custom={1}
           className={"text-subtitle w-full text-start text-white-100"}
         >
-          <h3>I&apos;m Natanael</h3>
+          <h2 id="about-heading">I&apos;m Natanael</h2>
         </AnimatedText>
 
         <motion.div
@@ -70,11 +71,11 @@ const AboutMe = ({ className }: { className?: string }) => {
       <Image
         className={"rounded-full "}
         src={"/images/profile-transparent.png"}
-        alt={"profile"}
+        alt={"Portrait of Natanaël RALAIVOAVY"}
         width={256}
         height={256}
       />
-    </div>
+    </section>
   );
 };
 export default AboutMe;

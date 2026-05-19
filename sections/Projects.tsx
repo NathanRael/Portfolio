@@ -15,7 +15,7 @@ export default async function ProjectsSection({ filter, projects }: { filter?: s
   const filteredProjects = filterProject(projects, filter);
 
   return (
-    <section id={"projects"} className={"section "}>
+    <section id={"projects"} aria-labelledby="projects-heading" className={"section "}>
       <Particles
         className="absolute inset-0"
         quantity={100}
@@ -46,7 +46,7 @@ export default async function ProjectsSection({ filter, projects }: { filter?: s
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          From <span className={"text-secondary"}>Idea</span> to <span className={"text-secondary"}>Interface</span>
+          <h1 id="projects-heading">From <span className={"text-secondary"}>Idea</span> to <span className={"text-secondary"}>Interface</span></h1>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"

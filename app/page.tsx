@@ -28,7 +28,7 @@ export default async function Home() {
 
 
   return (
-    <section className="mt-10 md:mt-20  w-full space-y-10">
+    <main className="mt-10 md:mt-20  w-full space-y-10">
       <HeroSection
         profileImageUrl={"/images/profile-transparent.png"}
         resumeUrl={resumeUrl}
@@ -44,6 +44,6 @@ export default async function Home() {
         </div>
         <Footer />
       </div>
-    </section>
+    </main>
   );
 }

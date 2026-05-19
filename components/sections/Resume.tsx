@@ -8,11 +8,11 @@ export default async function Resume() {
     const {url : resumeUrl} = await client.fetch(RESUME_QUERY);
     
     return (
-        <Link target={'_blank'} href={resumeUrl}>
-            <Button size={'lg'} variant={'tertiary'}>
+        <Button asChild size={'lg'} variant={'tertiary'}>
+            <Link target={'_blank'} rel="noopener noreferrer" href={resumeUrl}>
                 Download resume
                 <ExternalLink size={20}/>
-            </Button>
-        </Link>
+            </Link>
+        </Button>
     )   
 }

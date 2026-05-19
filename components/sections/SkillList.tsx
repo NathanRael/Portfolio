@@ -75,7 +75,7 @@ function Skill({ skill, index }: { skill: Skill, index: number }) {
     <motion.div variants={rotateVariant} initial={true} whileHover={{ rotate: 64 }} key={skill.name}
                 className={"flex-col-center gap-2 "}>
       <motion.div custom={index} variants={rotateVariant} initial={"initial"} whileInView={"rotate"}>
-        <Image width={40} height={40} src={skill.image} alt={"next js logo"} />
+        <Image width={40} height={40} src={skill.image} alt={`${skill.name} logo`} />
       </motion.div>
       <p className={"text-base text-white-80"}>{skill.name}</p>
     </motion.div>

@@ -84,10 +84,15 @@ export const metadata: Metadata = {
   category: "technology",
   alternates: {
     canonical: "https://nathanrael.vercel.app",
-    languages: {
-      "en-US": "https://nathanrael.vercel.app/en",
-      "fr-FR": "https://nathanrael.vercel.app/fr",
-    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Natanaël RALAIVOAVY | Frontend & AI Integrator",
+    description:
+      "Frontend and AI integrator developer building performant and intelligent web experiences.",
+    images: [
+      "https://raw.githubusercontent.com/NathanRael/NathanRael/main/portfolio.png",
+    ],
   },
   robots: {
     index: true,
@@ -112,11 +117,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Natanaël RALAIVOAVY",
+    url: "https://nathanrael.vercel.app",
+    image: "https://nathanrael.vercel.app/images/profile-transparent.png",
+    jobTitle: "Frontend Developer and AI Integrator",
+    sameAs: [
+      "https://www.github.com/NathanRael",
+      "https://www.linkedin.com/in/natana%C3%ABl-ralaivoavy-694447283",
+    ],
+    knowsAbout: [
+      "Frontend development",
+      "AI integration",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Python",
+    ],
+  };
+
   return (
     <html lang="en" className={"dark"}>
       <body
         className={`bg-background-100  text-white-100  scroll-smooth antialiased h-full ${schibsetGrotesk.variable} ${schibsetGrotesk.className}`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Navbar />
         <ReactQueryProvider>
           <div>{children}</div>
