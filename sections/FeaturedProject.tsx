@@ -15,15 +15,15 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
   const firstFProject = featuredProjects[0];
   const secondFProject = featuredProjects[1];
   const thirdFProject = featuredProjects[2];
-/*    const firstFProject = projectList.find(
-    (p) => p.name.toLocaleLowerCase() === "rael ai"
-  );
-  const secondFProject = projectList.find(
-    (p) => p.name.toLowerCase() === "SkillMatchr".toLowerCase()
-  );
-  const thirdFProject = projectList.find(
-    (p) => p.name.toLowerCase() === "rael ui"
-  );*/
+  /*    const firstFProject = projectList.find(
+      (p) => p.name.toLocaleLowerCase() === "rael ai"
+    );
+    const secondFProject = projectList.find(
+      (p) => p.name.toLowerCase() === "SkillMatchr".toLowerCase()
+    );
+    const thirdFProject = projectList.find(
+      (p) => p.name.toLowerCase() === "rael ui"
+    );*/
 
   const mockups = projectList.filter(
     (p) => p.projectType.name.toLowerCase() === "mockup"
@@ -35,6 +35,11 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
   return (
     <section
       className="bg-linear-to-bl relative from-background-100 via-background-50 to-background-100 border bordeer-t-2  border-t-background-200 rounded-xl max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)]  min-h-screen h-full pt-20 max-lg:p-2 p-6">
+      <div className="absolute hidden md:flex z-40  top-4 left-1/2 -translate-x-1/2 items-center justify-center gap-4">
+        {featuredProjects.sort((a, b) => b.name.localeCompare(a.name)).map((project) => (
+          <ProjectLink key={project._id} link={project.links[0]} name={project.name} />
+        ))}
+      </div>
       <div className={"mb-20 pt-6 space-y-4 max-w-[650px] mx-auto"}>
         <AnimatedText
           whileInView="visible"
@@ -57,7 +62,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
       <div className="flex w-full flex-col items-center justify-start gap-10 pb-10">
 
         <motion.div custom={1} whileInView={"visible"} className={"w-full flex items-center justify-center"}
-                    variants={appearVariant} initial={"fromL"}>
+          variants={appearVariant} initial={"fromL"}>
           <FeaturedProjectCard
             className=" w-full lg:w-[90%] h-[360px] lg:h-[520px]"
             backgroundColor="bg-linear-to-b from-[#21C5B7]/40 via-[#21C5B7] to-[#21C5B7]"
@@ -66,7 +71,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
         </motion.div>
 
         <motion.div custom={2} whileInView={"visible"} className={"w-full flex items-center justify-center"}
-                    variants={appearVariant} initial={"fromB"}>
+          variants={appearVariant} initial={"fromB"}>
           <div
             className={
               "flex w-full items-center justify-evenly  max-[1140px]:flex-col gap-y-10 max-[1140px]:items-center max-[1140px]:justify-center "
@@ -87,14 +92,14 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
         </motion.div>
         <div className="flex flex-col z-20  md:pt-6 items-center justify-center gap-2 md:mt-12">
           <Link
-            className={buttonVariants({variant: "default", size: 'lg'})}
+            className={buttonVariants({ variant: "default", size: 'lg' })}
             href={"/project"}
           >
             See more projects
             <div className={" p-2 px-3 bg-white rounded-full text-primary"}>
               {projectList.length > 10 ? roundUpToNearestTen(projectList.length) : projectList.length}+
             </div>
-            <ArrowRight/>
+            <ArrowRight />
           </Link>
         </div>
       </div>
@@ -115,10 +120,10 @@ const Metrics = ({ value, title }: { value: number; title: string }) => {
 };
 
 const FeaturedProjectCard = ({
-                               project,
-                               className,
-                               backgroundColor
-                             }: {
+  project,
+  className,
+  backgroundColor
+}: {
   project: Project;
   className?: string;
   backgroundColor?: string;
@@ -182,7 +187,7 @@ const FeaturedProjectCard = ({
               {name}
               {links?.length && <ExternalLink />}
             </h2>
-            <p className="text-white font-normal text-base">{description.length > 145 ? description.slice(0,145) + "..." : description}</p>
+            <p className="text-white font-normal text-base">{description.length > 145 ? description.slice(0, 145) + "..." : description}</p>
           </div>
           <div className="flex flex-wrap items-center justify-start gap-4">
             <div className="flex items-center bg-background-200/50 backdrop-blur-2xl p-2 rounded-lg jsutify-start gap-2">
@@ -227,3 +232,14 @@ const FeaturedProjectCard = ({
     </div>
   );
 };
+
+
+const ProjectLink = ({ link, name }: { link: string, name: string }) => {
+  return (
+    <Link target="_blank" href={link} className="py-2 px-8 border border-background-300/80 border-t-3  from-70% from-background-200  to-background-300 flex items-center text-text/80 transition-colors justify-center gap-2 rounded-lg hover:bg-white hover:text-black">
+      <div className="size-2 rounded-full bg-accent" />
+      <p className="text-nowrap text-sm   truncate">{name}</p>
+      <ExternalLink size={14} />
+    </Link>
+  )
+}

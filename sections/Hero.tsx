@@ -55,7 +55,7 @@ export default function HeroSection({
         </div>
         <motion.div
           className={
-            "flex w-full md:w-fit mx-auto flex-wrap items-center justify-center  lg:justify-start gap-8 mt-8"
+            "flex w-full lg:w-fit mx-auto max-md:flex-wrap items-center justify-center  lg:justify-start gap-8 mt-8"
           }
         >
           <Link href={"#contact"}>
@@ -74,22 +74,8 @@ export default function HeroSection({
         <HeroSkillPreview className="block md:hidden" />
       </motion.div>
       <HeroSkillPreview className="hidden md:block" />
-      <div className="absolute hidden md:flex z-40  bottom-20 items-center justify-center gap-4">
-        {featured.sort((a, b) => b.name.localeCompare(a.name)).map((project) => (
-          <ProjectLink key={project._id} link={project.links[0]} name={project.name} />
-        ))}
-      </div>
     </section>
   );
 }
 
 
-const ProjectLink = ({ link, name }: { link: string, name: string }) => {
-  return (
-    <Link target="_blank" href={link} className="py-2 px-8 border border-background-300/80 border-t-3  from-70% from-background-200  to-background-300 flex items-center text-text/80 transition-colors justify-center gap-2 rounded-lg hover:bg-white hover:text-black">
-      <div className="size-2 rounded-full bg-accent" />
-      <p className="text-nowrap text-sm   truncate">{name}</p>
-      <ExternalLink size={14} />
-    </Link>
-  )
-}
