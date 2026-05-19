@@ -114,7 +114,7 @@ export default function GoogleTranslate() {
   };
 
   return (
-    <div className="notranslate flex items-center gap-1" translate="no">
+    <div className="notranslate flex items-center gap-1 max-sm:gap-0.5" translate="no">
       <div id={GOOGLE_TRANSLATE_ELEMENT_ID} aria-hidden="true" />
       <Button
         type="button"
@@ -123,7 +123,7 @@ export default function GoogleTranslate() {
         aria-pressed={language === "en"}
         onClick={() => handleLanguageChange("en")}
         className={cn(
-          "h-8 min-w-10 rounded-md px-2 text-small-2 font-semibold",
+          "h-8 min-w-10 rounded-md px-2 text-small-2 font-semibold max-sm:h-7 max-sm:min-w-8 max-sm:px-1.5 max-sm:text-[11px]",
           language === "en" && "bg-primary text-white-100",
         )}
       >
@@ -136,7 +136,7 @@ export default function GoogleTranslate() {
         aria-pressed={language === "fr"}
         onClick={() => handleLanguageChange("fr")}
         className={cn(
-          "h-8 min-w-10 rounded-md px-2 text-small-2 font-semibold",
+          "h-8 min-w-10 rounded-md px-2 text-small-2 font-semibold max-sm:h-7 max-sm:min-w-8 max-sm:px-1.5 max-sm:text-[11px]",
           language === "fr" && "bg-primary text-white-100",
         )}
       >
