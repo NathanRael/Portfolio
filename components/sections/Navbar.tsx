@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import GoogleTranslate from "@/components/shared/google-translate";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -46,6 +47,9 @@ export default function Navbar() {
             </Link>
           </li>
         ))}
+        <li>
+          <GoogleTranslate />
+        </li>
       </ul>
     </motion.div>
   );

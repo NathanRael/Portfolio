@@ -15,6 +15,16 @@ export interface Skill {
 export default function SkillList({ skills }: { skills: Skill[] }) {
 
   const categories = ["framework", "language", "database", "tool"];
+  const manualCategoryTranslations: Partial<Record<(typeof categories)[number], { en: string; fr: string }>> = {
+    framework: {
+      en: "Frameworks",
+      fr: "Frameworks",
+    },
+    language: {
+      en: "Languages",
+      fr: "Langages",
+    },
+  };
 
   return (
     <div className={"flex flex-col gap-y-36"}>
@@ -23,7 +33,22 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
           <div key={category} className={"flex flex-wrap gap-10 items-center justify-center"}>
             <AnimatedText className={"relative"} custom={i * 0.5} whileInView={"visible"} initial={i % 2 === 0 ? "fromL" : "fromR"}>
               <div className={"text-subtitle-2 -rotate-2 text-white relative"}>
-                <h3>{category.charAt(0).toUpperCase() + category.slice(1)}s</h3>
+                <h3>
+                  {
+                    manualCategoryTranslations[category] ? (
+                      <span className="notranslate" translate="no">
+                        <span className="manual-translation-en">
+                          {manualCategoryTranslations[category]?.en}
+                        </span>
+                        <span className="manual-translation-fr">
+                          {manualCategoryTranslations[category]?.fr}
+                        </span>
+                      </span>
+                    ) : (
+                      `${category.charAt(0).toUpperCase() + category.slice(1)}s`
+                    )
+                  }
+                </h3>
                 <svg className="absolute bottom-4  w-full h-full pointer-events-none" viewBox="0 0 400 100" fill="none">
                   <path d="M10,10 Q200,80 390,10 Q200,90 10,10 Z"
                         stroke="var(--secondary)" strokeWidth="6" fill="none" />

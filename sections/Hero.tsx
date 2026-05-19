@@ -66,7 +66,10 @@ export default function HeroSection({
           </Link>
           <Link target={"_blank"} href={resumeUrl}>
             <Button size={"lg"} variant={"secondary"} className="w-[232px]">
-              Download resume
+              <span className="notranslate" translate="no">
+                <span className="manual-translation-en">Download resume</span>
+                <span className="manual-translation-fr">Télécharger le CV</span>
+              </span>
               <ExternalLink size={20} />
             </Button>
           </Link>

@@ -182,6 +182,23 @@
   @apply flex items-center justify-center;
 }
 
+.manual-translation-fr {
+  display: none;
+}
+
+html.translated-ltr .manual-translation-en {
+  display: none;
+}
+
+html.translated-ltr .manual-translation-fr,
+html[data-google-language="fr"] .manual-translation-fr {
+  display: inline;
+}
+
+html[data-google-language="fr"] .manual-translation-en {
+  display: none;
+}
+
 .auth-form {
   @apply m-10 mt-60 w-[500px] p-8 rounded-2xl border-none border-background-200 bg-background-100 flex flex-col justify-center items-center mx-auto  gap-6;
 }

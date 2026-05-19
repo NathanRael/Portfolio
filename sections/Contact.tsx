@@ -29,7 +29,16 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
                     <div className={'text-center'}>
                         <AnimatedText whileInView={"visible"} initial={"hidden"} custom={0} className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}><p>Wanna talk about something
                             ?</p></AnimatedText>
-                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={2} className={'text-white-100 text-title font-bold  '}><h2>Feel Free To <span className={"text-secondary"}>Reach Out</span></h2></AnimatedText>
+                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={2} className={'text-white-100 text-title font-bold  '}>
+                            <h2 className="notranslate" translate="no">
+                                <span className="manual-translation-en">
+                                    Feel Free To <span className={"text-secondary"}>Reach Out</span>
+                                </span>
+                                <span className="manual-translation-fr">
+                                    N&apos;hésitez pas à me <span className={"text-secondary"}>contacter</span>
+                                </span>
+                            </h2>
+                        </AnimatedText>
                     </div>
                 )
             }
