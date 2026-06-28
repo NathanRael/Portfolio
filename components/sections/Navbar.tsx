@@ -59,7 +59,7 @@ export default function Navbar() {
             className={"shrink-0 text-lead select-none font-md text-white-100"}
             aria-label="Natanaël RALAIVOAVY home"
           >
-            <div className={"relative ps-16 font-bold text-white max-sm:w-12 max-sm:ps-9 max-sm:text-[0px]"}>
+            <div className={"relative ps-16 font-bold text-white max-sm:text-sm max-sm:ps-4"}>
               R.Natanaël
             </div>
           </Link>
@@ -75,25 +75,25 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop right side */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Right side actions */}
+          <div className="flex items-center gap-3">
             <GoogleTranslate />
-            <Button asChild size="sm" variant="default" className="h-10 px-4">
-              <Link href={"#contact"}>
-                <Inbox size={16} />
-                Get in touch
-              </Link>
-            </Button>
+            <div className="hidden md:flex">
+              <Button asChild size="sm" variant="default" className="h-10 px-4">
+                <Link href={"#contact"}>
+                  <Inbox size={16} />
+                  Get in touch
+                </Link>
+              </Button>
+            </div>
+            <button
+              className="md:hidden p-2 text-white-100"
+              onClick={() => openMobileMenu()}
+              aria-label="Open menu"
+            >
+              <Menu size={24} />
+            </button>
           </div>
-
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-2 text-white-100"
-            onClick={() => openMobileMenu()}
-            aria-label="Open menu"
-          >
-            <Menu size={24} />
-          </button>
         </div>
       </motion.div>
 
@@ -106,8 +106,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-background md:hidden flex flex-col p-6"
           >
-            <div className="flex items-center justify-between">
-              <span className="text-white-100 font-bold text-lg">R.Natanaël</span>
+            <div className="flex justify-end">
               <button
                 className="p-1 text-white-100"
                 onClick={() => closeMobileMenu()}
@@ -132,9 +131,8 @@ export default function Navbar() {
               ))}
             </ul>
 
-            <div className="flex items-center gap-4 pb-8">
-              <GoogleTranslate />
-              <Button asChild size="lg" variant="default" className="flex-1">
+            <div className="flex justify-center pb-8">
+              <Button asChild size="lg" variant="default">
                 <Link href={"#contact"} onClick={() => closeMobileMenu()}>
                   <Inbox size={20} />
                   Get in touch
