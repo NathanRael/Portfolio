@@ -68,7 +68,7 @@ export function InfiniteCertificateScroller({certificates} : {certificates : Cer
     <motion.div
       ref={containerRef}
       style={{ scale, opacity }}
-      className="bg-secondary flex items-center justify-center gap-6 overflow-hidden rounded-xl w-full h-[720px]"
+      className="bg-secondary flex items-center justify-center gap-6 overflow-hidden w-full h-[720px]"
     >
       <div className="flex flex-col gap-2 rotate-12 overflow-hidden">
         <div
@@ -104,7 +104,7 @@ export function InfiniteCertificateScroller({certificates} : {certificates : Cer
 function CertCard({ image, title }: { image: string; title: string }) {
   return (
     <div
-      className="overflow-hidden border-4 rounded-lg border-background-300"
+      className="overflow-hidden border-4 border-background-300"
     >
       <Image
         className="object-cover w-full h-full"

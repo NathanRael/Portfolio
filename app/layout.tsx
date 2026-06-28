@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import localFont from "next/font/local";
-import { SanityLive } from "@/sanity/lib/live";
-import ReactQueryProvider from "@/context/ReactQueryProvider";
-import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/sections/Navbar";
-import { Hedvig_Letters_Sans, Instrument_Serif, Outfit } from 'next/font/google'
+import ReactQueryProvider from "@/context/ReactQueryProvider";
+import { SanityLive } from "@/sanity/lib/live";
+import { Analytics } from "@vercel/analytics/react";
+import type { Metadata } from "next";
+import { Outfit } from 'next/font/google';
+import localFont from "next/font/local";
+import "./globals.css";
 
 const schibsetGrotesk = localFont({
   src: [
@@ -38,7 +38,13 @@ const schibsetGrotesk = localFont({
 const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
+  // weight : '400',
 })
+
+/* const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+}) */
 /* const outfit = Hedvig_Letters_Sans({
   weight: '400',
 }) */

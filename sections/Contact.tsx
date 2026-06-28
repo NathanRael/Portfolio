@@ -13,7 +13,7 @@ import Image from "next/image";
 export default function ContactSection({ className, withSubtitle = true }: { className?: string, withSubtitle?: boolean }) {
     const [copied, setCopied] = useState(false);
     return (
-        <section aria-labelledby={withSubtitle ? "contact-heading" : undefined} className= {cn("section relative w-full p-2 lg:p-4 rounded-3xl border-2 border-background-200 lg:w-[80vw] xl:w-[60vw] h-full lg:h-[420px] flex items-center flex-col justify-center mx-auto overflow-hidden", className)} >
+        <section aria-labelledby={withSubtitle ? "contact-heading" : undefined} className= {cn("section relative w-full p-2 lg:p-4 border-2 border-background-200 lg:w-[80vw] xl:w-[60vw] h-full lg:h-[420px] flex items-center flex-col justify-center mx-auto overflow-hidden", className)} >
             <Image
                 src={"/images/noise-texture.svg"}
                 className={
@@ -61,12 +61,12 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
                     </Link>
                 </Button>
                 <div className={'space-x-4'}>
-                    <Button asChild variant={'secondary'} className={'group px-5 rounded-full'} size={'lg'} >
+                    <Button asChild variant={'secondary'} className={'group px-5'} size={'lg'} >
                         <Link target={'_blank'} rel="noopener noreferrer" href={MY_GITHUB_PROFILE} aria-label="Open Natanaël RALAIVOAVY GitHub profile">
                             <Github size={20} />
                         </Link>
                     </Button>
-                    <Button asChild variant={'secondary'} size={'lg'} className={"px-5 rounded-full"}>
+                    <Button asChild variant={'secondary'} size={'lg'} className={"px-5"}>
                         <Link target={'_blank'} rel="noopener noreferrer" href={MY_LINKEDIN_PROFILE} aria-label="Open Natanaël RALAIVOAVY LinkedIn profile">
                             <Linkedin className={'text-secondary-100 '} size={20} />
                         </Link>

@@ -48,7 +48,7 @@ export default function ProjectCard({
       {isUnderDevelopment && (
         <motion.div
           className={
-            "px-2 absolute rotate-3 -top-4 select-none -right-2  py-1 rounded-md text-[14px] bg-primary-100"
+            "px-2 absolute rotate-3 -top-4 select-none -right-2  py-1 text-[14px] bg-primary-100"
           }
         >
           Under development
@@ -58,7 +58,7 @@ export default function ProjectCard({
         width={387}
         height={209}
         className={
-          "object-cover overflow-hidden border border-white-60 rounded-xl"
+          "object-cover overflow-hidden border border-white-60"
         }
         src={image}
         alt={`${name} project preview`}
@@ -87,7 +87,7 @@ export default function ProjectCard({
             <div
               key={link}
               className={
-                "flex  gap-1 text-nowrap bg-neutral-dark-80 hover:underline hover:bg-neutral-dark-60 text-small px-2 py-1 rounded-[12px]"
+                "flex  gap-1 text-nowrap bg-neutral-dark-80 hover:underline hover:bg-neutral-dark-60 text-small px-2 py-1"
               }
             >
               <LinkIcon size={16} />
@@ -101,7 +101,7 @@ export default function ProjectCard({
 
       <div className={"flex-row-center w-full justify-between!"}>
         <div className={"inline-flex items-center gap-2"}>
-          <div className={"size-2 rounded-full bg-secondary-100"} />
+          <div className={"size-2 bg-secondary-100"} />
           <p className={"text-small text-white-80"}>{projectType?.display}</p>
         </div>
         <p className={"text-white-80 text-small"}>{date?.split("-")[0]}</p>

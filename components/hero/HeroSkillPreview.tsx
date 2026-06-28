@@ -10,7 +10,7 @@ const HeroSkillPreview = ({
 }) => {
   return (
     <div className={className}>
-      <div className=" flex flex-row md:flex-col absolute left-1/2 max-md:-translate-x-1/2 md:left-0 lg:left-14 top-auto max-md:bottom-2 md:top-1/2 lg:top-40 items-start justify-start gap-4 md:gap-20">
+      <div className="flex z-20 flex-row md:flex-col absolute left-1/2 max-md:-translate-x-1/2 md:left-0 lg:left-14 top-auto max-md:bottom-2 md:top-1/2 lg:top-40 items-start justify-start gap-4 md:gap-20">
         <SkillItem
           custom={0}
           icon={

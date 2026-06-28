@@ -102,7 +102,6 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
 
     --color-primary-100: 256 89% 60%;
     --color-primary-80: 256 89% 78%;
@@ -200,7 +199,7 @@ html[data-google-language="fr"] .manual-translation-en {
 }
 
 .auth-form {
-  @apply m-10 mt-60 w-[500px] p-8 rounded-2xl border-none border-background-200 bg-background-100 flex flex-col justify-center items-center mx-auto  gap-6;
+  @apply m-10 mt-60 w-[500px] p-8 border-none border-background-200 bg-background-100 flex flex-col justify-center items-center mx-auto  gap-6;
 }
 
 .app-section {

@@ -15,7 +15,7 @@ const SkillItem = ({
   return (
     <motion.div
       className={cn(
-        "flex items-center z-20 justify-center size-14 md:size-18 rounded-2xl border border-background-300 from-70% bg-linear-to-b from-background-200  to-background-300 ",
+        "flex items-center z-20 justify-center size-14 md:size-18 border border-background-300 from-70% bg-linear-to-b from-background-200  to-background-300 ",
         className
       )}
       custom={custom}

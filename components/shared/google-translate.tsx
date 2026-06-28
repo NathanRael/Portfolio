@@ -120,10 +120,10 @@ export default function GoogleTranslate() {
       <div id={GOOGLE_TRANSLATE_ELEMENT_ID} aria-hidden="true" />
       <Button
         type="button"
-        variant="tertiary"
+        variant="outline"
         size="sm"
         onClick={() => handleLanguageChange(oppositeLanguage)}
-        className="h-8 min-w-10 rounded-md px-2 text-small-2 font-semibold max-sm:h-7 max-sm:min-w-8 max-sm:px-1.5 max-sm:text-[11px]"
+        className="h-10 min-w-10 px-2 text-small-2 font-semibold max-sm:h-7 max-sm:min-w-8 max-sm:px-1.5 max-sm:text-[11px]"
       >
         {oppositeLabel}
       </Button>

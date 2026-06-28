@@ -36,7 +36,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
     <section
       id="projects"
       aria-labelledby="featured-projects-heading"
-      className="bg-linear-to-bl relative from-background-100 via-background-50 to-background-100 border bordeer-t-2  border-t-background-200 rounded-xl max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)]  min-h-screen h-full pt-20 max-lg:p-2 p-6">
+      className="bg-linear-to-bl relative from-background-100 via-background-50 to-background-100 border bordeer-t-2 border-t-background-200 max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)] min-h-screen h-full pt-20 max-lg:p-2 p-6">
       <div className="absolute hidden md:flex z-40  top-4 left-1/2 -translate-x-1/2 items-center justify-center gap-4">
         {featuredProjects.sort((a, b) => b.name.localeCompare(a.name)).map((project) => (
           <ProjectLink key={project._id} link={project.links[0]} name={project.name} />
@@ -98,7 +98,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
             href={"/project"}
           >
             See more projects
-            <div className={" p-2 px-3 bg-white rounded-full text-primary"}>
+            <div className={" p-2 px-3 bg-white text-primary"}>
               {projectList.length > 10 ? roundUpToNearestTen(projectList.length) : projectList.length}+
             </div>
             <ArrowRight />
@@ -114,7 +114,7 @@ export default FeaturedProject;
 const Metrics = ({ value, title }: { value: number; title: string }) => {
   return (
     <div
-      className="flex flex-col gap-1 size-32 items-center justify-center bg-neutral-dark-80  rounded-lg border-2 border-neutral-dark-80">
+      className="flex flex-col gap-1 size-32 items-center justify-center bg-neutral-dark-80  border-2 border-neutral-dark-80">
       <span className="text-subtitle font-medium">{value}</span>
       <span>{title}</span>
     </div>
@@ -139,7 +139,7 @@ const FeaturedProjectCard = ({
       <div
         ref={ref}
         className={cn(
-          "flex absolute flex-col items-start  w-full h-full   justify-start  overflow-hidden rounded-xl top-2 -left-2 bg-background-100/10  border-background-200/50",
+          "flex absolute flex-col items-start  w-full h-full   justify-start  overflow-hidden top-2 -left-2 bg-background-100/10  border-background-200/50",
           backgroundColor
         )}
       />
@@ -147,7 +147,7 @@ const FeaturedProjectCard = ({
       <div
         ref={ref}
         className={cn(
-          "flex flex-col items-start relative w-full h-full   justify-start  overflow-hidden rounded-xl border-1 border-background-200",
+          "flex flex-col items-start relative w-full h-full   justify-start  overflow-hidden border-1 border-background-200",
           backgroundColor, "backdrop-blur-2xl"
         )}
       >
@@ -166,7 +166,7 @@ const FeaturedProjectCard = ({
             duration: 0.3,
             ease: "easeInOut"
           }}
-          className="overflow-hidden absolute left-1/2 -bottom-2 border border-text/80 rounded-xl"
+          className="overflow-hidden absolute left-1/2 -bottom-2 border border-text/80"
         >
           <Image
             src={image}
@@ -201,7 +201,7 @@ const FeaturedProjectCard = ({
             <p className="text-white font-normal text-base">{description.length > 145 ? description.slice(0, 145) + "..." : description}</p>
           </div>
           <div className="flex flex-wrap items-center justify-start gap-4">
-            <div className="flex items-center bg-background-200/50 backdrop-blur-2xl p-2 rounded-lg jsutify-start gap-2">
+            <div className="flex items-center bg-background-200/50 backdrop-blur-2xl p-2 jsutify-start gap-2">
               {techStacks?.map((techStack) => (
                 <Image
                   key={techStack}
@@ -218,7 +218,7 @@ const FeaturedProjectCard = ({
                 <div
                   key={link}
                   className={
-                    "flex  gap-1 text-nowrap bg-neutral-dark-80 underline hover:bg-neutral-dark-60 text-small px-2 py-1 rounded-[12px]"
+                    "flex  gap-1 text-nowrap bg-neutral-dark-80 underline hover:bg-neutral-dark-60 text-small px-2 py-1"
                   }
                 >
                   <LinkIcon size={16} />
@@ -234,7 +234,7 @@ const FeaturedProjectCard = ({
       {isUnderDevelopment && (
         <div
           className={
-            "px-2 absolute -top-2 z-20 select-none right-4 rotate-3 py-1 rounded-md text-[14px] bg-primary-100"
+            "px-2 absolute -top-2 z-20 select-none right-4 rotate-3 py-1 text-[14px] bg-primary-100"
           }
         >
           Under development
@@ -248,8 +248,8 @@ const FeaturedProjectCard = ({
 
 const ProjectLink = ({ link, name }: { link: string, name: string }) => {
   return (
-    <Link target="_blank" rel="noopener noreferrer" href={link} className="py-2 px-8 border border-background-300/80 border-t-3  from-70% from-background-200  to-background-300 flex items-center text-text/80 transition-colors justify-center gap-2 rounded-lg hover:bg-white hover:text-black" aria-label={`Open ${name} project`}>
-      <div className="size-2 rounded-full bg-accent" />
+    <Link target="_blank" rel="noopener noreferrer" href={link} className="py-2 px-8 border border-background-300/80 border-t-3 from-70% from-background-200 to-background-300 flex items-center text-text/80 transition-colors justify-center gap-2 hover:bg-white hover:text-black" aria-label={`Open ${name} project`}>
+      <div className="size-2 bg-accent" />
       <p className="text-nowrap text-sm   truncate">{name}</p>
       <ExternalLink size={14} />
     </Link>

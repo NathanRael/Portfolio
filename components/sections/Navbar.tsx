@@ -47,7 +47,7 @@ export default function Navbar() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
+        transition={{ delay: 0.4, duration: 0.8 }}
         className={cn(
           "fixed flex items-center px-4 md:px-[64px] app-padding max-sm:py-3 top-6 left-1/2 -translate-x-1/2 z-40 border-background-200 transition-all duration-300 w-full",
           scrolled && "top-0 border-b bg-background/20 backdrop-blur-md"
@@ -78,7 +78,7 @@ export default function Navbar() {
           {/* Desktop right side */}
           <div className="hidden md:flex items-center gap-3">
             <GoogleTranslate />
-            <Button asChild size="sm" variant="default" className="h-10 px-4 rounded-xl">
+            <Button asChild size="sm" variant="default" className="h-10 px-4">
               <Link href={"#contact"}>
                 <Inbox size={16} />
                 Get in touch

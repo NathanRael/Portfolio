@@ -69,7 +69,7 @@ const AboutMe = ({ className }: { className?: string }) => {
 
 
       <Image
-        className={"rounded-full "}
+        className={" "}
         src={"/images/profile.png"}
         alt={"Portrait of Natanaël RALAIVOAVY"}
         width={256}
