@@ -3,8 +3,7 @@ import HeroSkillPreview from "@/components/hero/HeroSkillPreview";
 import { Project } from "@/components/sections/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { appearVariant } from "@/lib/animationVariants";
-import { cn } from "@/lib/utils";
-import { AtSign, ExternalLink } from "lucide-react";
+import { ExternalLink, Inbox } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,13 +20,14 @@ export default function HeroSection({
   return (
     <section
       aria-labelledby="hero-heading"
-      className={"flex overflow-hidden max-md:relative flex-col items-center justify-start gap-10  h-screen"}
+      className={"flex overflow-hidden max-md:relative flex-col items-center justify-start gap-10 py-20"}
     >
+
       <motion.div
         variants={appearVariant}
         initial={"fromB"}
         whileInView={"visible"}
-        className="flex h-[88vh] lg:h-fit w-[94%] md:w-[85%] lg:max-w-[80%] xl:w-fit  p-4 md:p-10 lg:p-20 lg:px-40 relative border-2 border-background-200  overflow-hidden mt-20 rounded-3xl  flex-col items-center justify-center gap-4 md:gap-12 ">
+        className="flex h-[88vh] lg:h-fit w-[94%] md:w-[85%] lg:max-w-[80%] xl:w-[70%] p-4 md:p-10 lg:p-20 lg:px-40 relative border-2 border-background-200  overflow-hidden mt-20 rounded-3xl  flex-col items-center justify-center gap-4 md:gap-12 ">
         <Image
           src={"/images/noise-texture.svg"}
           className={
@@ -38,45 +38,36 @@ export default function HeroSection({
           width={512}
           height={512}
         />
-        <Image
-          src={profileImageUrl}
-          width={216}
-          height={216}
-          className={cn(
-            "flex items-center  justify-center text-subtitle size-48 object-cover overflow-hidden    rounded-full  bg-transparent"
-          )}
-          alt={"Portrait of Natanaël RALAIVOAVY"}
-          priority
-        />
-        <div className="space-y-4 z-30 max-w-[660px] text-center">
-          <h1 id="hero-heading" className="text-subtitle-2 max-sm:max-w-[380px] max-md:max-w-[460px] sm:text-subtitle md:text-[3.5rem] font-bold leading-tight">
-            Turning Your Ideas Into Results
+        <div className="space-y-4 z-30 max-w-[660px] text-left">
+          <h1 id="hero-heading" className="text-subtitle-2  sm:text-subtitle md:text-[5rem] font-bold leading-tight">
+            <span className="text-primary italic">FullStack</span> Developer & <span className="text-primary italic">AI</span> Integrator
           </h1>
-          <p className="text-accent text-lead md:text-[24px] font-semibold tracking-[12%]">
-            I Craft Interfaces That Deliver
+          <p className="text-white/70 text-base font-semibold tracking-[12%]">
+            I&apos;m <span className="text-white">RALAIVOAVY Natanaël</span>, a Fullstack Developer & AI Integrator from Madagascar.
+            I build and design modern web apps with <span className="text-white">Next.js</span>, <span className="text-white">NestJS</span>, and <span className="text-white">FastAPI</span>, focused on clean UI and <span className="text-white">AI-powered</span> systems.
           </p>
+          <motion.div
+            className={
+              "flex w-full max-md:flex-wrap items-center justify-start gap-8 pt-4"
+            }
+          >
+            <Button asChild size={"lg"} variant={"default"} className="w-[232px]">
+              <Link href={"#contact"}>
+                <Inbox size={20} />
+                Get in touch
+              </Link>
+            </Button>
+            <Button asChild size={"lg"} variant={"secondary"} className="w-[232px]">
+              <Link target={"_blank"} rel="noopener noreferrer" href={resumeUrl}>
+                <span className="notranslate" translate="no">
+                  <span className="manual-translation-en">Download CV</span>
+                  <span className="manual-translation-fr">Télécharger le CV</span>
+                </span>
+                <ExternalLink size={20} />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
-        <motion.div
-          className={
-            "flex w-full lg:w-fit mx-auto max-md:flex-wrap items-center justify-center  lg:justify-start gap-8 mt-8"
-          }
-        >
-          <Button asChild size={"lg"} variant={"default"} className="w-[232px]">
-            <Link href={"#contact"}>
-              <AtSign size={20} />
-              Get in touch
-            </Link>
-          </Button>
-          <Button asChild size={"lg"} variant={"secondary"} className="w-[232px]">
-            <Link target={"_blank"} rel="noopener noreferrer" href={resumeUrl}>
-              <span className="notranslate" translate="no">
-                <span className="manual-translation-en">Download resume</span>
-                <span className="manual-translation-fr">Télécharger le CV</span>
-              </span>
-              <ExternalLink size={20} />
-            </Link>
-          </Button>
-        </motion.div>
         <HeroSkillPreview className="block md:hidden" />
       </motion.div>
       <HeroSkillPreview className="hidden md:block" />

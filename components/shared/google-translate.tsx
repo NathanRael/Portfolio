@@ -4,7 +4,6 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 declare global {
   interface Window {
@@ -113,34 +112,20 @@ export default function GoogleTranslate() {
     selectGoogleTranslateLanguage("fr");
   };
 
+  const oppositeLanguage: Language = language === "en" ? "fr" : "en";
+  const oppositeLabel = oppositeLanguage.toUpperCase();
+
   return (
-    <div className="notranslate flex items-center gap-1 max-sm:gap-0.5" translate="no">
+    <div className="notranslate flex items-center gap-1" translate="no">
       <div id={GOOGLE_TRANSLATE_ELEMENT_ID} aria-hidden="true" />
       <Button
         type="button"
         variant="tertiary"
         size="sm"
-        aria-pressed={language === "en"}
-        onClick={() => handleLanguageChange("en")}
-        className={cn(
-          "h-8 min-w-10 rounded-md px-2 text-small-2 font-semibold max-sm:h-7 max-sm:min-w-8 max-sm:px-1.5 max-sm:text-[11px]",
-          language === "en" && "bg-primary text-white-100",
-        )}
+        onClick={() => handleLanguageChange(oppositeLanguage)}
+        className="h-8 min-w-10 rounded-md px-2 text-small-2 font-semibold max-sm:h-7 max-sm:min-w-8 max-sm:px-1.5 max-sm:text-[11px]"
       >
-        EN
-      </Button>
-      <Button
-        type="button"
-        variant="tertiary"
-        size="sm"
-        aria-pressed={language === "fr"}
-        onClick={() => handleLanguageChange("fr")}
-        className={cn(
-          "h-8 min-w-10 rounded-md px-2 text-small-2 font-semibold max-sm:h-7 max-sm:min-w-8 max-sm:px-1.5 max-sm:text-[11px]",
-          language === "fr" && "bg-primary text-white-100",
-        )}
-      >
-        FR
+        {oppositeLabel}
       </Button>
       <Script
         id="google-translate-script"
