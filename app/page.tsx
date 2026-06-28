@@ -10,6 +10,7 @@ import {
 } from "@/sanity/lib/query";
 import { sanityFetch } from "@/sanity/lib/live";
 import FeaturedProject from "@/sections/FeaturedProject";
+import ExperiencesSection from "@/sections/Experiences";
 import CertificateSection from "@/sections/Certificate";
 import AboutMe from "@/sections/AboutMe";
 import { Project } from "@/components/sections/ProjectCard";
@@ -36,6 +37,7 @@ export default async function Home() {
       />
       <div className="gap-[256px] max-md:gap-[128px]  app-padding flex  flex-col items-center justify-center">
         <FeaturedProject projectList={projects} />
+        <ExperiencesSection />
         <SkillsSection skills={skills} />
         <CertificateSection certificates={certificates} />
         <AboutMe className={""} />

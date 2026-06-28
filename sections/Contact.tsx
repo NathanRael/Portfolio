@@ -3,15 +3,22 @@ import { Button } from "@/components/ui/button";
 import { AtSign, CopyCheck, Github, Linkedin } from "lucide-react";
 import { cn, copyToClipboard } from "@/lib/utils";
 import Link from "next/link";
-import { MY_EMAIL, MY_GITHUB_PROFILE, MY_LINKEDIN_PROFILE } from "@/constants";
+import { MY_EMAIL, MY_GITHUB_PROFILE, MY_LINKEDIN_PROFILE, MY_PHONE_NUMBER } from "@/constants";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { motion } from "motion/react"
 import { appearVariant } from "@/lib/animationVariants";
 import { useState } from "react";
 import Image from "next/image";
 
+const WhatsAppIcon = () => (
+  <Image src="/logo/whatsapp.svg" alt="WhatsApp" width={20} height={20} />
+);
+
 export default function ContactSection({ className, withSubtitle = true }: { className?: string, withSubtitle?: boolean }) {
-    const [copied, setCopied] = useState(false);
+    const [copiedEmail, setCopiedEmail] = useState(false);
+    const [copiedPhone, setCopiedPhone] = useState(false);
+    const phoneDigits = MY_PHONE_NUMBER.replace(/\s+/g, "");
+
     return (
         <section aria-labelledby={withSubtitle ? "contact-heading" : undefined} className= {cn("section relative w-full p-2 lg:p-4 border-2 border-background-200 lg:w-[80vw] xl:w-[60vw] h-full lg:h-[420px] flex items-center flex-col justify-center mx-auto overflow-hidden", className)} >
             <Image
@@ -43,24 +50,37 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
                     </div>
                 )
             }
-            <motion.div viewport={{ once: true }} variants={appearVariant} whileInView={"visible"} initial={"hidden"} custom={3} className={'flex-row-center max-[460px]:flex-col gap-10'}>
+            <motion.div viewport={{ once: true }} variants={appearVariant} whileInView={"visible"} initial={"hidden"} custom={3} className={'flex-row-center max-lg:flex-col gap-10'}>
                 <Button asChild variant={'gradient'}>
                     <Link onClick={() => {
                         copyToClipboard(MY_EMAIL)
 
-                        setCopied(true)
+                        setCopiedEmail(true)
 
                         setTimeout(() => {
-                            setCopied(false)
+                            setCopiedEmail(false)
                         }, 3000)
                     }} href={`mailto:${MY_EMAIL}`}>
-                        {copied ? <CopyCheck size={20} /> : <AtSign size={20} />}
+                        {copiedEmail ? <CopyCheck size={20} /> : <AtSign size={20} />}
                         {
-                            copied ? 'Email copied to clipboard' : 'ralaivoaovy.natanael@gmail.com'
+                            copiedEmail ? 'Email copied to clipboard' : 'ralaivoavy.natanael@gmail.com'
                         }
                     </Link>
                 </Button>
-                <div className={'space-x-4'}>
+                <div className="h-10 w-0.5 bg-white max-lg:hidden" />
+                <p
+                    className="text-lead text-nowrap cursor-pointer hover:text-white-100 transition-colors"
+                    onClick={() => {
+                        copyToClipboard(MY_PHONE_NUMBER)
+                        setCopiedPhone(true)
+                        setTimeout(() => setCopiedPhone(false), 3000)
+                    }}
+                    title={copiedPhone ? "Copied!" : "Click to copy"}
+                >
+                    {MY_PHONE_NUMBER}
+                </p>
+                <div className="h-10 w-0.5 bg-white max-lg:hidden" />
+                <div className={'flex gap-2 items-center justify-center'}>
                     <Button asChild variant={'secondary'} className={'group px-5'} size={'lg'} >
                         <Link target={'_blank'} rel="noopener noreferrer" href={MY_GITHUB_PROFILE} aria-label="Open Natanaël RALAIVOAVY GitHub profile">
                             <Github size={20} />
@@ -71,7 +91,11 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
                             <Linkedin className={'text-secondary-100 '} size={20} />
                         </Link>
                     </Button>
-
+                    <Button asChild variant={'secondary'} size={'lg'} className={"px-5"}>
+                        <Link target={'_blank'} rel="noopener noreferrer" href={`https://wa.me/${phoneDigits}`} aria-label="Chat with Natanaël on WhatsApp">
+                            <WhatsAppIcon />
+                        </Link>
+                    </Button>
                 </div>
             </motion.div>
         </section>
