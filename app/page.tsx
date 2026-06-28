@@ -30,7 +30,7 @@ export default async function Home() {
   return (
     <main className="mt-10 md:mt-20  w-full space-y-10">
       <HeroSection
-        profileImageUrl={"/images/profile-transparent.png"}
+        profileImageUrl={"/images/profile.png"}
         resumeUrl={resumeUrl}
         featured={featuredProjects}
       />

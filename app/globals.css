@@ -46,10 +46,10 @@
   --text-title: 3.4rem;
   --text-subtitle: 40px;
   --text-subtitle-2: 32px;
-  --text-lead: 18px;
-  --text-base: 16px;
-  --text-small: 14px;
-  --text-small-2: 12px;
+  --text-lead: 20px;
+  --text-base: 18px;
+  --text-small: 15px;
+  --text-small-2: 13px;
 
   --shadow-skipe: inset 0 1px 2px var(--background-400);
 }

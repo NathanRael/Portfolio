@@ -5,6 +5,7 @@ import { SanityLive } from "@/sanity/lib/live";
 import ReactQueryProvider from "@/context/ReactQueryProvider";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/sections/Navbar";
+import { Hedvig_Letters_Sans, Instrument_Serif, Outfit } from 'next/font/google'
 
 const schibsetGrotesk = localFont({
   src: [
@@ -33,6 +34,14 @@ const schibsetGrotesk = localFont({
 });
 
 
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+})
+/* const outfit = Hedvig_Letters_Sans({
+  weight: '400',
+}) */
 
 export const metadata: Metadata = {
   title: {
@@ -141,7 +150,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={"dark"}>
       <body
-        className={`bg-background-100  text-white-100  scroll-smooth antialiased h-full ${schibsetGrotesk.variable} ${schibsetGrotesk.className}`}
+        className={`bg-background-100  text-white-100  scroll-smooth antialiased h-ful ${outfit.className}`}
       >
         <script
           type="application/ld+json"

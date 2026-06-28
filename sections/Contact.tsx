@@ -13,7 +13,7 @@ import Image from "next/image";
 export default function ContactSection({ className, withSubtitle = true }: { className?: string, withSubtitle?: boolean }) {
     const [copied, setCopied] = useState(false);
     return (
-        <section aria-labelledby={withSubtitle ? "contact-heading" : undefined} className={cn("section relative w-full p-2 lg:p-4 rounded-3xl border-2 border-background-200 lg:w-[80vw] xl:w-[60vw] h-full lg:h-[420px] flex items-center flex-col justify-center mx-auto overflow-hidden", className)} >
+        <section aria-labelledby={withSubtitle ? "contact-heading" : undefined} className= {cn("section relative w-full p-2 lg:p-4 rounded-3xl border-2 border-background-200 lg:w-[80vw] xl:w-[60vw] h-full lg:h-[420px] flex items-center flex-col justify-center mx-auto overflow-hidden", className)} >
             <Image
                 src={"/images/noise-texture.svg"}
                 className={

@@ -23,13 +23,13 @@ export default async function ProjectsSection({ filter, projects }: { filter?: s
         color="#ffffff"
         refresh
       />
-      <div className={"absolute rotate-6  -left-6  w-[100vw] h-[350px]  overflow-hidden "}>
+      {/* <div className={"absolute rotate-6  -left-6  w-[100vw] h-[350px]  overflow-hidden "}>
         <InteractiveGridPattern
           className="absolute inset-0"
           squares={[50, 25]}
           squaresClassName="hover:fill-primary  transition-colors duration-150"
         />
-      </div>
+      </div> */}
       <div className={"mb-10 z-10 space-y-4 max-w-[650px] mx-auto"}>
         <div className="flex flex-col pt-6 items-center justify-center gap-2 mt-20">
           <Link

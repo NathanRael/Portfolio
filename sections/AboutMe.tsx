@@ -21,7 +21,7 @@ const AboutMe = ({ className }: { className?: string }) => {
           custom={1}
           className={"text-subtitle w-full text-start text-white-100"}
         >
-          <h2 id="about-heading">I&apos;m Natanael</h2>
+          <h2 id="about-heading">I&apos;m Natanaël</h2>
         </AnimatedText>
 
         <motion.div
@@ -34,7 +34,7 @@ const AboutMe = ({ className }: { className?: string }) => {
           <div className={"space-y-4 text-lead text-white-80 max-w-[700px]"}>
             <article className="space-y-4">
               <p className="text-lg">
-                📚 A <span className="font-bold">Computer Science student</span> at
+                A <span className="font-bold">Computer Science student</span> at
                 <span className="font-semibold">
                   {" "}
                   EMIT (Ecole de Management et d&apos;Innovation Technologique)
@@ -43,7 +43,7 @@ const AboutMe = ({ className }: { className?: string }) => {
               </p>
 
               <p className="text-lg">
-                💻 I’m a <span className="font-semibold text-secondary">Frontend Developer</span> and{" "}
+                I’m a <span className="font-semibold text-secondary">Frontend Developer</span> and{" "}
                 <span className="font-semibold text-secondary">AI Integrator</span> who loves building{" "}
                 <span className="font-semibold text-secondary">intuitive</span> and{" "}
                 <span className="font-semibold text-secondary">visually engaging</span>{" "}
@@ -51,7 +51,7 @@ const AboutMe = ({ className }: { className?: string }) => {
               </p>
 
               <p className="text-lg">
-                ⚙️ My main tools include{" "}
+                My main tools include{" "}
                 <span className="text-secondary">Next.js</span> and{" "}
                 <span className="text-secondary">React</span> for frontend development,{" "}
                 <span className="text-secondary">NestJS</span> and{" "}
@@ -70,7 +70,7 @@ const AboutMe = ({ className }: { className?: string }) => {
 
       <Image
         className={"rounded-full "}
-        src={"/images/profile-transparent.png"}
+        src={"/images/profile.png"}
         alt={"Portrait of Natanaël RALAIVOAVY"}
         width={256}
         height={256}
