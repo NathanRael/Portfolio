@@ -7,16 +7,37 @@ import { ExternalLink, Inbox } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function HeroSection({
-  resumeUrl,
+  cvFrUrl,
+  cvEnUrl,
   profileImageUrl,
   featured
 }: {
-  resumeUrl: string;
+  cvFrUrl: string | null;
+  cvEnUrl: string | null;
   profileImageUrl: string;
   featured: Project[];
 }) {
+  const [resumeUrl, setResumeUrl] = useState(cvEnUrl ?? "#");
+
+  useEffect(() => {
+    const lang = document.documentElement.dataset.googleLanguage;
+    setResumeUrl(lang === "fr" ? (cvFrUrl ?? "#") : (cvEnUrl ?? "#"));
+
+    const observer = new MutationObserver(() => {
+      const currentLang = document.documentElement.dataset.googleLanguage;
+      setResumeUrl(currentLang === "fr" ? (cvFrUrl ?? "#") : (cvEnUrl ?? "#"));
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-google-language"],
+    });
+
+    return () => observer.disconnect();
+  }, [cvFrUrl, cvEnUrl]);
   return (
     <section
       aria-labelledby="hero-heading"
