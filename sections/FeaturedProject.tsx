@@ -4,6 +4,7 @@ import { cn, roundUpToNearestTen } from "@/lib/utils";
 import { ArrowRight, ExternalLink, LinkIcon, SquareArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import useResizeObserver from "use-resize-observer";
 import { motion } from "motion/react";
 import AnimatedText from "@/components/ui/AnimatedText";
@@ -11,6 +12,10 @@ import { appearVariant } from "@/lib/animationVariants";
 import { buttonVariants } from "@/components/ui/button";
 
 const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
+  const searchParams = useSearchParams();
+  const lang = searchParams.get("lang");
+  const langQuery = lang ? `?lang=${lang}` : "";
+
   const featuredProjects = projectList.filter((item) => item.isFeatured);
   const firstFProject = featuredProjects[0];
   const secondFProject = featuredProjects[1];
@@ -95,7 +100,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
         <div className="flex flex-col z-20  md:pt-6 items-center justify-center gap-2 md:mt-12">
           <Link
             className={buttonVariants({ variant: "default", size: 'lg' })}
-            href={"/project"}
+            href={`/project${langQuery}`}
           >
             See more projects
             <div className={" p-2 px-3 bg-white text-primary"}>

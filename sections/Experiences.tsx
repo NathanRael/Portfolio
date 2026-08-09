@@ -6,7 +6,8 @@ import AnimatedText from "@/components/ui/AnimatedText";
 import { appearVariant } from "@/lib/animationVariants";
 
 interface Experience {
-  role: string;
+  roleEn: string;
+  roleFr: string;
   company: string;
   period: string;
   remote: boolean;
@@ -16,7 +17,8 @@ interface Experience {
 
 const EXPERIENCES: Experience[] = [
   {
-    role: "D\u00e9veloppeur front-end",
+    roleEn: "Frontend Developer",
+    roleFr: "D\u00e9veloppeur front-end",
     company: "BCI France - Certification Qualiopi",
     period: "Dec 2025 - Present",
     remote: true,
@@ -31,7 +33,8 @@ const EXPERIENCES: Experience[] = [
     techs: ["Next.js", "PHP", "Docker", "Cypress"],
   },
   {
-    role: "D\u00e9veloppeur Full-Stack",
+    roleEn: "Full-Stack Developer",
+    roleFr: "D\u00e9veloppeur Full-Stack",
     company: "ITDC - Madagascar",
     period: "Jun - Sep 2025",
     remote: false,
@@ -74,7 +77,10 @@ function ExperienceCard({
         <div className="relative z-10 space-y-4">
           <div className="flex items-start justify-between gap-2">
             <div>
-              <h3 className="md:text-subtitle-2 text-lead font-bold text-white-100">{exp.role}</h3>
+              <h3 className="md:text-subtitle-2 text-lead font-bold text-white-100 notranslate" translate="no">
+                <span className="manual-translation-en">{exp.roleEn}</span>
+                <span className="manual-translation-fr">{exp.roleFr}</span>
+              </h3>
               <p className="md:text-lead text-base text-white-80">{exp.company}</p>
               {exp.remote && (
                 <span className="md:text-base text-small text-accent notranslate" translate="no">

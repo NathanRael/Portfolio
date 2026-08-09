@@ -23,16 +23,16 @@ export const metadata: Metadata = {
 const Page = async ({
   searchParams,
 }: {
-  searchParams: Promise<{ filter?: string }>;
+  searchParams: Promise<{ filter?: string; lang?: string }>;
 }) => {
-  const filter = (await searchParams).filter;
+  const { filter, lang } = await searchParams;
 
   const { data: projects } = await sanityFetch({ query: PROJECT_QUERY });
 
   return (
-    <main>
+    <main className="app-section">
       <Suspense fallback={<div>Loading...</div>}>
-        <ProjectsSection projects={projects} filter={filter} />
+        <ProjectsSection projects={projects} filter={filter} lang={lang} />
       </Suspense>
     </main>
   );

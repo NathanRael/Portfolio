@@ -1,6 +1,7 @@
 ﻿"use client";
 import { navItems } from "@/constants/navItems";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -13,6 +14,10 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileOpenRef = useRef(mobileOpen);
   mobileOpenRef.current = mobileOpen;
+
+  const searchParams = useSearchParams();
+  const lang = searchParams.get("lang");
+  const langQuery = lang ? `?lang=${lang}` : "";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,7 +60,7 @@ export default function Navbar() {
       >
         <div className="flex w-full items-center justify-between">
           <Link
-            href={"/"}
+            href={`/${langQuery}`}
             className={"shrink-0 text-lead select-none font-md text-white-100"}
             aria-label="Natanaël RALAIVOAVY home"
           >

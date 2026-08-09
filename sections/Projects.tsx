@@ -10,9 +10,10 @@ import { Particles } from "@/components/ui/shadcn-io/particles";
 import { InteractiveGridPattern } from "@/components/ui/shadcn-io/interactive-grid-pattern";
 
 
-export default async function ProjectsSection({ filter, projects }: { filter?: string, projects: Project[] }) {
+export default async function ProjectsSection({ filter, lang, projects }: { filter?: string; lang?: string; projects: Project[] }) {
 
   const filteredProjects = filterProject(projects, filter);
+  const homeHref = lang ? `/?lang=${lang}` : "/";
 
   return (
     <section id={"projects"} aria-labelledby="projects-heading" className={"section "}>
@@ -33,11 +34,13 @@ export default async function ProjectsSection({ filter, projects }: { filter?: s
       <div className={"mb-10 z-10 space-y-4 max-w-[650px] mx-auto"}>
         <div className="flex flex-col pt-6 items-center justify-center gap-2 mt-20">
           <Link
-            className={buttonVariants({ variant: "secondary" })}
-            href={"/"}
+            className={buttonVariants({ variant: "secondary", className: "notranslate" })}
+            href={homeHref}
+            translate="no"
           >
             <ArrowLeft />
-            Back
+            <span className="manual-translation-en">Back</span>
+            <span className="manual-translation-fr">Retour</span>
           </Link>
         </div>
         <AnimatedText

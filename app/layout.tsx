@@ -3,6 +3,7 @@ import ReactQueryProvider from "@/context/ReactQueryProvider";
 import { SanityLive } from "@/sanity/lib/live";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Outfit } from 'next/font/google';
 import localFont from "next/font/local";
 import "./globals.css";
@@ -162,7 +163,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <Navbar />
+        <Suspense fallback={null}>
+          <Navbar />
+        </Suspense>
         <ReactQueryProvider>
           <div>{children}</div>
         </ReactQueryProvider>

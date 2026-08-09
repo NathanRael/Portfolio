@@ -1,7 +1,8 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 
@@ -85,9 +86,24 @@ function selectGoogleTranslateLanguage(language: Language, attempt = 0) {
 
 export default function GoogleTranslate() {
   const [language, setLanguage] = useState<Language>("en");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const buildLangURL = useCallback((lang: Language) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("lang", lang);
+    return `?${params.toString()}`;
+  }, [searchParams]);
 
   useEffect(() => {
-    const initialLanguage = getTranslatedLanguage();
+    const urlLang = searchParams.get("lang") as Language | null;
+    let initialLanguage: Language = "en";
+
+    if (urlLang === "fr") {
+      initialLanguage = "fr";
+    } else if (!urlLang) {
+      initialLanguage = getTranslatedLanguage();
+    }
 
     setLanguage(initialLanguage);
     document.documentElement.dataset.googleLanguage = initialLanguage;
@@ -97,7 +113,11 @@ export default function GoogleTranslate() {
     if (window.google?.translate) {
       initializeGoogleTranslate();
     }
-  }, []);
+
+    if (initialLanguage === "fr") {
+      selectGoogleTranslateLanguage("fr");
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleLanguageChange = (nextLanguage: Language) => {
     setLanguage(nextLanguage);
@@ -105,10 +125,13 @@ export default function GoogleTranslate() {
 
     if (nextLanguage === "en") {
       clearGoogleTranslateCookie();
-      window.location.reload();
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", "en");
+      window.location.href = url.toString();
       return;
     }
 
+    router.replace(buildLangURL("fr"), { scroll: false });
     selectGoogleTranslateLanguage("fr");
   };
 
