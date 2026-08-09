@@ -10,7 +10,8 @@ const AboutMe = ({ className }: { className?: string }) => {
     <section
       aria-labelledby="about-heading"
       className={cn(
-        "flex flex-row items-center max-[1020px]:flex-col justify-between w-full",
+        "flex flex-row items-center  justify-center w-full",
+        // "flex flex-row items-center max-[1020px]:flex-col justify-center w-full",
         className
       )}
     >
@@ -19,7 +20,7 @@ const AboutMe = ({ className }: { className?: string }) => {
           whileInView={"visible"}
           initial={"hidden"}
           custom={1}
-          className={"text-subtitle w-full text-start text-white-100"}
+          className={"text-subtitle w-full text-center text-white-100"}
         >
           <h2 id="about-heading">I&apos;m Natanaël</h2>
         </AnimatedText>
@@ -31,7 +32,7 @@ const AboutMe = ({ className }: { className?: string }) => {
           initial={"fromL"}
           className={"w-full flex items-center justify-center"}
         >
-          <div className={"space-y-4 text-lead text-white-80 max-w-[700px]"}>
+          <div className={"space-y-4 text-justify text-lead text-white-80 max-w-[700px]"}>
             <article className="space-y-4">
               <p className="text-lg">
                 A <span className="font-bold">Computer Science student</span> at
@@ -67,14 +68,14 @@ const AboutMe = ({ className }: { className?: string }) => {
         </motion.div>
       </div>
 
-
+      {/* 
       <Image
         className={" "}
         src={"/images/profile.png"}
         alt={"Portrait of Natanaël RALAIVOAVY"}
         width={256}
         height={256}
-      />
+      /> */}
     </section>
   );
 };
