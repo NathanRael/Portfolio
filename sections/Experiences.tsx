@@ -11,7 +11,8 @@ interface Experience {
   company: string;
   period: string;
   remote: boolean;
-  description: string[];
+  descriptionEn: string[];
+  descriptionFr: string[];
   techs: string[];
 }
 
@@ -22,7 +23,15 @@ const EXPERIENCES: Experience[] = [
     company: "BCI France - Certification Qualiopi",
     period: "Dec 2025 - Present",
     remote: true,
-    description: [
+    descriptionEn: [
+      "Contributed as a service provider at BCI France, helping to develop web applications as a frontend developer, primarily with Next.js.",
+      "Integrated interfaces designed by the design team and participated in frontend development with PHP.",
+      "Collaborated within an Agile team, following development best practices.",
+      "Used Docker for managing and standardizing development environments.",
+      "Performed unit testing to ensure code quality, reliability, and maintainability.",
+      "Participated in the continuous improvement of applications and user experience.",
+    ],
+    descriptionFr: [
       "Intervention en tant que prestataire de service au sein de BCI France, avec une contribution au d\u00e9veloppement d'applications web en tant que d\u00e9veloppeur frontend, principalement avec Next.js.",
       "Int\u00e9gration des interfaces con\u00e7ues par l'\u00e9quipe design et participation \u00e0 des d\u00e9veloppements frontend en PHP.",
       "Collaboration au sein d'une \u00e9quipe Agile en suivant les bonnes pratiques de d\u00e9veloppement.",
@@ -38,7 +47,14 @@ const EXPERIENCES: Experience[] = [
     company: "ITDC - Madagascar",
     period: "Jun - Sep 2025",
     remote: false,
-    description: [
+    descriptionEn: [
+      "Contributed to the design and development of a collaborative web application for online homework submission and tracking.",
+      "Created interface mockups and prototypes with Figma to validate user journeys.",
+      "Integrated an artificial intelligence layer with LangChain to automate assessment and feedback.",
+      "Set up a full-stack architecture with Next.js for the frontend and NestJS for the backend.",
+      "Used Docker for containerization and standardization of development environments.",
+    ],
+    descriptionFr: [
       "Contribution \u00e0 la conception et au d\u00e9veloppement d'une application web collaborative pour le d\u00e9p\u00f4t et le suivi en ligne des devoirs.",
       "R\u00e9alisation de maquettes et prototypes d'interface avec Figma pour valider les parcours utilisateurs.",
       "Int\u00e9gration d'une couche d'intelligence artificielle avec LangChain pour automatiser l'\u00e9valuation et le feedback.",
@@ -93,10 +109,13 @@ function ExperienceCard({
           </div>
 
           <ul className="space-y-2">
-            {exp.description.map((item, i) => (
-              <li key={i} className="md:text-base text-small text-white-70 flex gap-2">
+            {exp.descriptionEn.map((item, i) => (
+              <li key={i} className="md:text-base text-small text-white-70 flex gap-2 notranslate" translate="no">
                 <span className="text-accent mt-1 shrink-0">&#x2022;</span>
-                {item}
+                <span>
+                  <span className="manual-translation-en">{item}</span>
+                  <span className="manual-translation-fr">{exp.descriptionFr[i]}</span>
+                </span>
               </li>
             ))}
           </ul>
