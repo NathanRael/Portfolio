@@ -14,6 +14,7 @@ import ExperiencesSection from "@/sections/Experiences";
 import CertificateSection from "@/sections/Certificate";
 import AboutMe from "@/sections/AboutMe";
 import { Project } from "@/components/sections/ProjectCard";
+import { Suspense } from "react";
 
 export const revalidate = 3600;
 
@@ -37,7 +38,9 @@ export default async function Home() {
         featured={featuredProjects}
       />
       <div className="gap-[256px] max-md:gap-[128px]  app-padding flex  flex-col items-center justify-center">
-        <FeaturedProject projectList={projects} />
+        <Suspense fallback={null}>
+          <FeaturedProject projectList={projects} />
+        </Suspense>
         <ExperiencesSection />
         <SkillsSection skills={skills} />
         <CertificateSection certificates={certificates} />
