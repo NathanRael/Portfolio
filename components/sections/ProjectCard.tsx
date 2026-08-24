@@ -10,6 +10,11 @@ export interface Project {
   id: string;
   name: string;
   description: string;
+  problem?: string;
+  solution?: string;
+  impact?: string;
+  role?: string;
+  client?: string;
   image: string;
   links: string[];
   projectType: {

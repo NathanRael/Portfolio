@@ -18,6 +18,26 @@ export const project = defineType({
             type : 'string',
         }),
         defineField({
+            name : 'problem',
+            type : 'string',
+        }),
+        defineField({
+            name : 'solution',
+            type : 'string',
+        }),
+        defineField({
+            name : 'impact',
+            type : 'string',
+        }),
+        defineField({
+            name : 'role',
+            type : 'string',
+        }),
+        defineField({
+            name : 'client',
+            type : 'string',
+        }),
+        defineField({
             name : 'image', 
             type : 'image',
         }),

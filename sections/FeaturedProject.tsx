@@ -62,7 +62,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           custom={2}
           className="text-lead w-full text-center "
         >
-          <p>Explore a collection of my personal projects and those developed during my internship experience.</p>
+          <p>Real problems, solved. Here's how I help teams ship products that save time, reduce costs, and improve user experience.</p>
         </AnimatedText>
       </div>
 
@@ -116,6 +116,9 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
 
 export default FeaturedProject;
 
+const shorten = (text?: string, max = 160) =>
+  text && text.length > max ? text.slice(0, max).trimEnd() + "..." : text;
+
 const Metrics = ({ value, title }: { value: number; title: string }) => {
   return (
     <div
@@ -135,7 +138,7 @@ const FeaturedProjectCard = ({
   className?: string;
   backgroundColor?: string;
 }) => {
-  const { techStacks, links, image, name, description, isUnderDevelopment } =
+  const { techStacks, links, image, name, description, problem, solution, impact, isUnderDevelopment } =
     project;
   const { ref } = useResizeObserver<HTMLDivElement>();
 
@@ -182,7 +185,7 @@ const FeaturedProjectCard = ({
           />
         </motion.div>
 
-        <div className="ps-6 space-y-4 pt-4">
+        <div className="ps-6 space-y-3 pt-4">
           <div>
             <h3
               onClick={() => {
@@ -203,21 +206,24 @@ const FeaturedProjectCard = ({
               {name}
               {links?.length && <ExternalLink />}
             </h3>
-            <p className="text-white font-normal text-base">{description.length > 145 ? description.slice(0, 145) + "..." : description}</p>
           </div>
-          <div className="flex flex-wrap items-center justify-start gap-4">
-            <div className="flex items-center bg-background-200/50 backdrop-blur-2xl p-2 jsutify-start gap-2">
-              {techStacks?.map((techStack) => (
-                <Image
-                  key={techStack}
-                  width={20}
-                  height={20}
-                  src={techStack}
-                  alt=""
-                  aria-hidden="true"
-                />
-              ))}
+          <div className="space-y-1">
+            <p className="text-small font-semibold tracking-wide text-accent">Problem</p>
+            <p className="text-white font-normal text-sm leading-snug">{shorten(problem || description, 160)}</p>
+          </div>
+          {solution && (
+            <div className="space-y-1">
+              <p className="text-small font-semibold tracking-wide text-accent">Solution</p>
+              <p className="text-white/85 font-normal text-sm leading-snug">{shorten(solution, 160)}</p>
             </div>
+          )}
+          {impact && (
+            <div className="space-y-1">
+              <p className="text-small font-semibold tracking-wide text-accent">Impact</p>
+              <p className="text-white/85 font-normal text-sm leading-snug">{shorten(impact, 160)}</p>
+            </div>
+          )}
+          <div className="flex flex-wrap items-center justify-start gap-x-4 gap-y-2 pt-1">
             {links &&
               links?.map((link) => (
                 <div
@@ -232,6 +238,19 @@ const FeaturedProjectCard = ({
                   </Link>
                 </div>
               ))}
+            {techStacks?.length > 0 && (
+              <div className="flex items-center gap-2 opacity-60" aria-hidden="true">
+                {techStacks?.map((techStack) => (
+                  <Image
+                    key={techStack}
+                    width={16}
+                    height={16}
+                    src={techStack}
+                    alt=""
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

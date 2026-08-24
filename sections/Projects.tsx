@@ -57,7 +57,7 @@ export default async function ProjectsSection({ filter, lang, projects }: { filt
           custom={2}
           className="text-lead w-full text-center "
         >
-          Explore a collection of my personal projects and those developed during my internship experience.
+          Real problems, solved. Here's how I help teams ship products that save time, reduce costs, and improve user experience.
         </AnimatedText>
       </div>
       <ProjectFilter activeFilter={filter} />

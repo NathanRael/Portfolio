@@ -64,8 +64,7 @@ export default function HeroSection({
             <span className="text-primary italic">FullStack</span> Developer & <span className="text-primary italic mr-1">AI</span>  Integrator
           </h1>
           <p className="text-white/70  text-sm md:text-base font-semibold tracking-[12%]">
-            I&apos;m <span className="text-white">RALAIVOAVY Natanaël</span>, a Fullstack Developer & AI Integrator from Madagascar.
-            I build and design modern web apps with <span className="text-white">Next.js</span>, <span className="text-white">NestJS</span>, and <span className="text-white">FastAPI</span>, focused on clean UI and <span className="text-white">AI-powered</span> systems.
+            I help startups and companies turn ideas into <span className="text-white">reliable web products</span>. I automate repetitive work, improve user experience, and <span className="text-white">cut costs</span>, from first wireframe to production launch.
           </p>
           <motion.div
             className={
@@ -75,7 +74,7 @@ export default function HeroSection({
             <Button asChild size={"lg"} variant={"default"} className="w-full md:w-[232px]">
               <Link href={"#contact"}>
                 <Inbox size={20} />
-                Get in touch
+                Start a project
               </Link>
             </Button>
             <Button asChild size={"lg"} variant={"secondary"} className="w-full md:w-[232px]">

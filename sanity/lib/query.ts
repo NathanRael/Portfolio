@@ -6,6 +6,11 @@ export const PROJECT_QUERY = defineQuery(`
   id,
     name,
     description,
+    problem,
+    solution,
+    impact,
+    role,
+    client,
     "image" : image.asset->url,
     links,
     projectType -> {
