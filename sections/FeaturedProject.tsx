@@ -17,8 +17,8 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
   const langQuery = lang ? `?lang=${lang}` : "";
 
   const featuredProjects = projectList.filter((item) => item.isFeatured);
-  const firstFProject = featuredProjects[0];
-  const secondFProject = featuredProjects[1];
+  const firstFProject = featuredProjects[1];
+  const secondFProject = featuredProjects[0];
   const thirdFProject = featuredProjects[2];
   /*    const firstFProject = projectList.find(
       (p) => p.name.toLocaleLowerCase() === "rael ai"
@@ -247,7 +247,7 @@ const FeaturedProjectCard = ({
                 </div>
               ))}
             {techStacks?.length > 0 && (
-              <div className="flex items-center gap-2 opacity-60" aria-hidden="true">
+              <div className="flex items-center gap-2 bg-black/40 p-1" aria-hidden="true">
                 {techStacks?.map((techStack) => (
                   <Image
                     key={techStack}

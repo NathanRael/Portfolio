@@ -14,9 +14,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "cdn.jsdelivr.net",
       },
-      new URL(
-        "https://raw.githubusercontent.com/NathanRael/**"
-      ),
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+      },
+      new URL("https://raw.githubusercontent.com/NathanRael/**"),
     ],
   },
   // experimental : {

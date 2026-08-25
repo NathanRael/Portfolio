@@ -1,7 +1,7 @@
 ﻿"use client";
 import { navItems } from "@/constants/navItems";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -15,6 +15,7 @@ export default function Navbar() {
   const mobileOpenRef = useRef(mobileOpen);
   mobileOpenRef.current = mobileOpen;
 
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const lang = searchParams.get("lang");
   const langQuery = lang ? `?lang=${lang}` : "";
@@ -46,6 +47,10 @@ export default function Navbar() {
     setMobileOpen(false);
     document.body.style.overflow = "";
   };
+
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
 
   return (
     <>
