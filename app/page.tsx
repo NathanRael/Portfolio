@@ -41,8 +41,8 @@ export default async function Home() {
         <Suspense fallback={null}>
           <FeaturedProject projectList={projects} />
         </Suspense>
-        <ExperiencesSection />
         <SkillsSection skills={skills} />
+        <ExperiencesSection />
         <CertificateSection certificates={certificates} />
         <AboutMe className={""} />
         <div id={"contact"} className={"w-full"}>
