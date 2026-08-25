@@ -217,11 +217,7 @@ const FeaturedProjectCard = ({
             </h3>
           </div>
           <div className="space-y-1">
-            <p className="text-small font-semibold tracking-wide text-accent notranslate" translate="no">
-              <span className="manual-translation-en">Problem</span>
-              <span className="manual-translation-fr">Problème</span>
-            </p>
-            <p className="text-white font-normal text-sm leading-snug">{shorten(problem || description, 160)}</p>
+            <p className="text-white font-normal text-sm leading-snug">{shorten(description, 160)}</p>
           </div>
           {solution && (
             <div className="space-y-1">
