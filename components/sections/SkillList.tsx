@@ -24,6 +24,14 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
       en: "Languages",
       fr: "Langages",
     },
+    database: {
+      en: "Databases",
+      fr: "Bases de données",
+    },
+    tool: {
+      en: "Tools",
+      fr: "Outils",
+    },
   };
 
   return (
@@ -77,7 +85,9 @@ function Skill({ skill, index }: { skill: Skill, index: number }) {
       <motion.div custom={index} variants={rotateVariant} initial={"initial"} whileInView={"rotate"}>
         <Image width={40} height={40} src={skill.image} alt={`${skill.name} logo`} />
       </motion.div>
-      <p className={"text-base text-white-80"}>{skill.name}</p>
+      <p className={"text-base text-white-80"}>
+        <span className="notranslate" translate="no">{skill.name}</span>
+      </p>
     </motion.div>
   );
 }

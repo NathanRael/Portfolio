@@ -73,8 +73,9 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-10">
             {navItems.map((navItem, i) => (
               <li className="shrink-0 text-base text-white-80 hover:text-white-100" key={i}>
-                <Link scroll={true} href={navItem.link}>
-                  {navItem.name}
+                <Link scroll={true} href={navItem.link} className="notranslate" translate="no">
+                  <span className="manual-translation-en">{navItem.name}</span>
+                  <span className="manual-translation-fr">{navItem.nameFr}</span>
                 </Link>
               </li>
             ))}
@@ -87,7 +88,10 @@ export default function Navbar() {
               <Button asChild size="sm" variant="default" className="h-10 px-4">
                 <Link href={"#contact"}>
                   <Inbox size={16} />
-                  Get in touch
+                  <span className="notranslate" translate="no">
+                    <span className="manual-translation-en">Get in touch</span>
+                    <span className="manual-translation-fr">Me contacter</span>
+                  </span>
                 </Link>
               </Button>
             </div>
@@ -127,10 +131,12 @@ export default function Navbar() {
                   <Link
                     scroll={true}
                     href={navItem.link}
-                    className="text-3xl font-semibold text-white-80 hover:text-white-100 transition-colors"
+                    className="text-3xl font-semibold text-white-80 hover:text-white-100 transition-colors notranslate"
+                    translate="no"
                     onClick={() => closeMobileMenu()}
                   >
-                    {navItem.name}
+                    <span className="manual-translation-en">{navItem.name}</span>
+                    <span className="manual-translation-fr">{navItem.nameFr}</span>
                   </Link>
                 </li>
               ))}
@@ -140,7 +146,10 @@ export default function Navbar() {
               <Button asChild size="lg" variant="default">
                 <Link href={"#contact"} onClick={() => closeMobileMenu()}>
                   <Inbox size={20} />
-                  Get in touch
+                  <span className="notranslate" translate="no">
+                    <span className="manual-translation-en">Get in touch</span>
+                    <span className="manual-translation-fr">Me contacter</span>
+                  </span>
                 </Link>
               </Button>
             </div>
