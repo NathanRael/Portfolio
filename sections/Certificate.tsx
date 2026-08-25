@@ -32,7 +32,10 @@ const CertificateSection = ({
           custom={1}
           className="text-subtitle font-bold w-full"
         >
-          <h2 id="certifications-heading"><span className={"text-secondary"}>Certifications</span>  That Validate My Skills</h2>
+          <h2 id="certifications-heading" className="notranslate" translate="no">
+            <span className="manual-translation-en"><span className={"text-secondary"}>Verified</span> Expertise</span>
+            <span className="manual-translation-fr">Expertise <span className={"text-secondary"}>Vérifiée</span></span>
+          </h2>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -40,7 +43,10 @@ const CertificateSection = ({
           custom={2}
           className="text-lead w-full "
         >
-          <p> A collection of certifications I’ve earned to strengthen and showcase my expertise across different areas of technology.</p>
+          <p className="notranslate" translate="no">
+            <span className="manual-translation-en">Certifications that back up the work, so you can be confident in what I deliver.</span>
+            <span className="manual-translation-fr">Des certifications qui appuient le travail, pour que vous soyez confiant dans ce que je livre.</span>
+          </p>
         </AnimatedText>
       </div>
       <InfiniteCertificateScroller certificates={certificates}/>

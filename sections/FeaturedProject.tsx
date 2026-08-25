@@ -54,7 +54,10 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          <h2 id="featured-projects-heading">From <span className={"text-secondary"}>Idea</span> To <span className={"text-secondary"}>Interface</span></h2>
+          <h2 id="featured-projects-heading" className="notranslate" translate="no">
+            <span className="manual-translation-en">From <span className={"text-secondary"}>Idea</span> To <span className={"text-secondary"}>Interface</span></span>
+            <span className="manual-translation-fr">De l&apos;<span className={"text-secondary"}>Idée</span> à l&apos;<span className={"text-secondary"}>Interface</span></span>
+          </h2>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -62,7 +65,10 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           custom={2}
           className="text-lead w-full text-center "
         >
-          <p>Real problems, solved. Here's how I help teams ship products that save time, reduce costs, and improve user experience.</p>
+          <p className="notranslate" translate="no">
+            <span className="manual-translation-en">Real problems, solved. Here's how I help teams ship products that save time, reduce costs, and improve user experience.</span>
+            <span className="manual-translation-fr">De vrais problèmes, résolus. Voici comment j&apos;aide les équipes à livrer des produits qui font gagner du temps, réduisent les coûts et améliorent l&apos;expérience utilisateur.</span>
+          </p>
         </AnimatedText>
       </div>
 
@@ -102,7 +108,10 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
             className={buttonVariants({ variant: "default", size: 'lg' })}
             href={`/project${langQuery}`}
           >
-            See more projects
+            <span className="notranslate" translate="no">
+              <span className="manual-translation-en">See more projects</span>
+              <span className="manual-translation-fr">Voir plus de projets</span>
+            </span>
             <div className={" p-2 px-3 bg-white text-primary"}>
               {projectList.length > 10 ? roundUpToNearestTen(projectList.length) : projectList.length}+
             </div>
@@ -208,7 +217,10 @@ const FeaturedProjectCard = ({
             </h3>
           </div>
           <div className="space-y-1">
-            <p className="text-small font-semibold tracking-wide text-accent">Problem</p>
+            <p className="text-small font-semibold tracking-wide text-accent notranslate" translate="no">
+              <span className="manual-translation-en">Problem</span>
+              <span className="manual-translation-fr">Problème</span>
+            </p>
             <p className="text-white font-normal text-sm leading-snug">{shorten(problem || description, 160)}</p>
           </div>
           {solution && (
@@ -261,7 +273,10 @@ const FeaturedProjectCard = ({
             "px-2 absolute -top-2 z-20 select-none right-4 rotate-3 py-1 text-[14px] bg-primary-100"
           }
         >
-          Under development
+          <span className="notranslate" translate="no">
+            <span className="manual-translation-en">Under development</span>
+            <span className="manual-translation-fr">En développement</span>
+          </span>
         </div>
       )}
 

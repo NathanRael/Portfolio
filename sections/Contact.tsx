@@ -35,15 +35,19 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
             {
                 withSubtitle && (
                     <div className={'text-center'}>
-                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={0} className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}><p>Wanna talk about something
-                            ?</p></AnimatedText>
+                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={0} className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}>
+                            <p className="notranslate" translate="no">
+                                <span className="manual-translation-en">Have a project, an idea, or a problem worth automating?</span>
+                                <span className="manual-translation-fr">Un projet, une idée, ou un problème à automatiser ?</span>
+                            </p>
+                        </AnimatedText>
                         <AnimatedText whileInView={"visible"} initial={"hidden"} custom={2} className={'text-white-100 text-title font-bold  '}>
                             <h2 id="contact-heading" className="notranslate" translate="no">
                                 <span className="manual-translation-en">
-                                    Feel Free To <span className={"text-secondary"}>Reach Out</span>
+                                    Let&apos;s <span className={"text-secondary"}>Talk</span>
                                 </span>
                                 <span className="manual-translation-fr">
-                                    N&apos;hésitez pas à me <span className={"text-secondary"}>contacter</span>
+                                    Parlons de <span className={"text-secondary"}>votre projet</span>
                                 </span>
                             </h2>
                         </AnimatedText>
@@ -98,6 +102,27 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
                     </Button>
                 </div>
             </motion.div>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-6 text-small text-white-80 notranslate" translate="no">
+                <span>
+                    <span className="manual-translation-en">Reply within 24h</span>
+                    <span className="manual-translation-fr">Réponse sous 24h</span>
+                </span>
+                <span className="text-accent">·</span>
+                <span>
+                    <span className="manual-translation-en">Clear estimate &amp; timeline</span>
+                    <span className="manual-translation-fr">Estimation &amp; calendrier clairs</span>
+                </span>
+                <span className="text-accent">·</span>
+                <span>
+                    <span className="manual-translation-en">Short call, then a proposal, no obligation</span>
+                    <span className="manual-translation-fr">Un appel court, puis une proposition, sans engagement</span>
+                </span>
+                <span className="text-accent">·</span>
+                <span>
+                    <span className="manual-translation-en">Remote · worldwide</span>
+                    <span className="manual-translation-fr">À distance · dans le monde entier</span>
+                </span>
+            </div>
         </section>
     )
 }

@@ -24,20 +24,16 @@ const EXPERIENCES: Experience[] = [
     period: "Dec 2025 - Present",
     remote: true,
     descriptionEn: [
-      "Contributed as a service provider at BCI France, helping to develop web applications as a frontend developer, primarily with Next.js.",
-      "Integrated interfaces designed by the design team and participated in frontend development with PHP.",
-      "Collaborated within an Agile team, following development best practices.",
-      "Used Docker for managing and standardizing development environments.",
-      "Performed unit testing to ensure code quality, reliability, and maintainability.",
-      "Participated in the continuous improvement of applications and user experience.",
+      "Paid remote service-provider for BCI France, delivering production frontend work with Next.js.",
+      "Shipped interfaces from the design team's mockups into working, user-facing features.",
+      "Cut regressions with unit testing, so quality and reliability stayed high.",
+      "Standardized dev environments with Docker, so the team shipped consistently.",
     ],
     descriptionFr: [
-      "Intervention en tant que prestataire de service au sein de BCI France, avec une contribution au d\u00e9veloppement d'applications web en tant que d\u00e9veloppeur frontend, principalement avec Next.js.",
-      "Int\u00e9gration des interfaces con\u00e7ues par l'\u00e9quipe design et participation \u00e0 des d\u00e9veloppements frontend en PHP.",
-      "Collaboration au sein d'une \u00e9quipe Agile en suivant les bonnes pratiques de d\u00e9veloppement.",
-      "Utilisation de Docker pour la gestion et la standardisation des environnements de d\u00e9veloppement.",
-      "R\u00e9alisation de tests unitaires afin d'assurer la qualit\u00e9, la fiabilit\u00e9 et la maintenabilit\u00e9 du code.",
-      "Participation \u00e0 l'am\u00e9lioration continue des applications et de l'exp\u00e9rience utilisateur.",
+      "Prestataire de service \u00e0 distance r\u00e9mun\u00e9r\u00e9 pour BCI France, livrant du travail frontend de production avec Next.js.",
+      "Livr\u00e9 des interfaces \u00e0 partir des maquettes de l'\u00e9quipe design, transform\u00e9es en fonctionnalit\u00e9s pr\u00eates pour les utilisateurs.",
+      "R\u00e9duit les r\u00e9gressions gr\u00e2ce aux tests unitaires, pour maintenir qualit\u00e9 et fiabilit\u00e9.",
+      "Standardis\u00e9 les environnements de d\u00e9veloppement avec Docker, pour des livraisons coh\u00e9rentes.",
     ],
     techs: ["Next.js", "PHP", "Docker", "Cypress"],
   },
@@ -48,20 +44,34 @@ const EXPERIENCES: Experience[] = [
     period: "Jun - Sep 2025",
     remote: false,
     descriptionEn: [
-      "Contributed to the design and development of a collaborative web application for online homework submission and tracking.",
-      "Created interface mockups and prototypes with Figma to validate user journeys.",
-      "Integrated an artificial intelligence layer with LangChain to automate assessment and feedback.",
-      "Set up a full-stack architecture with Next.js for the frontend and NestJS for the backend.",
-      "Used Docker for containerization and standardization of development environments.",
+      "Automated homework grading and feedback with AI, giving teachers their time back and students instant responses.",
+      "Designed a collaborative web app for online homework submission and tracking.",
+      "Validated user journeys with Figma mockups and clickable prototypes before building.",
+      "Shipped a full-stack architecture with Next.js (frontend) and NestJS (backend).",
     ],
     descriptionFr: [
-      "Contribution \u00e0 la conception et au d\u00e9veloppement d'une application web collaborative pour le d\u00e9p\u00f4t et le suivi en ligne des devoirs.",
-      "R\u00e9alisation de maquettes et prototypes d'interface avec Figma pour valider les parcours utilisateurs.",
-      "Int\u00e9gration d'une couche d'intelligence artificielle avec LangChain pour automatiser l'\u00e9valuation et le feedback.",
-      "Mise en place d'une architecture full-stack avec Next.js pour le frontend et NestJS pour le backend.",
-      "Utilisation de Docker pour la conteneurisation et la standardisation des environnements de d\u00e9veloppement.",
+      "Automatis\u00e9 la correction des devoirs et le feedback avec l'IA, rendant du temps aux enseignants et des r\u00e9ponses instantan\u00e9es aux \u00e9tudiants.",
+      "Con\u00e7u une application web collaborative pour le d\u00e9p\u00f4t et le suivi des devoirs en ligne.",
+      "Valid\u00e9 les parcours utilisateurs avec des maquettes et prototypes Figma avant le d\u00e9veloppement.",
+      "Livr\u00e9 une architecture full-stack avec Next.js (frontend) et NestJS (backend).",
     ],
     techs: ["Next.js", "NestJS", "Docker", "LangChain", "Figma"],
+  },
+  {
+    roleEn: "Frontend Developer & Designer",
+    roleFr: "Développeur Front-End et Designer",
+    company: "NJCAM SYSTEM - Madagascar",
+    period: "Jun - Aug 2024",
+    remote: false,
+    descriptionEn: [
+      "Contributed to the front-end development of a freight transport service application.",
+      "Created interface mockups with Figma.",
+    ],
+    descriptionFr: [
+      "Participation au développement de la partie front-end d'une application de service de transport de marchandises.",
+      "Réalisation de maquettes d'interface avec Figma.",
+    ],
+    techs: ["React", "Node", "Figma"],
   },
 ];
 
@@ -124,7 +134,7 @@ function ExperienceCard({
             {exp.techs.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 md:text-base text-small bg-neutral-dark-80 text-white-80 border border-background-200"
+                className="px-3 py-1 text-small-2 bg-neutral-dark-80 text-white-80 border border-background-200 opacity-60"
               >
                 {tech}
               </span>
@@ -157,8 +167,9 @@ export default function ExperiencesSection() {
           custom={1}
           className="text-subtitle font-bold w-full text-white-100"
         >
-          <h2 id="experiences-heading">
-            Professional <span className="text-secondary">Experience</span>
+          <h2 id="experiences-heading" className="notranslate" translate="no">
+            <span className="manual-translation-en">Professional <span className="text-secondary">Experience</span></span>
+            <span className="manual-translation-fr">Expérience <span className="text-secondary">Professionnelle</span></span>
           </h2>
         </AnimatedText>
         <AnimatedText
@@ -167,7 +178,10 @@ export default function ExperiencesSection() {
           custom={2}
           className="text-lead w-full text-white-70"
         >
-          <p>A timeline of the roles and projects that shaped my career as a developer.</p>
+          <p className="notranslate" translate="no">
+            <span className="manual-translation-en">Working with clients to deliver real value: the impact, not just the job titles.</span>
+            <span className="manual-translation-fr">Travailler avec des clients pour apporter une vraie valeur : l&apos;impact, pas seulement les intitulés de poste.</span>
+          </p>
         </AnimatedText>
       </div>
 
@@ -200,23 +214,31 @@ export default function ExperiencesSection() {
           />
         </svg>
 
-        {/* Row 1: Left card */}
-        <div className="flex w-full items-start justify-center">
-          <div className="lg:flex-[1.2] flex-1 flex justify-end xl:pr-20 lg:pr-12 max-lg:justify-center max-lg:px-4">
-            <ExperienceCard exp={EXPERIENCES[0]} index={0} />
-          </div>
-          <div className="hidden lg:flex flex-col items-center w-8 pt-8 shrink-0" />
-          <div className="lg:flex-1 hidden lg:block" />
-        </div>
-
-        {/* Row 2: Right card */}
-        <div className="flex w-full items-start justify-center">
-          <div className="lg:flex-1 hidden lg:block" />
-          <div className="hidden lg:flex flex-col items-center w-8 shrink-0" />
-          <div className="lg:flex-[1.2] flex-1 flex justify-start xl:pl-20 lg:pl-12 pt-16 lg:pt-24 max-lg:justify-center max-lg:px-4 max-lg:pt-8">
-            <ExperienceCard exp={EXPERIENCES[1]} index={1} />
-          </div>
-        </div>
+        {EXPERIENCES.map((exp, index) => {
+          const isLeft = index % 2 === 0;
+          const topPadding = index > 0 ? "pt-16 lg:pt-24 max-lg:pt-8" : "";
+          return (
+            <div key={exp.company} className="flex w-full items-start justify-center">
+              {isLeft ? (
+                <>
+                  <div className={`lg:flex-[1.2] flex-1 flex justify-end xl:pr-20 lg:pr-12 max-lg:justify-center max-lg:px-4 ${topPadding}`}>
+                    <ExperienceCard exp={exp} index={index} />
+                  </div>
+                  <div className="hidden lg:flex flex-col items-center w-8 pt-8 shrink-0" />
+                  <div className="lg:flex-1 hidden lg:block" />
+                </>
+              ) : (
+                <>
+                  <div className="lg:flex-1 hidden lg:block" />
+                  <div className="hidden lg:flex flex-col items-center w-8 shrink-0" />
+                  <div className="lg:flex-[1.2] flex-1 flex justify-start xl:pl-20 lg:pl-12 pt-16 lg:pt-24 max-lg:justify-center max-lg:px-4 max-lg:pt-8">
+                    <ExperienceCard exp={exp} index={index} />
+                  </div>
+                </>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );

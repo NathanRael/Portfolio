@@ -1,7 +1,6 @@
 ﻿"use client";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { appearVariant } from "@/lib/animationVariants";
 import { motion } from "motion/react";
 
@@ -11,7 +10,6 @@ const AboutMe = ({ className }: { className?: string }) => {
       aria-labelledby="about-heading"
       className={cn(
         "flex flex-row items-center  justify-center w-full",
-        // "flex flex-row items-center max-[1020px]:flex-col justify-center w-full",
         className
       )}
     >
@@ -22,7 +20,10 @@ const AboutMe = ({ className }: { className?: string }) => {
           custom={1}
           className={"text-subtitle w-full text-center text-white-100"}
         >
-          <h2 id="about-heading">I&apos;m Natanaël</h2>
+          <h2 id="about-heading" className="notranslate" translate="no">
+            <span className="manual-translation-en">How I <span className="text-secondary">Work</span></span>
+            <span className="manual-translation-fr">Comment je <span className="text-secondary">Travaille</span></span>
+          </h2>
         </AnimatedText>
 
         <motion.div
@@ -33,49 +34,43 @@ const AboutMe = ({ className }: { className?: string }) => {
           className={"w-full flex items-center justify-center"}
         >
           <div className={"space-y-4 text-justify text-lead text-white-80 max-w-[700px]"}>
-            <article className="space-y-4">
+            <article className="space-y-4 notranslate" translate="no">
               <p className="text-lg">
-                A <span className="font-bold">Computer Science student</span> at
-                <span className="font-semibold">
-                  {" "}
-                  EMIT (Ecole de Management et d&apos;Innovation Technologique)
+                <span className="manual-translation-en">
+                  Most of my work starts with a <span className="font-semibold">problem</span>, not a tech stack.
+                  I help you define the right solution, build it, and <span className="font-semibold text-secondary">launch it</span>.
                 </span>
-                , part of the University of Fianarantsoa in Madagascar.
+                <span className="manual-translation-fr">
+                  La plupart de mes projets commencent par un <span className="font-semibold">problème</span>, pas par une stack technique.
+                  Je vous aide à définir la bonne solution, à la construire et à la <span className="font-semibold text-secondary">lancer</span>.
+                </span>
               </p>
 
               <p className="text-lg">
-                I’m a <span className="font-semibold text-secondary">Frontend Developer</span> and{" "}
-                <span className="font-semibold text-secondary">AI Integrator</span> who loves building{" "}
-                <span className="font-semibold text-secondary">intuitive</span> and{" "}
-                <span className="font-semibold text-secondary">visually engaging</span>{" "}
-                digital experiences. I enjoy combining design precision with smart, AI-driven functionality.
+                <span className="manual-translation-en">
+                  I work <span className="font-semibold">remotely</span> with tight communication: short iterations,
+                  regular updates, and demos you can react to early, so nothing ships that isn&apos;t what you asked for.
+                </span>
+                <span className="manual-translation-fr">
+                  Je travaille <span className="font-semibold">à distance</span> avec une communication resserrée : des itérations courtes,
+                  des mises à jour régulières et des démos auxquelles vous réagissez tôt, pour que rien ne soit livré sans correspondre à ce que vous avez demandé.
+                </span>
               </p>
 
               <p className="text-lg">
-                My main tools include{" "}
-                <span className="text-secondary">Next.js</span> and{" "}
-                <span className="text-secondary">React</span> for frontend development,{" "}
-                <span className="text-secondary">NestJS</span> and{" "}
-                <span className="text-secondary">FastAPI</span> for backend and AI integration,{" "}
-                along with some{" "}
-                <span className="text-secondary">Flutter</span> for mobile apps.{" "}
-                I usually work with{" "}
-                <span className="text-secondary">TypeScript</span> and{" "}
-                <span className="text-secondary">Python</span> as my core languages.
+                <span className="manual-translation-en">
+                  You get a <span className="font-semibold">clear estimate and timeline</span> up front, plus code that&apos;s
+                  fast, maintainable, and easy to hand off to your own team.
+                </span>
+                <span className="manual-translation-fr">
+                  Vous obtenez dès le départ une <span className="font-semibold">estimation et un calendrier clairs</span>, ainsi qu&apos;un code rapide,
+                  maintenable et facile à transmettre à votre propre équipe.
+                </span>
               </p>
             </article>
           </div>
         </motion.div>
       </div>
-
-      {/* 
-      <Image
-        className={" "}
-        src={"/images/profile.png"}
-        alt={"Portrait of Natanaël RALAIVOAVY"}
-        width={256}
-        height={256}
-      /> */}
     </section>
   );
 };

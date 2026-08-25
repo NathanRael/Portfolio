@@ -60,11 +60,21 @@ export default function HeroSection({
           height={512}
         />
         <div className="space-y-4 relative z-30 max-w-[660px] text-left">
-          <h1 id="hero-heading" className="text-subtitle-2  sm:text-subtitle md:text-[5rem] font-bold leading-tight">
-            <span className="text-primary italic">FullStack</span> Developer & <span className="text-primary italic mr-1">AI</span>  Integrator
+          <h1 id="hero-heading" className="text-subtitle-2  sm:text-subtitle md:text-[5rem] font-bold leading-tight notranslate" translate="no">
+            <span className="manual-translation-en">
+              <span className="text-primary italic">FullStack</span> Developer & <span className="text-primary italic mr-1">AI</span>  Integrator
+            </span>
+            <span className="manual-translation-fr">
+              Développeur <span className="text-primary italic">FullStack</span> & Intégrateur <span className="text-primary italic mr-1">IA</span>
+            </span>
           </h1>
-          <p className="text-white/70  text-sm md:text-base font-semibold tracking-[12%]">
-            I help startups and companies turn ideas into <span className="text-white">reliable web products</span>. I automate repetitive work, improve user experience, and <span className="text-white">cut costs</span>, from first wireframe to production launch.
+          <p className="text-white/70  text-sm md:text-base font-semibold tracking-[12%] notranslate" translate="no">
+            <span className="manual-translation-en">
+              I help startups and companies turn ideas into <span className="text-white">reliable web products</span>. I automate repetitive work, improve user experience, and <span className="text-white">cut costs</span>, from first wireframe to production launch.
+            </span>
+            <span className="manual-translation-fr">
+              J&apos;aide les startups et les entreprises à transformer leurs idées en <span className="text-white">produits web fiables</span>. J&apos;automatise les tâches répétitives, j&apos;améliore l&apos;expérience utilisateur et <span className="text-white">réduis les coûts</span>, du premier wireframe au lancement en production.
+            </span>
           </p>
           <motion.div
             className={
@@ -74,7 +84,10 @@ export default function HeroSection({
             <Button asChild size={"lg"} variant={"default"} className="w-full md:w-[232px]">
               <Link href={"#contact"}>
                 <Inbox size={20} />
-                Start a project
+                <span className="notranslate" translate="no">
+                  <span className="manual-translation-en">Start a project</span>
+                  <span className="manual-translation-fr">Lancer un projet</span>
+                </span>
               </Link>
             </Button>
             <Button asChild size={"lg"} variant={"secondary"} className="w-full md:w-[232px]">

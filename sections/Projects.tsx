@@ -49,7 +49,10 @@ export default async function ProjectsSection({ filter, lang, projects }: { filt
           custom={1}
           className="text-subtitle font-bold w-full text-center"
         >
-          <h1 id="projects-heading">From <span className={"text-secondary"}>Idea</span> to <span className={"text-secondary"}>Interface</span></h1>
+          <h1 id="projects-heading" className="notranslate" translate="no">
+            <span className="manual-translation-en">From <span className={"text-secondary"}>Idea</span> to <span className={"text-secondary"}>Interface</span></span>
+            <span className="manual-translation-fr">De l&apos;<span className={"text-secondary"}>Idée</span> à l&apos;<span className={"text-secondary"}>Interface</span></span>
+          </h1>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
@@ -57,7 +60,10 @@ export default async function ProjectsSection({ filter, lang, projects }: { filt
           custom={2}
           className="text-lead w-full text-center "
         >
-          Real problems, solved. Here's how I help teams ship products that save time, reduce costs, and improve user experience.
+          <span className="notranslate" translate="no">
+            <span className="manual-translation-en">Real problems, solved. Here's how I help teams ship products that save time, reduce costs, and improve user experience.</span>
+            <span className="manual-translation-fr">De vrais problèmes, résolus. Voici comment j&apos;aide les équipes à livrer des produits qui font gagner du temps, réduisent les coûts et améliorent l&apos;expérience utilisateur.</span>
+          </span>
         </AnimatedText>
       </div>
       <ProjectFilter activeFilter={filter} />
