@@ -43,8 +43,8 @@ export default async function Home() {
           <FeaturedProject projectList={projects} />
         </Suspense>
         <ServicesSection />
-        <SkillsSection skills={skills} />
         <ExperiencesSection />
+        <SkillsSection skills={skills} />
         <CertificateSection certificates={certificates} />
         <AboutMe className={""} />
         <div id={"contact"} className={"w-full"}>

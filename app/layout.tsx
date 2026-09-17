@@ -160,7 +160,7 @@ export default function RootLayout({
       <body
         className={`bg-background-100 overflow-x-hidden  text-white-100  scroll-smooth antialiased h-ful  ${outfit.className}`}
       >
-        <SmoothScroll />
+        {/* <SmoothScroll /> */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

@@ -41,7 +41,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
     <section
       id="projects"
       aria-labelledby="featured-projects-heading"
-      className="bg-linear-to-bl relative from-background-100 via-background-50 to-background-100 border bordeer-t-2 border-t-background-200 max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)] min-h-screen h-full pt-20 max-lg:p-2 p-6">
+      className="relative max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)] min-h-screen h-full pt-20 max-lg:p-2 p-6">
       <div className="absolute hidden md:flex z-40  top-4 left-1/2 -translate-x-1/2 items-center justify-center gap-4">
         {featuredProjects.sort((a, b) => b.name.localeCompare(a.name)).map((project) => (
           <ProjectLink key={project._id} link={project.links[0]} name={project.name} />
