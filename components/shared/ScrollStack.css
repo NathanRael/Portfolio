@@ -1,6 +1,7 @@
 .stack-space {
   position: relative;
   height: calc(var(--n, 1) * 100vh);
+  --stack-peek: 3rem;
 }
 
 .stack-viewport {
@@ -13,6 +14,7 @@
 .stack-panel {
   position: absolute;
   inset: 0;
+  bottom: var(--stack-peek);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,6 +28,10 @@
 }
 
 @media (max-width: 767px) {
+  .stack-space {
+    --stack-peek: 2rem;
+  }
+
   .stack-panel {
     padding: 4vh 1.25rem;
   }
