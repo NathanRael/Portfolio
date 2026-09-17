@@ -1,4 +1,5 @@
 import Navbar from "@/components/sections/Navbar";
+import SmoothScroll from "@/components/SmoothScroll";
 import ReactQueryProvider from "@/context/ReactQueryProvider";
 import { SanityLive } from "@/sanity/lib/live";
 import { Analytics } from "@vercel/analytics/react";
@@ -159,6 +160,7 @@ export default function RootLayout({
       <body
         className={`bg-background-100 overflow-x-hidden  text-white-100  scroll-smooth antialiased h-ful  ${outfit.className}`}
       >
+        <SmoothScroll />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
