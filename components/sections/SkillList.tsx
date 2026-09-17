@@ -38,7 +38,7 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
     <div className={"flex flex-col gap-y-36"}>
       {
         categories?.map((category, i) => (
-          <div key={category} className={"flex flex-wrap gap-10 items-center justify-center"}>
+          <div key={category} className={"flex flex-col gap-10 items-center justify-center"}>
             <AnimatedText className={"relative"} custom={i * 0.5} whileInView={"visible"} initial={i % 2 === 0 ? "fromL" : "fromR"}>
               <div className={"text-subtitle-2 -rotate-2 text-white relative"}>
                 <h3>
@@ -63,10 +63,10 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
                 </svg>
               </div>
             </AnimatedText>
-            <div className={"flex-row-center flex-wrap w-full  gap-20"}>
+            <div className={"flex flex-wrap items-center justify-center w-full max-w-[820px] mx-auto gap-x-12 gap-y-8"}>
               {
-                skills.filter(skill => skill?.category?.toLowerCase() === category.toLowerCase()).map((skill, index) => (
-                  <Skill index={index} key={skill.name} skill={skill} />
+                skills.filter(skill => skill?.category?.toLowerCase() === category.toLowerCase()).map((skill) => (
+                  <Skill key={skill.name} skill={skill} />
                 ))
               }
             </div>
@@ -78,14 +78,14 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
   );
 }
 
-function Skill({ skill, index }: { skill: Skill, index: number }) {
+function Skill({ skill }: { skill: Skill }) {
   return (
     <motion.div variants={rotateVariant} initial={true} whileHover={{ rotate: 64 }} key={skill.name}
-      className={"flex-col-center gap-2 "}>
-      <motion.div custom={index} variants={rotateVariant} initial={"initial"} whileInView={"rotate"}>
+      className={"flex-col-center gap-1 "}>
+      <motion.div custom={0} variants={rotateVariant} initial={"initial"} whileInView={"rotate"}>
         <Image width={40} height={40} src={skill.image} alt={`${skill.name} logo`} />
       </motion.div>
-      <p className={"text-base text-white-80"}>
+      <p className={"w-full text-center text-base text-white-80"}>
         <span className="notranslate" translate="no">{skill.name}</span>
       </p>
     </motion.div>
