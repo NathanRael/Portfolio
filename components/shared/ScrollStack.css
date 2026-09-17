@@ -1,0 +1,32 @@
+.stack-space {
+  position: relative;
+  height: calc(var(--n, 1) * 100vh);
+}
+
+.stack-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.stack-panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6vh 5vw;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+.stack-panel[data-i="0"] {
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .stack-panel {
+    padding: 4vh 1.25rem;
+  }
+}
