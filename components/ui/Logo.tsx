@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Logo = ({ className }: { className?: string }) => {
     return (
-        <div className={cn("rounded-xl overflow-hidden size-[120px] flex items-center justify-center", className)}>
+        <div className={cn("rounded-full overflow-hidden size-[120px] flex items-center justify-center", className)}>
             <Image
                 src="/logo/falx.png"
                 alt="Logo"

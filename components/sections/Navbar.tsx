@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import GoogleTranslate from "@/components/shared/google-translate";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/ui/Logo";
 import { Menu, X, Inbox } from "lucide-react";
 
 export default function Navbar() {
@@ -68,9 +69,13 @@ export default function Navbar() {
             href={`/${langQuery}`}
             className={"shrink-0 text-lead select-none font-md text-white-100"}
             aria-label="Natanaël RALAIVOAVY home"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <div className={"relative ps-16 font-bold text-white max-sm:text-sm max-sm:ps-4"}>
-              R.Natanaël
+            <div className="flex items-center gap-2 md:gap-3">
+              <Logo className="size-8 md:size-10 shrink-0" />
+              <span className="font-bold text-white text-sm md:text-base">
+                R.Natanaël
+              </span>
             </div>
           </Link>
 
