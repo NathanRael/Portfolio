@@ -6,8 +6,7 @@ import AnimatedText from "@/components/ui/AnimatedText";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { Particles } from "@/components/ui/shadcn-io/particles";
-import { InteractiveGridPattern } from "@/components/ui/shadcn-io/interactive-grid-pattern";
+import { Particles } from "@/components/ui/shadcn-io/particles/client";
 
 
 export default async function ProjectsSection({ filter, lang, projects }: { filter?: string; lang?: string; projects: Project[] }) {
@@ -54,7 +53,7 @@ export default async function ProjectsSection({ filter, lang, projects }: { filt
           className="text-lead w-full text-center "
         >
           <span className="notranslate" translate="no">
-            <span className="manual-translation-en">Real problems, solved. Here's how I help teams ship products that save time, reduce costs, and improve user experience.</span>
+            <span className="manual-translation-en">Real problems, solved. Here&apos;s how I help teams ship products that save time, reduce costs, and improve user experience.</span>
             <span className="manual-translation-fr">De vrais problèmes, résolus. Voici comment j&apos;aide les équipes à livrer des produits qui font gagner du temps, réduisent les coûts et améliorent l&apos;expérience utilisateur.</span>
           </span>
         </AnimatedText>

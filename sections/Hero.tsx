@@ -1,6 +1,5 @@
 ﻿"use client";
 import HeroSkillPreview from "@/components/hero/HeroSkillPreview";
-import { Project } from "@/components/sections/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { appearVariant } from "@/lib/animationVariants";
 import { ExternalLink, Inbox } from "lucide-react";
@@ -12,25 +11,21 @@ import { useEffect, useState } from "react";
 export default function HeroSection({
   cvFrUrl,
   cvEnUrl,
-  profileImageUrl,
-  featured
 }: {
   cvFrUrl: string | null;
   cvEnUrl: string | null;
-  profileImageUrl: string;
-  featured: Project[];
 }) {
   const [resumeUrl, setResumeUrl] = useState(cvEnUrl ?? "#");
 
   useEffect(() => {
-    const lang = document.documentElement.dataset.googleLanguage;
-    setResumeUrl(lang === "fr" ? (cvFrUrl ?? "#") : (cvEnUrl ?? "#"));
+    const updateResumeUrl = () => {
+      const lang = document.documentElement.dataset.googleLanguage;
+      setResumeUrl(lang === "fr" ? (cvFrUrl ?? "#") : (cvEnUrl ?? "#"));
+    };
 
-    const observer = new MutationObserver(() => {
-      const currentLang = document.documentElement.dataset.googleLanguage;
-      setResumeUrl(currentLang === "fr" ? (cvFrUrl ?? "#") : (cvEnUrl ?? "#"));
-    });
+    updateResumeUrl();
 
+    const observer = new MutationObserver(updateResumeUrl);
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["data-google-language"],
@@ -48,6 +43,7 @@ export default function HeroSection({
         variants={appearVariant}
         initial={"fromB"}
         whileInView={"visible"}
+        viewport={{once: true}}
         className="flex max-md:py-40 max-md:px-10 h-fit w-[94%] md:w-[85%] lg:max-w-[80%] xl:w-[70%] p-4 md:p-10 lg:p-20 lg:px-40 relative border-2 border-background-200 overflow-hidden mt-6 md:mt-20 flex-col items-center justify-center gap-4 md:gap-12">
         <Image
           src={"/images/noise-texture.svg"}
@@ -58,6 +54,8 @@ export default function HeroSection({
           aria-hidden="true"
           width={512}
           height={512}
+          loading="lazy"
+          decoding="async"
         />
         <div className="space-y-4 relative z-30 max-w-[660px] text-left">
           <h1 id="hero-heading" className="text-subtitle-2  sm:text-subtitle md:text-[5rem] font-bold leading-tight notranslate" translate="no">

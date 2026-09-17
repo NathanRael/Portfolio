@@ -11,7 +11,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 const WhatsAppIcon = () => (
-    <Image src="/logo/whatsapp.svg" alt="WhatsApp" width={20} height={20} />
+    <Image src="/logo/whatsapp.svg" alt="WhatsApp" width={20} height={20} loading="lazy" />
 );
 
 export default function ContactSection({ className, withSubtitle = true }: { className?: string, withSubtitle?: boolean }) {
@@ -30,6 +30,8 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
                 aria-hidden="true"
                 width={512}
                 height={512}
+                loading="lazy"
+                decoding="async"
             />
 
             {
@@ -74,12 +76,23 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
                 <div className="h-10 w-0.5 bg-white max-lg:hidden" />
                 <p
                     className="text-lead text-nowrap cursor-pointer hover:text-white-100 transition-colors"
+                    role="button"
+                    tabIndex={0}
                     onClick={() => {
                         copyToClipboard(MY_PHONE_NUMBER)
                         setCopiedPhone(true)
                         setTimeout(() => setCopiedPhone(false), 3000)
                     }}
+                    onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            copyToClipboard(MY_PHONE_NUMBER)
+                            setCopiedPhone(true)
+                            setTimeout(() => setCopiedPhone(false), 3000)
+                        }
+                    }}
                     title={copiedPhone ? "Copied!" : "Click to copy"}
+                    aria-label={copiedPhone ? "Phone number copied" : `Copy phone number ${MY_PHONE_NUMBER}`}
                 >
                     {MY_PHONE_NUMBER}
                 </p>

@@ -1,21 +1,20 @@
 ﻿"use client";
 import ProjectCard, { Project } from "@/components/sections/ProjectCard";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const MAX_DISPLAYED_PROJECTS = 6;
 
 export default function ProjectList({ projects }: { projects: Project[] }) {
-  const [localProjects, setLocalProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    setLocalProjects(projects?.slice(0, MAX_DISPLAYED_PROJECTS));
-  }, [projects]);
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll
+    ? projects
+    : projects.slice(0, MAX_DISPLAYED_PROJECTS);
 
   return (
     <div className={"flex-col-center gap-6"}>
       <ul className="grid grid-cols-3 max-[960px]:grid-cols-1 max-[1420px]:grid-cols-2 justify-items-stretch w-full  gap-20">
-        {localProjects.map((project) => (
+        {visibleProjects.map((project) => (
           <li key={project._id}>
             <ProjectCard
               className={"max-[460px]:w-full"}
@@ -25,10 +24,9 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
           </li>
         ))}
       </ul>
-      {projects.length > MAX_DISPLAYED_PROJECTS &&
-        localProjects.length !== projects.length && (
-          <Button onClick={() => setLocalProjects(projects)}>See all</Button>
-        )}
+      {projects.length > MAX_DISPLAYED_PROJECTS && !showAll && (
+        <Button onClick={() => setShowAll(true)}>See all</Button>
+      )}
     </div>
   );
 }

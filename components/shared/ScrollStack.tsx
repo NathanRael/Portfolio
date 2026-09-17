@@ -52,7 +52,10 @@ export default function ScrollStack({
 }: ScrollStackProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const onActiveChangeRef = useRef(onActiveChange);
-  onActiveChangeRef.current = onActiveChange;
+
+  useEffect(() => {
+    onActiveChangeRef.current = onActiveChange;
+  }, [onActiveChange]);
 
   const items = Children.toArray(children).filter(isValidElement);
   const count = items.length;
@@ -107,6 +110,7 @@ export default function ScrollStack({
         const scale = 1 - depth * scaleStep;
 
         panel.style.transform = `translateY(${translateY}%) translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+        panel.style.willChange = "transform";
       });
 
       const activeIndex =

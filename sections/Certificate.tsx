@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import AnimatedText from "@/components/ui/AnimatedText";
-import { Particles } from "@/components/ui/shadcn-io/particles";
 import { useRef } from "react";
 
 export interface Certificate {
@@ -68,7 +67,7 @@ export function InfiniteCertificateScroller({certificates} : {certificates : Cer
   return (
     <motion.div
       ref={containerRef}
-      style={{ scale, opacity }}
+      style={{ scale, opacity, willChange: "transform, opacity" }}
       className="bg-secondary flex items-center justify-center gap-6 overflow-hidden w-full h-[720px]"
     >
       <div className="flex flex-col gap-2 rotate-12 overflow-hidden">
@@ -113,6 +112,9 @@ function CertCard({ image, title }: { image: string; title: string }) {
         height={296}
         src={image}
         alt={`${title} certificate`}
+        sizes="(max-width: 768px) 50vw, 420px"
+        quality={75}
+        loading="lazy"
       />
     </div>
   );

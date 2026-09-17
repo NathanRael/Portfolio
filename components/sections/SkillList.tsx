@@ -1,5 +1,6 @@
 ﻿"use client";
 import Image from "next/image";
+import { useMemo } from "react";
 import { motion } from "motion/react";
 import { rotateVariant } from "@/lib/animationVariants";
 import AnimatedText from "@/components/ui/AnimatedText";
@@ -8,13 +9,26 @@ export interface Skill {
   _id: string;
   name: string;
   image: string;
-  experimented: boolean;
   category: "framework" | "language" | "database" | "tool";
 }
 
+const categories = ["framework", "language", "database", "tool"];
+
 export default function SkillList({ skills }: { skills: Skill[] }) {
 
-  const categories = ["framework", "language", "database", "tool"];
+  const skillsByCategory = useMemo(() => {
+    const grouped: Record<string, Skill[]> = {};
+    for (const category of categories) {
+      grouped[category] = [];
+    }
+    for (const skill of skills) {
+      const key = skill?.category?.toLowerCase();
+      if (grouped[key]) {
+        grouped[key].push(skill);
+      }
+    }
+    return grouped;
+  }, [skills]);
   const manualCategoryTranslations: Partial<Record<(typeof categories)[number], { en: string; fr: string }>> = {
     framework: {
       en: "Frameworks",
@@ -39,7 +53,7 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
       {
         categories?.map((category, i) => (
           <div key={category} className={"flex flex-col gap-10 items-center justify-center"}>
-            <AnimatedText className={"relative"} custom={i * 0.5} whileInView={"visible"} initial={i % 2 === 0 ? "fromL" : "fromR"}>
+            <AnimatedText className={"relative"} custom={i * 0.5} whileInView={"visible"} initial={i % 2 === 0 ? "fromL" : "fromR"} viewport={{once: true}}>
               <div className={"text-subtitle-2 -rotate-2 text-white relative"}>
                 <h3>
                   {
@@ -65,7 +79,7 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
             </AnimatedText>
             <div className={"flex flex-wrap items-center justify-center w-full max-w-[820px] mx-auto gap-x-12 gap-y-8"}>
               {
-                skills.filter(skill => skill?.category?.toLowerCase() === category.toLowerCase()).map((skill) => (
+                skillsByCategory[category]?.map((skill) => (
                   <Skill key={skill.name} skill={skill} />
                 ))
               }
@@ -83,7 +97,7 @@ function Skill({ skill }: { skill: Skill }) {
     <motion.div variants={rotateVariant} initial={true} whileHover={{ rotate: 64 }} key={skill.name}
       className={"flex-col-center gap-1 "}>
       <motion.div custom={0} variants={rotateVariant} initial={"initial"} whileInView={"rotate"}>
-        <Image width={40} height={40} src={skill.image} alt={`${skill.name} logo`} />
+        <Image width={40} height={40} src={skill.image} alt={`${skill.name} logo`} sizes="40px" loading="lazy" />
       </motion.div>
       <p className={"w-full text-center text-base text-white-80"}>
         <span className="notranslate" translate="no">{skill.name}</span>

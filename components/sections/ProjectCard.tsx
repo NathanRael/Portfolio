@@ -67,6 +67,9 @@ export default function ProjectCard({
         }
         src={image}
         alt={`${name} project preview`}
+        sizes="(max-width: 768px) 100vw, 387px"
+        quality={80}
+        loading="lazy"
       />
       <div className={"space-y-2 w-full"}>
         <div className={"flex flex-row items-center justify-between"}>
@@ -80,6 +83,7 @@ export default function ProjectCard({
                 src={techStack}
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
               />
             ))}
           </div>

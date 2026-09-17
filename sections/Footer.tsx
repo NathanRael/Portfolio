@@ -11,10 +11,17 @@ export default function Footer() {
     const [showUpButton, setShowUpButton] = useState(false);
 
     useEffect(() => {
+        let ticking = false;
         const scrollId = () => {
-            setShowUpButton(window.scrollY >= 1300);
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    setShowUpButton(window.scrollY >= 1300);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         }
-        window.addEventListener("scroll", scrollId);
+        window.addEventListener("scroll", scrollId, { passive: true });
 
         return () => window.removeEventListener("scroll", scrollId);
     }, []);

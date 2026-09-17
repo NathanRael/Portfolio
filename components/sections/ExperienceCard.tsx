@@ -39,6 +39,7 @@ export default function ExperienceCard({
             fill
             sizes="64px"
             className="object-contain p-2"
+            loading="lazy"
           />
         ) : (
           <span className="text-black font-bold text-lead">

@@ -35,6 +35,7 @@ const AboutMe = ({ className }: { className?: string }) => {
           whileInView={"visible"}
           variants={appearVariant}
           initial={"fromL"}
+          viewport={{once: true}}
           className={"w-full flex items-center justify-center"}
         >
           <div className={"space-y-4 text-justify text-lead text-white-80 max-w-[700px]"}>

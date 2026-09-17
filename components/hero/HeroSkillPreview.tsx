@@ -19,6 +19,7 @@ const HeroSkillPreview = ({
               width={24}
               height={24}
               alt={"Figma logo"}
+              priority
             />
           }
         />
@@ -31,6 +32,7 @@ const HeroSkillPreview = ({
               width={36}
               height={36}
               alt={"Notion logo"}
+              priority
             />
           }
         />
@@ -44,6 +46,7 @@ const HeroSkillPreview = ({
               width={36}
               height={36}
               alt={"Docker logo"}
+              priority
             />
           }
         />
@@ -57,6 +60,7 @@ const HeroSkillPreview = ({
               width={36}
               height={36}
               alt={"Git logo"}
+              priority
             />
           }
         />
@@ -70,6 +74,7 @@ const HeroSkillPreview = ({
               width={36}
               height={36}
               alt={"Next.js logo"}
+              priority
             />
           }
         />
@@ -83,6 +88,7 @@ const HeroSkillPreview = ({
               width={36}
               height={36}
               alt={"React logo"}
+              priority
             />
           }
         />
@@ -95,6 +101,7 @@ const HeroSkillPreview = ({
               width={36}
               height={36}
               alt={"FastAPI logo"}
+              priority
             />
           }
         />
@@ -108,6 +115,7 @@ const HeroSkillPreview = ({
               width={36}
               height={36}
               alt={"NestJS logo"}
+              priority
             />
           }
         />

@@ -14,30 +14,15 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileOpenRef = useRef(mobileOpen);
-  mobileOpenRef.current = mobileOpen;
+
+  useEffect(() => {
+    mobileOpenRef.current = mobileOpen;
+  }, [mobileOpen]);
 
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const lang = searchParams.get("lang");
   const langQuery = lang ? `?lang=${lang}` : "";
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768 && mobileOpenRef.current) {
-        closeMobileMenu();
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const openMobileMenu = () => {
     setMobileOpen(true);
@@ -48,6 +33,32 @@ export default function Navbar() {
     setMobileOpen(false);
     document.body.style.overflow = "";
   };
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 0);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && mobileOpenRef.current) {
+        setMobileOpen(false);
+        document.body.style.overflow = "";
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   if (pathname.startsWith("/studio")) {
     return null;
@@ -72,7 +83,7 @@ export default function Navbar() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <div className="flex items-center gap-2 md:gap-3">
-              <Logo className="size-8 md:size-10 shrink-0" />
+              <Logo className="size-8 md:size-10 shrink-0" sizes="40px" />
               <span className="font-bold text-white text-sm md:text-base">
                 Natanaël
               </span>

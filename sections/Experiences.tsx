@@ -96,6 +96,7 @@ function CompanyBadge({ exp }: { exp: Experience }) {
             fill
             sizes="80px"
             className="object-contain p-2"
+            loading="lazy"
           />
         ) : (
           <span className="text-black font-bold text-lead">
@@ -165,7 +166,7 @@ export default function ExperiencesSection() {
           <div className="absolute inset-0 bg-white opacity-20" />
           <motion.div
             className="absolute inset-0 bg-[var(--color-accent)] origin-top"
-            style={{ scaleY: pathLength }}
+            style={{ scaleY: pathLength, willChange: "transform" }}
           />
         </div>
 

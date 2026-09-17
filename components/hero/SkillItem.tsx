@@ -22,6 +22,7 @@ const SkillItem = ({
       variants={scaleVariant}
       initial={"initial"}
       whileInView={"visible"}
+      viewport={{once: true}}
     >
       {icon}
     </motion.div>

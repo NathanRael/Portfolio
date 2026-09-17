@@ -14,6 +14,7 @@ export type animatedTextVariants = 'appear'
       variants?: animatedTextVariants;
       whileInView: VariantLabels | TargetAndTransition;
       initial?: boolean | VariantLabels;
+      viewport?: { once?: boolean; margin?: string };
   }
 
 
@@ -24,7 +25,7 @@ const availableVariants: Record<string, Variants> = {
 const AnimatedText = ({children, className, variants = 'appear', ...props}: AnimatedTextProps) => {
     return (
         <AnimatePresence>
-            <motion.div className={className} variants={availableVariants[variants]} viewport={{once: false}} {...props}>
+            <motion.div className={className} variants={availableVariants[variants]} viewport={{once: true, margin: "-100px"}} {...props}>
                 {children}
             </motion.div>
         </AnimatePresence>

@@ -5,7 +5,6 @@ import { ArrowRight, ExternalLink, LinkIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import useResizeObserver from "use-resize-observer";
 import { motion } from "motion/react";
 import AnimatedText from "@/components/ui/AnimatedText";
 import { appearVariant } from "@/lib/animationVariants";
@@ -61,7 +60,7 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
           className="text-lead w-full text-center "
         >
           <p className="notranslate" translate="no">
-            <span className="manual-translation-en">Real problems, solved. Here's how I help teams ship products that save time, reduce costs, and improve user experience.</span>
+            <span className="manual-translation-en">Real problems, solved. Here&apos;s how I help teams ship products that save time, reduce costs, and improve user experience.</span>
             <span className="manual-translation-fr">De vrais problèmes, résolus. Voici comment j&apos;aide les équipes à livrer des produits qui font gagner du temps, réduisent les coûts et améliorent l&apos;expérience utilisateur.</span>
           </p>
         </AnimatedText>
@@ -69,16 +68,17 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
 
       <div className="flex w-full flex-col items-center justify-start gap-10 pb-10">
 
-        <motion.div custom={1} whileInView={"visible"} className={"w-full flex items-center justify-center"}
+        <motion.div custom={1} whileInView={"visible"} viewport={{once: true}} className={"w-full flex items-center justify-center"}
           variants={appearVariant} initial={"fromL"}>
           <FeaturedProjectCard
             className=" w-full lg:w-[90%] h-[360px] lg:h-[520px]"
             backgroundColor="bg-linear-to-b from-[#21C5B7]/40 via-[#21C5B7] to-[#21C5B7]"
             project={firstFProject!}
+            index={0}
           />
         </motion.div>
 
-        <motion.div custom={2} whileInView={"visible"} className={"w-full flex items-center justify-center"}
+        <motion.div custom={2} whileInView={"visible"} viewport={{once: true}} className={"w-full flex items-center justify-center"}
           variants={appearVariant} initial={"fromB"}>
           <div
             className={
@@ -88,13 +88,14 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
             <FeaturedProjectCard
               className={"max-[1140px]:w-full max-lg:h-[360px] w-[45vw]"}
               backgroundColor="bg-linear-to-b from-[#29323f]/40 via-[#29323f] to-[#29323f]"
-
               project={secondFProject!}
+              index={1}
             />{" "}
             <FeaturedProjectCard
               className={"max-[1140px]:w-full max-lg:h-[360px] w-[45vw]"}
               backgroundColor="bg-linear-to-b  from-background-200/40 via-background-200 to-background-200"
               project={thirdFProject!}
+              index={2}
             />
           </div>
         </motion.div>
@@ -136,20 +137,20 @@ const Metrics = ({ value, title }: { value: number; title: string }) => {
 const FeaturedProjectCard = ({
   project,
   className,
-  backgroundColor
+  backgroundColor,
+  index = 0
 }: {
   project: Project;
   className?: string;
   backgroundColor?: string;
+  index?: number;
 }) => {
   const { techStacks, links, image, name, description, problem, solution, impact, isUnderDevelopment } =
     project;
-  const { ref } = useResizeObserver<HTMLDivElement>();
 
   return (
     <div className={cn("h-[480px] flex flex-col gap-4 relative ", className)}>
       <div
-        ref={ref}
         className={cn(
           "flex absolute flex-col items-start  w-full h-full   justify-start  overflow-hidden top-2 -left-2 bg-background-100/10  border-background-200/50",
           backgroundColor
@@ -157,7 +158,6 @@ const FeaturedProjectCard = ({
       />
 
       <div
-        ref={ref}
         className={cn(
           "flex flex-col items-start relative w-full h-full   justify-start  overflow-hidden border-1 border-background-200",
           backgroundColor, "backdrop-blur-2xl"
@@ -186,6 +186,9 @@ const FeaturedProjectCard = ({
             height={620}
             className="object-cover"
             alt={`${name} project preview`}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 620px"
+            quality={85}
+            priority={index === 0}
           />
         </motion.div>
 
@@ -250,6 +253,8 @@ const FeaturedProjectCard = ({
                     height={16}
                     src={techStack}
                     alt=""
+                    aria-hidden="true"
+                    loading="lazy"
                   />
                 ))}
               </div>
