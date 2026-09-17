@@ -283,7 +283,7 @@ const FeaturedProjectCard = ({
 
 const ProjectLink = ({ link, name }: { link: string, name: string }) => {
   return (
-    <Link target="_blank" rel="noopener noreferrer" href={link} className="py-2 px-8 border border-background-300/80 border-t-3 from-70% from-background-200 to-background-300 flex items-center text-text/80 transition-colors justify-center gap-2 hover:bg-white hover:text-black" aria-label={`Open ${name} project`}>
+    <Link target="_blank" rel="noopener noreferrer" href={link} className="py-2 px-8 border border-background-300/80 border-t-3 from-70% from-background-200 to-background-300 flex items-center text-white/80 transition-colors justify-center gap-2 hover:bg-white hover:text-black" aria-label={`Open ${name} project`}>
       <div className="size-2 bg-accent" />
       <p className="text-nowrap text-sm   truncate">{name}</p>
       <ExternalLink size={14} />

@@ -211,7 +211,7 @@ html[data-google-language="fr"] .manual-translation-en {
 }
 
 .bg-secondary-gradient {
-  @apply bg-gradient-to-bl from-background-200/80 via-background-100 text-text/90 to-background-200/50 border  border-background-200/50 border-t-2 border-t-background-300/30 hover:via-background-200;
+  @apply bg-gradient-to-bl from-background-200/80 via-background-100 text-white/90 to-background-200/50 border  border-background-200/50 border-t-2 border-t-background-300/30 hover:via-background-200;
 }
 
 .line {
