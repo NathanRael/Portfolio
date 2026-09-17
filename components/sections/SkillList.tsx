@@ -59,7 +59,7 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
                 </h3>
                 <svg className="absolute bottom-4  w-full h-full pointer-events-none" viewBox="0 0 400 100" fill="none">
                   <path d="M10,10 Q200,80 390,10 Q200,90 10,10 Z"
-                        stroke="var(--secondary)" strokeWidth="6" fill="none" />
+                    stroke="var(--secondary)" strokeWidth="6" fill="none" />
                 </svg>
               </div>
             </AnimatedText>
@@ -81,7 +81,7 @@ export default function SkillList({ skills }: { skills: Skill[] }) {
 function Skill({ skill, index }: { skill: Skill, index: number }) {
   return (
     <motion.div variants={rotateVariant} initial={true} whileHover={{ rotate: 64 }} key={skill.name}
-                className={"flex-col-center gap-2 "}>
+      className={"flex-col-center gap-2 "}>
       <motion.div custom={index} variants={rotateVariant} initial={"initial"} whileInView={"rotate"}>
         <Image width={40} height={40} src={skill.image} alt={`${skill.name} logo`} />
       </motion.div>
