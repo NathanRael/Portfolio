@@ -157,7 +157,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={"dark"}>
       <body
-        className={`bg-background-100  text-white-100  scroll-smooth antialiased h-ful ${outfit.className}`}
+        className={`bg-background-100 overflow-x-hidden  text-white-100  scroll-smooth antialiased h-ful  ${outfit.className}`}
       >
         <script
           type="application/ld+json"
@@ -167,7 +167,7 @@ export default function RootLayout({
           <Navbar />
         </Suspense>
         <ReactQueryProvider>
-          <div>{children}</div>
+          <div className="">{children}</div>
         </ReactQueryProvider>
         <Analytics />
         <SanityLive />
