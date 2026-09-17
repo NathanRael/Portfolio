@@ -84,6 +84,10 @@ export default function ScrollStack({
           ? clamp((local - segment * viewportHeight) / viewportHeight, 0, 1)
           : 0;
 
+      const topCard = segment + segmentProgress;
+      const baseOffset = 16;
+      const scaleStep = 0.02;
+
       panels.forEach((panel, index) => {
         let translateY: number;
 
@@ -97,7 +101,12 @@ export default function ScrollStack({
           translateY = 100;
         }
 
-        panel.style.transform = `translateY(${translateY}%)`;
+        const depth = Math.max(0, topCard - index);
+        const offsetX = depth * baseOffset;
+        const offsetY = depth * baseOffset;
+        const scale = 1 - depth * scaleStep;
+
+        panel.style.transform = `translateY(${translateY}%) translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
       });
 
       const activeIndex =

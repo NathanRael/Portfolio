@@ -1,8 +1,8 @@
 "use client";
 
 import ScrollStack, { ScrollStackItem } from "@/components/shared/ScrollStack";
-import { ArrowUpRight, Bot, Globe, PenTool } from "lucide-react";
-import Link from "next/link";
+import ServiceCard from "@/components/sections/ServiceCard";
+import { Bot, Globe, PenTool } from "lucide-react";
 
 const serviceThemes = {
   fullstack: {
@@ -58,7 +58,7 @@ const services = [
       "Rendez la bonne idée concrète rapidement grâce à des parcours ciblés, des interfaces expressives et des prototypes prêts à être testés.",
     tags: ["User flows", "Design systems", "Prototypes"],
     theme: serviceThemes.ux,
-  }
+  },
 ];
 
 export default function ServicesSection() {
@@ -66,11 +66,11 @@ export default function ServicesSection() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="relative isolate w-full border-y border-background-200/70 bg-background-100"
+      className="relative isolate w-full  bg-background-100"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[url('/images/noise-texture.svg')] bg-cover bg-center opacity-20" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[url('/images/white-noise.svg')] bg-repeat opacity-15" />
       <div className="relative grid w-full lg:grid-cols-[minmax(16rem,0.72fr)_minmax(0,1fr)]">
-        <aside className="relative z-10 flex flex-col border-background-200/70 p-6 sm:p-8 lg:sticky lg:top-0 lg:h-screen lg:border-r">
+        <aside className="relative z-10 flex flex-col border-background-200/70 p-6 sm:p-8 lg:sticky lg:top-0 lg:h-screen ">
           <div className="flex flex-1 flex-col items-center justify-center gap-6 text-center">
             <h2
               id="services-heading"
@@ -78,8 +78,7 @@ export default function ServicesSection() {
               translate="no"
             >
               <span className="manual-translation-en">
-                What I Can{" "}
-                <span className="text-secondary">Build For You</span>
+                What I Can <span className="text-secondary">Build For You</span>
               </span>
               <span className="manual-translation-fr">
                 Ce que je peux{" "}
@@ -95,9 +94,9 @@ export default function ServicesSection() {
                 to last, and ready to move your business forward.
               </span>
               <span className="manual-translation-fr">
-                Je transforme les idées complexes en produits utiles : simples
-                à utiliser, solides dans le temps et prêts à faire avancer
-                votre activité.
+                Je transforme les idées complexes en produits utiles : simples à
+                utiliser, solides dans le temps et prêts à faire avancer votre
+                activité.
               </span>
             </p>
           </div>
@@ -112,53 +111,5 @@ export default function ServicesSection() {
         </ScrollStack>
       </div>
     </section>
-  );
-}
-
-function ServiceCard({
-  service,
-}: {
-  service: (typeof services)[number];
-}) {
-  const Icon = service.icon;
-  const { theme } = service;
-
-  return (
-    <article
-      className={`relative flex min-h-[68vh] w-full max-w-3xl flex-col justify-between overflow-hidden rounded-xl  text-white border-4 border-white  ${theme.bg} p-8 sm:p-12`}
-    >
-      <div className="relative text-center my-auto mx-auto z-10  max-w-xl space-y-5">
-        <h3 className="text-subtitle font-bold notranslate" translate="no">
-          <span className="manual-translation-en">{service.title}</span>
-          <span className="manual-translation-fr">{service.titleFr}</span>
-        </h3>
-        <p
-          className="max-w-prose text-lead leading-relaxed text-white notranslate"
-          translate="no"
-        >
-          <span className="manual-translation-en">{service.description}</span>
-          <span className="manual-translation-fr">{service.descriptionFr}</span>
-        </p>
-      </div>
-      <div className="relative z-10 flex items-end justify-between gap-4 pt-6">
-        <div className="flex flex-wrap gap-2">
-          {service.tags.map((tag) => (
-            <span
-              key={tag}
-              className={`rounded-xl border border-white/90 px-3 py-1 text-small `}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <Link
-          href="/project"
-          className={`flex size-12 shrink-0 items-center justify-center rounded-full bg-white  transition-colors ${theme.iconText}`}
-          aria-label="See projects / Voir les projets"
-        >
-          <ArrowUpRight size={18} aria-hidden="true" />
-        </Link>
-      </div>
-    </article>
   );
 }
