@@ -15,6 +15,7 @@ import CertificateSection from "@/sections/Certificate";
 import AboutMe from "@/sections/AboutMe";
 import { Project } from "@/components/sections/ProjectCard";
 import { Suspense } from "react";
+import ServicesSection from "@/sections/Services";
 
 export const revalidate = 3600;
 
@@ -41,6 +42,7 @@ export default async function Home() {
         <Suspense fallback={null}>
           <FeaturedProject projectList={projects} />
         </Suspense>
+        <ServicesSection />
         <SkillsSection skills={skills} />
         <ExperiencesSection />
         <CertificateSection certificates={certificates} />

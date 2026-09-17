@@ -10,6 +10,11 @@ export const navItems: NavItem[] = [
     link: "#projects",
   },
   {
+    name: "Services",
+    nameFr: "Services",
+    link: "/services",
+  },
+  {
     name: "Skills",
     nameFr: "Compétences",
     link: "#skills",
