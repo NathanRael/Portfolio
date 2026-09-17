@@ -15,20 +15,23 @@ export default function SkillsSection({ skills }: { skills: Skill[] }) {
           custom={1}
           className="text-subtitle-2 w-full font-bold text-white-80"
         >
-          <h2 id="stack-heading" className="notranslate" translate="no">
-            <span className="manual-translation-en">
-              The stack behind the work
-            </span>
-            <span className="manual-translation-fr">
-              La stack derrière le travail
-            </span>
-          </h2>
+          <AnimatedText
+            whileInView="visible"
+            initial="hidden"
+            custom={1}
+            className="text-subtitle font-bold w-full"
+          >
+            <h2 id="certifications-heading" className="notranslate" translate="no">
+              <span className="manual-translation-en"><span className={"text-secondary"}>The Stack</span> Behind The Work</span>
+              <span className="manual-translation-fr"><span className={"text-secondary"}>La Stack</span> Derrière Le Travail</span>
+            </h2>
+          </AnimatedText>
         </AnimatedText>
         <AnimatedText
           whileInView="visible"
           initial="hidden"
           custom={2}
-          className="text-small w-full text-white-80"
+          className="text-lead w-full text-white-80"
         >
           <p className="notranslate" translate="no">
             <span className="manual-translation-en">
