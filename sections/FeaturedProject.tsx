@@ -1,7 +1,7 @@
 "use client";
 import { Project } from "@/components/sections/ProjectCard";
 import { cn, roundUpToNearestTen } from "@/lib/utils";
-import { ArrowRight, ExternalLink, LinkIcon, SquareArrowUpRight } from "lucide-react";
+import { ArrowRight, ExternalLink, LinkIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -42,11 +42,6 @@ const FeaturedProject = ({ projectList }: { projectList: Project[] }) => {
       id="projects"
       aria-labelledby="featured-projects-heading"
       className="relative max-md:w-[calc(100vw-10px)] w-[calc(100vw-40px)] min-h-screen h-full pt-20 max-lg:p-2 p-6">
-      <div className="absolute hidden md:flex z-40  top-4 left-1/2 -translate-x-1/2 items-center justify-center gap-4">
-        {featuredProjects.sort((a, b) => b.name.localeCompare(a.name)).map((project) => (
-          <ProjectLink key={project._id} link={project.links[0]} name={project.name} />
-        ))}
-      </div>
       <div className={"mb-20 pt-6 space-y-4 max-w-[650px] mx-auto"}>
         <AnimatedText
           whileInView="visible"
@@ -279,14 +274,3 @@ const FeaturedProjectCard = ({
     </div>
   );
 };
-
-
-const ProjectLink = ({ link, name }: { link: string, name: string }) => {
-  return (
-    <Link target="_blank" rel="noopener noreferrer" href={link} className="py-2 px-8 border border-background-300/80 border-t-3 from-70% from-background-200 to-background-300 flex items-center text-white/80 transition-colors justify-center gap-2 hover:bg-white hover:text-black" aria-label={`Open ${name} project`}>
-      <div className="size-2 bg-accent" />
-      <p className="text-nowrap text-sm   truncate">{name}</p>
-      <ExternalLink size={14} />
-    </Link>
-  )
-}

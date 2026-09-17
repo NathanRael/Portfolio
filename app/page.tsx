@@ -16,6 +16,7 @@ import AboutMe from "@/sections/AboutMe";
 import { Project } from "@/components/sections/ProjectCard";
 import { Suspense } from "react";
 import ServicesSection from "@/sections/Services";
+import ProjectLinks from "@/sections/ProjectLinks";
 
 export const revalidate = 3600;
 
@@ -38,6 +39,7 @@ export default async function Home() {
         cvEnUrl={cvEnUrl}
         featured={featuredProjects}
       />
+      <ProjectLinks />
       <div className="gap-[256px] max-md:gap-[128px]  app-padding flex  flex-col items-center justify-center">
         <Suspense fallback={null}>
           <FeaturedProject projectList={projects} />

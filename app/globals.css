@@ -308,6 +308,27 @@ html[data-google-language="fr"] .manual-translation-en {
       transform: translateY(0);
     }
   }
+
+  --animate-marquee: marquee var(--duration, 10s) linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  --animate-marquee-reverse: marquee-reverse var(--duration, 10s) linear
+    infinite;
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 }
 
 /*

@@ -22,6 +22,13 @@ export const PROJECT_QUERY = defineQuery(`
      isUnderDevelopment,
      isFeatured
 }`);
+export const PROJECT_LINKS_QUERY = defineQuery(`
+ *[_type == "project" && defined(links) && count(links) > 0] | order(date desc){
+   _id,
+   name,
+   links
+ }
+`);
 export const SKILL_QUERY = defineQuery(`
     *[_type=="skill"]{
         _id, name, image, experimented,
