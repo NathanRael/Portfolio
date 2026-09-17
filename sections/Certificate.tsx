@@ -18,13 +18,8 @@ const CertificateSection = ({
 
   return (
     <section aria-labelledby="certifications-heading" className="flex flex-row  relative justify-between max-[1020px]:flex-col max-[1020px]:items-center max-[1020px]:justify-center items-center w-full max-[1020px]:h-screen h-[70vh] gap-10 lg:gap-20">
-      <Particles
-        className="absolute inset-0"
-        quantity={100}
-        ease={80}
-        color="#ffffff"
-        refresh
-      />
+
+
       <div className={"mb-20 text-start pt-6 space-y-4 max-w-[500px] "}>
         <AnimatedText
           whileInView="visible"
