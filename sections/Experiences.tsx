@@ -14,13 +14,31 @@ interface Experience {
   descriptionEn: string[];
   descriptionFr: string[];
   techs: string[];
+  logo?: string;
 }
 
 const EXPERIENCES: Experience[] = [
   {
+    roleEn: "Full-Stack Developer",
+    roleFr: "Développeur Full-Stack",
+    company: "Neorion-tech",
+    period: "Sep 2026 - Present",
+    remote: false,
+    descriptionEn: [
+      "Service-provider full-stack developer building microservice applications.",
+      "Focused on security, scalability, and full test coverage across services.",
+    ],
+    descriptionFr: [
+      "Développeur full-stack prestataire de service, construisant des applications en microservices.",
+      "Concentré sur la sécurité, l'évolutivité et une couverture de tests complète.",
+    ],
+    techs: ["Nest", "Next", "Docker", "GraphQL"],
+    logo: "/logo/companies/neorion-logo.png",
+  },
+  {
     roleEn: "Frontend Developer",
     roleFr: "D\u00e9veloppeur front-end",
-    company: "BCI France - Certification Qualiopi",
+    company: "BCI France",
     period: "Dec 2025 - Present",
     remote: true,
     descriptionEn: [
@@ -36,6 +54,7 @@ const EXPERIENCES: Experience[] = [
       "Standardis\u00e9 les environnements de d\u00e9veloppement avec Docker, pour des livraisons coh\u00e9rentes.",
     ],
     techs: ["Next.js", "PHP", "Docker", "Cypress"],
+    logo: "/logo/companies/bcifrance.png",
   },
   {
     roleEn: "Full-Stack Developer",
@@ -56,6 +75,7 @@ const EXPERIENCES: Experience[] = [
       "Livr\u00e9 une architecture full-stack avec Next.js (frontend) et NestJS (backend).",
     ],
     techs: ["Next.js", "NestJS", "Docker", "LangChain", "Figma"],
+    logo: "/logo/companies/itdc.jpg",
   },
   {
     roleEn: "Frontend Developer & Designer",
@@ -75,13 +95,32 @@ const EXPERIENCES: Experience[] = [
   },
 ];
 
-function ExperienceCard({
-  exp,
-  index,
-}: {
-  exp: Experience;
-  index: number;
-}) {
+function CompanyBadge({ exp }: { exp: Experience }) {
+  return (
+    <div className="flex items-center gap-5">
+      <div className="relative w-20 h-20 shrink-0 rounded-full bg-white border-2 border-background-200 overflow-hidden flex items-center justify-center">
+        {exp.logo ? (
+          <Image
+            src={exp.logo}
+            alt={exp.company}
+            fill
+            sizes="80px"
+            className="object-contain p-2"
+          />
+        ) : (
+          <span className="text-black font-bold text-lead">
+            {exp.company.charAt(0)}
+          </span>
+        )}
+      </div>
+      <p className="text-white-100 font-bold text-lead max-w-[240px]">
+        {exp.company}
+      </p>
+    </div>
+  );
+}
+
+function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
   return (
     <motion.div
       variants={appearVariant}
@@ -91,7 +130,22 @@ function ExperienceCard({
       viewport={{ once: true }}
       className="relative w-full max-w-[860px]"
     >
-      <div className="relative border-2 border-background-200 overflow-hidden p-6 space-y-4">
+      <div className="lg:hidden absolute -top-8 left-1/2 -translate-x-1/2 z-20 w-16 h-16 rounded-full bg-white border-2 border-background-200 overflow-hidden flex items-center justify-center">
+        {exp.logo ? (
+          <Image
+            src={exp.logo}
+            alt={exp.company}
+            fill
+            sizes="64px"
+            className="object-contain p-2"
+          />
+        ) : (
+          <span className="text-black font-bold text-lead">
+            {exp.company.charAt(0)}
+          </span>
+        )}
+      </div>
+      <div className="relative border-2 border-background-200 overflow-hidden p-6 pt-12 lg:pt-6 space-y-4">
         <Image
           src={"/images/noise-texture.svg"}
           className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-full h-full bg-no-repeat object-cover inset-0 opacity-90"
@@ -101,30 +155,46 @@ function ExperienceCard({
           height={512}
         />
         <div className="relative z-10 space-y-4">
-          <div className="flex items-start justify-between gap-2">
-            <div>
-              <h3 className="md:text-subtitle-2 text-lead font-bold text-white-100 notranslate" translate="no">
-                <span className="manual-translation-en">{exp.roleEn}</span>
-                <span className="manual-translation-fr">{exp.roleFr}</span>
-              </h3>
-              <p className="md:text-lead text-base text-white-80">{exp.company}</p>
+          <div className="space-y-2">
+            <p className="lg:hidden md:text-subtitle-2 text-lead font-semibold text-white-80">
+              {exp.company}
+            </p>
+            <h3
+              className="md:text-subtitle-2 text-lead font-bold text-white-100 notranslate"
+              translate="no"
+            >
+              <span className="manual-translation-en">{exp.roleEn}</span>
+              <span className="manual-translation-fr">{exp.roleFr}</span>
+            </h3>
+            <div className="flex items-center gap-2">
+              <span className="text-accent md:text-small text-small-2">
+                {exp.period}
+              </span>
               {exp.remote && (
-                <span className="md:text-base text-small text-accent notranslate" translate="no">
+                <span
+                  className="md:text-small text-small-2 text-white-60 notranslate"
+                  translate="no"
+                >
                   <span className="manual-translation-en">Remote</span>
-                  <span className="manual-translation-fr">Télétravail </span>
+                  <span className="manual-translation-fr">Télétravail</span>
                 </span>
               )}
             </div>
-            <span className="md:text-base text-small text-white-60 text-nowrap">{exp.period}</span>
           </div>
 
           <ul className="space-y-2">
             {exp.descriptionEn.map((item, i) => (
-              <li key={i} className="md:text-base text-small text-white-70 flex gap-2 notranslate" translate="no">
+              <li
+                key={i}
+                className="md:text-base text-small text-white-70 flex gap-2 notranslate"
+                translate="no"
+              >
                 <span className="text-accent mt-1 shrink-0">&#x2022;</span>
                 <span>
                   <span className="manual-translation-en">{item}</span>
-                  <span className="manual-translation-fr">{exp.descriptionFr[i]}</span>
+                  <span className="manual-translation-fr">
+                    {exp.descriptionFr[i]}
+                  </span>
                 </span>
               </li>
             ))}
@@ -168,8 +238,12 @@ export default function ExperiencesSection() {
           className="text-subtitle font-bold w-full text-white-100"
         >
           <h2 id="experiences-heading" className="notranslate" translate="no">
-            <span className="manual-translation-en">Professional <span className="text-secondary">Experience</span></span>
-            <span className="manual-translation-fr">Expérience <span className="text-secondary">Professionnelle</span></span>
+            <span className="manual-translation-en">
+              Professional <span className="text-secondary">Experience</span>
+            </span>
+            <span className="manual-translation-fr">
+              Expérience <span className="text-secondary">Professionnelle</span>
+            </span>
           </h2>
         </AnimatedText>
         <AnimatedText
@@ -179,57 +253,55 @@ export default function ExperiencesSection() {
           className="text-lead w-full text-white-70"
         >
           <p className="notranslate" translate="no">
-            <span className="manual-translation-en">Working with clients to deliver real value: the impact, not just the job titles.</span>
-            <span className="manual-translation-fr">Travailler avec des clients pour apporter une vraie valeur : l&apos;impact, pas seulement les intitulés de poste.</span>
+            <span className="manual-translation-en">
+              Working with clients to deliver real value: the impact, not just
+              the job titles.
+            </span>
+            <span className="manual-translation-fr">
+              Travailler avec des clients pour apporter une vraie valeur :
+              l&apos;impact, pas seulement les intitulés de poste.
+            </span>
           </p>
         </AnimatedText>
       </div>
 
       <div ref={curveRef} className="relative max-w-6xl mx-auto">
-        {/* Curved connector SVG */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          {/* White base line */}
-          <path
-            d="M 50 8 C 75 40, 25 60, 50 92"
-            fill="none"
-            stroke="white"
-            strokeOpacity="0.2"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            vectorEffect="non-scaling-stroke"
+        {/* Straight connector line */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-[1.5px] -translate-x-1/2 hidden lg:block">
+          <div className="absolute inset-0 bg-white opacity-20" />
+          <motion.div
+            className="absolute inset-0 bg-[var(--color-accent)] origin-top"
+            style={{ scaleY: pathLength }}
           />
-          {/* Accent fill that grows downward from top */}
-          <motion.path
-            d="M 50 8 C 75 40, 25 60, 50 92"
-            fill="none"
-            stroke="var(--color-accent)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            vectorEffect="non-scaling-stroke"
-            style={{ pathLength }}
-          />
-        </svg>
+        </div>
 
         {EXPERIENCES.map((exp, index) => {
           const isLeft = index % 2 === 0;
           const topPadding = index > 0 ? "pt-16 lg:pt-24 max-lg:pt-8" : "";
           return (
-            <div key={exp.company} className="flex w-full items-start justify-center">
+            <div
+              key={exp.company}
+              className="flex w-full items-start justify-center"
+            >
               {isLeft ? (
                 <>
-                  <div className={`lg:flex-[1.2] flex-1 flex justify-end xl:pr-20 lg:pr-12 max-lg:justify-center max-lg:px-4 ${topPadding}`}>
+                  <div
+                    className={`lg:flex-[1.2] flex-1 flex justify-end xl:pr-20 lg:pr-12 max-lg:justify-center max-lg:px-4 ${topPadding}`}
+                  >
                     <ExperienceCard exp={exp} index={index} />
                   </div>
                   <div className="hidden lg:flex flex-col items-center w-8 pt-8 shrink-0" />
-                  <div className="lg:flex-1 hidden lg:block" />
+                  <div
+                    className={`lg:flex-1 hidden lg:flex items-center justify-start xl:pl-20 lg:pl-12 ${topPadding}`}
+                  >
+                    <CompanyBadge exp={exp} />
+                  </div>
                 </>
               ) : (
                 <>
-                  <div className="lg:flex-1 hidden lg:block" />
+                  <div className="lg:flex-1 hidden lg:flex items-center justify-end xl:pr-20 lg:pr-12 pt-16 lg:pt-24">
+                    <CompanyBadge exp={exp} />
+                  </div>
                   <div className="hidden lg:flex flex-col items-center w-8 shrink-0" />
                   <div className="lg:flex-[1.2] flex-1 flex justify-start xl:pl-20 lg:pl-12 pt-16 lg:pt-24 max-lg:justify-center max-lg:px-4 max-lg:pt-8">
                     <ExperienceCard exp={exp} index={index} />
