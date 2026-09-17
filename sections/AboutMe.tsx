@@ -3,6 +3,8 @@ import AnimatedText from "@/components/ui/AnimatedText";
 import { cn } from "@/lib/utils";
 import { appearVariant } from "@/lib/animationVariants";
 import { motion } from "motion/react";
+import Image from "next/image";
+import Logo from "@/components/ui/Logo";
 
 const AboutMe = ({ className }: { className?: string }) => {
   return (
@@ -18,9 +20,11 @@ const AboutMe = ({ className }: { className?: string }) => {
           whileInView={"visible"}
           initial={"hidden"}
           custom={1}
-          className={"text-subtitle w-full text-center text-white-100"}
+          className={"text-subtitle w-full text-center flex items-center justify-center flex-col gap-6 text-white-100"}
         >
+          <Logo />
           <h2 id="about-heading" className="notranslate" translate="no">
+
             <span className="manual-translation-en">How I <span className="text-secondary">Work</span></span>
             <span className="manual-translation-fr">Comment je <span className="text-secondary">Travaille</span></span>
           </h2>
