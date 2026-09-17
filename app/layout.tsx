@@ -1,64 +1,26 @@
 import Navbar from "@/components/sections/Navbar";
-import SmoothScroll from "@/components/SmoothScroll";
-import ReactQueryProvider from "@/context/ReactQueryProvider";
+import ReducedMotionConfig from "@/components/ReducedMotionConfig";
 import { SanityLive } from "@/sanity/lib/live";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Outfit } from 'next/font/google';
-import localFont from "next/font/local";
 import "./globals.css";
-
-const schibsetGrotesk = localFont({
-  src: [
-    {
-      path: "/fonts/SchibstedGrotesk-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "/fonts/SchibstedGrotesk-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "/fonts/SchibstedGrotesk-SemiBold.ttf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "/fonts/SchibstedGrotesk-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-schibstedGrotesk",
-});
-
-
 
 const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
-  // weight : '400',
+  preload: true,
 })
-
-/* const outfit = Outfit({
-  subsets: ['latin'],
-  display: 'swap',
-}) */
-/* const outfit = Hedvig_Letters_Sans({
-  weight: '400',
-}) */
 
 export const metadata: Metadata = {
   title: {
     default: "Natanaël RALAIVOAVY",
     template: "%s | Natanaël RALAIVOAVY",
   },
-  description: "Frontend and AI integrator developer building performant and intelligent web experiences.",
+  description: "Full-Stack and AI integrator developer building performant and intelligent web experiences.",
   keywords: [
-    "Frontend developer",
+    "Full-Stack developer",
     "AI integrator",
     "Next.js",
     "React",
@@ -76,16 +38,16 @@ export const metadata: Metadata = {
   creator: "Natanaël RALAIVOAVY",
   publisher: "Natanaël RALAIVOAVY",
   openGraph: {
-    title: "Natanaël RALAIVOAVY | Frontend & AI Integrator",
+    title: "Natanaël RALAIVOAVY | Full-Stack & AI Integrator",
     description:
-      "Explore the portfolio and work of Natanaël RALAIVOAVY, a frontend and AI integrator developer.",
+      "Explore the portfolio and work of Natanaël RALAIVOAVY, a Full-Stack and AI integrator developer.",
     url: "https://nathanrael.vercel.app",
     siteName: "Natanaël RALAIVOAVY",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://raw.githubusercontent.com/NathanRael/NathanRael/main/portfolio.png",
+        url: "https://raw.githubusercontent.com/NathanRael/NathanRael/main/Portfolio.png",
         width: 1200,
         height: 630,
         alt: "Natanaël RALAIVOAVY Portfolio",
@@ -104,11 +66,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Natanaël RALAIVOAVY | Frontend & AI Integrator",
+    title: "Natanaël RALAIVOAVY | Full-Stack & AI Integrator",
     description:
-      "Frontend and AI integrator developer building performant and intelligent web experiences.",
+      "Full-Stack and AI integrator developer building performant and intelligent web experiences.",
     images: [
-      "https://raw.githubusercontent.com/NathanRael/NathanRael/main/portfolio.png",
+      "https://raw.githubusercontent.com/NathanRael/NathanRael/main/Portfolio.png",
     ],
   },
   robots: {
@@ -140,13 +102,13 @@ export default function RootLayout({
     name: "Natanaël RALAIVOAVY",
     url: "https://nathanrael.vercel.app",
     image: "https://nathanrael.vercel.app/images/profile-transparent.png",
-    jobTitle: "Frontend Developer and AI Integrator",
+    jobTitle: "Full-Stack Developer and AI Integrator",
     sameAs: [
       "https://www.github.com/NathanRael",
       "https://www.linkedin.com/in/natana%C3%ABl-ralaivoavy-694447283",
     ],
     knowsAbout: [
-      "Frontend development",
+      "Full-Stack development",
       "AI integration",
       "Next.js",
       "React",
@@ -158,9 +120,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={"dark"}>
       <body
-        className={`bg-background-100 overflow-x-hidden  text-white-100  scroll-smooth antialiased h-ful  ${outfit.className}`}
+        className={`bg-background-100 overflow-x-hidden  text-white-100  scroll-smooth antialiased  ${outfit.className}`}
       >
-        {/* <SmoothScroll /> */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -168,9 +129,9 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <Navbar />
         </Suspense>
-        <ReactQueryProvider>
+        <ReducedMotionConfig>
           <div className="">{children}</div>
-        </ReactQueryProvider>
+        </ReducedMotionConfig>
         <Analytics />
         <SanityLive />
       </body>

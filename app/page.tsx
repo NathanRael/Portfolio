@@ -13,7 +13,6 @@ import FeaturedProject from "@/sections/FeaturedProject";
 import ExperiencesSection from "@/sections/Experiences";
 import CertificateSection from "@/sections/Certificate";
 import AboutMe from "@/sections/AboutMe";
-import { Project } from "@/components/sections/ProjectCard";
 import { Suspense } from "react";
 import ServicesSection from "@/sections/Services";
 import ProjectLinks from "@/sections/ProjectLinks";
@@ -21,23 +20,24 @@ import ProjectLinks from "@/sections/ProjectLinks";
 export const revalidate = 3600;
 
 export default async function Home() {
-  const { data: resumeData } = await sanityFetch({ query: RESUME_QUERY });
-  const { cvFrUrl, cvEnUrl } = resumeData;
-  const { data: projects } = await sanityFetch({ query: PROJECT_QUERY });
-  const { data: certificates } = await sanityFetch({
-    query: CERTIFICATES_QUERY,
-  });
-  const { data: skills } = await sanityFetch({ query: SKILL_QUERY });
-  const featuredProjects = (projects as Project[]).filter((item) => item.isFeatured);
+  const [resumeResult, projectsResult, certificatesResult, skillsResult] =
+    await Promise.all([
+      sanityFetch({ query: RESUME_QUERY }),
+      sanityFetch({ query: PROJECT_QUERY }),
+      sanityFetch({ query: CERTIFICATES_QUERY }),
+      sanityFetch({ query: SKILL_QUERY }),
+    ]);
+  const { cvFrUrl, cvEnUrl } = resumeResult.data;
+  const projects = projectsResult.data;
+  const certificates = certificatesResult.data;
+  const skills = skillsResult.data;
 
 
   return (
     <main className="mt-10 md:mt-20  w-full space-y-10">
       <HeroSection
-        profileImageUrl={"/images/profile.png"}
         cvFrUrl={cvFrUrl}
         cvEnUrl={cvEnUrl}
-        featured={featuredProjects}
       />
       <ProjectLinks />
       <div className="gap-[256px] max-md:gap-[128px]  app-padding flex  flex-col items-center justify-center">

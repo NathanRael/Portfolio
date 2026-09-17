@@ -7,15 +7,13 @@ import { cacheRevalidate, serverReadToken } from "@/sanity/env";
 
 
 
-export const { sanityFetch, SanityLive } = defineLive({ 
-  client: client.withConfig({ 
-    // Live content is currently only available on the experimental API
-    // https://www.sanity.io/docs/api-versioning
-    apiVersion: 'vX' 
+export const { sanityFetch, SanityLive } = defineLive({
+  client: client.withConfig({
+    apiVersion: 'vX'
   }),
-  serverToken : serverReadToken,
-  browserToken : false,
-  fetchOptions : {
-    revalidate : cacheRevalidate || 60 * 60 * 24,
+  serverToken: serverReadToken,
+  browserToken: false,
+  fetchOptions: {
+    revalidate: cacheRevalidate || 3600,
   }
 });

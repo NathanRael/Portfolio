@@ -4,23 +4,22 @@ export const PROJECT_QUERY = defineQuery(`
  *[_type =="project" ] | order(date desc){
   _id,
   id,
+  name,
+  description,
+  problem,
+  solution,
+  impact,
+  "image": image.asset->url,
+  links,
+  projectType->{
     name,
-    description,
-    problem,
-    solution,
-    impact,
-    role,
-    client,
-    "image" : image.asset->url,
-    links,
-    projectType -> {
-      name, display
-    },
-     "techStacks": techStacks[]->image,
-     date,
-     archived,
-     isUnderDevelopment,
-     isFeatured
+    display
+  },
+  "techStacks": techStacks[]->image,
+  date,
+  archived,
+  isUnderDevelopment,
+  isFeatured
 }`);
 export const PROJECT_LINKS_QUERY = defineQuery(`
  *[_type == "project" && defined(links) && count(links) > 0] | order(date desc){
@@ -30,10 +29,12 @@ export const PROJECT_LINKS_QUERY = defineQuery(`
  }
 `);
 export const SKILL_QUERY = defineQuery(`
-    *[_type=="skill"]{
-        _id, name, image, experimented,
-        "category" : category->name
-    }
+  *[_type=="skill"]{
+    _id,
+    name,
+    image,
+    "category": category->name
+  }
 `);
 
 export const RESUME_QUERY = defineQuery(`
