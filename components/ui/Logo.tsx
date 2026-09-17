@@ -5,7 +5,7 @@ const Logo = ({ className, sizes = "120px" }: { className?: string; sizes?: stri
     return (
         <div className={cn("rounded-full overflow-hidden size-[120px] flex items-center justify-center", className)}>
             <Image
-                src="/logo/falx.png"
+                src="/logo/Falx.png"
                 alt="Logo"
                 width={120}
                 height={120}
