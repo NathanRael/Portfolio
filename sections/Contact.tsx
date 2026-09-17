@@ -11,7 +11,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 const WhatsAppIcon = () => (
-  <Image src="/logo/whatsapp.svg" alt="WhatsApp" width={20} height={20} />
+    <Image src="/logo/whatsapp.svg" alt="WhatsApp" width={20} height={20} />
 );
 
 export default function ContactSection({ className, withSubtitle = true }: { className?: string, withSubtitle?: boolean }) {
@@ -20,7 +20,7 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
     const phoneDigits = MY_PHONE_NUMBER.replace(/\s+/g, "");
 
     return (
-        <section aria-labelledby={withSubtitle ? "contact-heading" : undefined} className= {cn("section relative w-full p-2 lg:p-4 border-2 border-background-200 lg:w-[80vw] xl:w-[60vw] h-full lg:h-[420px] flex items-center flex-col justify-center mx-auto overflow-hidden", className)} >
+        <section aria-labelledby={withSubtitle ? "contact-heading" : undefined} className={cn("section relative w-full p-2 lg:p-4 border-2 border-background-200 lg:w-[80vw] xl:w-[60vw] h-full lg:h-[420px] flex items-center flex-col justify-center mx-auto overflow-hidden", className)} >
             <Image
                 src={"/images/noise-texture.svg"}
                 className={
@@ -35,7 +35,7 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
             {
                 withSubtitle && (
                     <div className={'text-center'}>
-                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={0} className={'text-lead font-medium text-white-80 -rotate-6 pb-6'}>
+                        <AnimatedText whileInView={"visible"} initial={"hidden"} custom={0} className={'text-lead font-medium text-white-80 -rotate-3 pb-6'}>
                             <p className="notranslate" translate="no">
                                 <span className="manual-translation-en">Have a project, an idea, or a problem worth automating?</span>
                                 <span className="manual-translation-fr">Un projet, une idée, ou un problème à automatiser ?</span>
@@ -114,13 +114,8 @@ export default function ContactSection({ className, withSubtitle = true }: { cla
                 </span>
                 <span className="text-accent">·</span>
                 <span>
-                    <span className="manual-translation-en">Short call, then a proposal, no obligation</span>
-                    <span className="manual-translation-fr">Un appel court, puis une proposition, sans engagement</span>
-                </span>
-                <span className="text-accent">·</span>
-                <span>
-                    <span className="manual-translation-en">Remote · worldwide</span>
-                    <span className="manual-translation-fr">À distance · dans le monde entier</span>
+                    <span className="manual-translation-en">Remote  worldwide</span>
+                    <span className="manual-translation-fr">À distance  dans le monde entier</span>
                 </span>
             </div>
         </section>
