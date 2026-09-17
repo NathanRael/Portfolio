@@ -74,7 +74,7 @@ export default function Navbar() {
             <div className="flex items-center gap-2 md:gap-3">
               <Logo className="size-8 md:size-10 shrink-0" />
               <span className="font-bold text-white text-sm md:text-base">
-                R.Natanaël
+                Natanaël
               </span>
             </div>
           </Link>
