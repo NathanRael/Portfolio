@@ -29,7 +29,7 @@ const EXPERIENCES: Experience[] = [
     roleEn: "Frontend Developer",
     roleFr: "D\u00e9veloppeur front-end",
     company: "BCI France",
-    period: "Dec 2025 - Present",
+    period: "Nov 2025 - Present",
     remote: true,
     descriptionEn: [
       "Paid remote service-provider for BCI France, delivering production frontend work with Next.js.",
