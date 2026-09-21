@@ -26,13 +26,13 @@ const services = [
   {
     icon: Globe,
     number: "01",
-    title: "Full-Stack Web Apps",
-    titleFr: "Applications web full-stack",
+    title: "Full-Stack Web Development",
+    titleFr: "Développement web full-stack",
     description:
-      "Launch polished digital products with one clear path from product thinking and interface design to reliable production code.",
+      "Creating complete web applications with modern interfaces, reliable backends, APIs, and production-ready architectures.",
     descriptionFr:
-      "Lancez des produits numériques soignés, de la réflexion produit et du design d’interface jusqu’à un code fiable en production.",
-    tags: ["Web apps", "APIs", "Deployments"],
+      "Création d’applications web complètes avec des interfaces modernes, des backends fiables, des APIs et des architectures prêtes pour la production.",
+    tags: ["Web Apps", "APIs", "Backend Systems"],
     theme: serviceThemes.fullstack,
   },
   {
@@ -41,25 +41,26 @@ const services = [
     title: "AI Integration & Automation",
     titleFr: "Intégration IA et automatisation",
     description:
-      "Turn repetitive operations into intelligent workflows with document processing, search, assistants, and automations built around your team.",
+      "Integrating AI capabilities into your products through intelligent assistants, document processing, search systems, and automated workflows.",
     descriptionFr:
-      "Transformez les opérations répétitives en flux intelligents grâce au traitement de documents, à la recherche, aux assistants et aux automatisations adaptés à votre équipe.",
-    tags: ["Chatbots", "Document AI", "Workflows"],
+      "Intégration de fonctionnalités IA dans vos produits grâce à des assistants intelligents, du traitement documentaire, des systèmes de recherche et des workflows automatisés.",
+    tags: ["AI Assistants", "RAG Systems", "Automation"],
     theme: serviceThemes.ai,
   },
   {
     icon: PenTool,
     number: "03",
-    title: "UI/UX & Prototyping",
-    titleFr: "UI/UX et prototypage",
+    title: "UI/UX Design & Prototyping",
+    titleFr: "Design UI/UX et prototypage",
     description:
-      "Make the right idea tangible early with focused user flows, expressive interfaces, and prototypes that are ready to test.",
+      "Designing intuitive interfaces, user flows, and interactive prototypes to validate and improve digital experiences.",
     descriptionFr:
-      "Rendez la bonne idée concrète rapidement grâce à des parcours ciblés, des interfaces expressives et des prototypes prêts à être testés.",
-    tags: ["User flows", "Design systems", "Prototypes"],
+      "Conception d’interfaces intuitives, de parcours utilisateurs et de prototypes interactifs pour améliorer vos expériences numériques.",
+    tags: ["User Flows", "Design Systems", "Prototypes"],
     theme: serviceThemes.ux,
   },
 ];
+
 
 export default function ServicesSection() {
   return (

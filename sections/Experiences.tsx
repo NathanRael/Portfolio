@@ -15,12 +15,15 @@ const EXPERIENCES: Experience[] = [
     period: "Sep 2026 - Present",
     remote: false,
     descriptionEn: [
-      "Service-provider full-stack developer building microservice applications.",
-      "Focused on security, scalability, and full test coverage across services.",
+      "Full-stack developer working on microservice-based applications as a service provider.",
+      "Collaborating within Agile teams through sprint planning, iterative development, code reviews, and continuous improvement.",
+      "Focused on security, scalability, maintainable code, and comprehensive test coverage across services.",
     ],
+
     descriptionFr: [
-      "Développeur full-stack prestataire de service, construisant des applications en microservices.",
-      "Concentré sur la sécurité, l'évolutivité et une couverture de tests complète.",
+      "Développeur full-stack prestataire de service, intervenant sur des applications basées sur une architecture microservices.",
+      "Collaboration au sein d'équipes Agile avec une organisation en sprints, des développements itératifs, des revues de code et une amélioration continue.",
+      "Concentré sur la sécurité, l'évolutivité, la maintenabilité du code et une couverture de tests complète sur les services.",
     ],
     techs: ["Nest", "Next", "Docker", "GraphQL"],
     logo: "/logo/companies/neorion-logo.png",

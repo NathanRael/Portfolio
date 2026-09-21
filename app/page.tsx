@@ -41,11 +41,11 @@ export default async function Home() {
       />
       <ProjectLinks />
       <div className="gap-[256px] max-md:gap-[128px]  app-padding flex  flex-col items-center justify-center">
+        <ServicesSection />
+        <ExperiencesSection />
         <Suspense fallback={null}>
           <FeaturedProject projectList={projects} />
         </Suspense>
-        <ServicesSection />
-        <ExperiencesSection />
         <SkillsSection skills={skills} />
         <CertificateSection certificates={certificates} />
         <AboutMe className={""} />
